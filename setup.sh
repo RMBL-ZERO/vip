@@ -87,9 +87,9 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "1 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
-wget https://raw.githubusercontent.com/RMBLsukarata/permission/main/ipmini >/dev/null 2>&1
+mkdir /root/rmbl
+cd /root/rmbl
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 echo "### $author $hhari $MYIP @trial" >> ipmini
 sleep 1
 rm -rf .git
@@ -102,7 +102,7 @@ git branch -M main >/dev/null 2>&1
 git remote add origin https://github.com/${USERGIT}/permission >/dev/null 2>&1
 git push -f https://${APIGIT}@github.com/${USERGIT}/permission >/dev/null 2>&1
 sleep 1
-rm -rf /root/casper
+rm -rf /root/rmbl
 rm -rf /etc/github
 clear
 fi
@@ -118,11 +118,11 @@ if [ -z $kode ]; then
 echo -e "KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
 key2
 fi
-LIST=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $2}')
-Key=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $3}')
-KEY2=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $4}')
-ADMIN=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $5}')
-TOTALIP=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $6}')
+LIST=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $2}')
+Key=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $3}')
+KEY2=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $4}')
+ADMIN=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $5}')
+TOTALIP=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $6}')
 cd
 if [[ $kode == "RMBLGG" ]]; then
 MYIP=$(curl -sS ipv4.icanhazip.com)
@@ -136,9 +136,9 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "30 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
-wget https://raw.githubusercontent.com/RMBLsukarata/permission/main/ipmini >/dev/null 2>&1
+mkdir /root/rmbl
+cd /root/rmbl
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
 echo "### $author $hhari $MYIP @RMBL" >> ipmini
 
@@ -169,7 +169,7 @@ USERGIT=$(cat /etc/github/username)
 hhari2=$(date -d "999 days" +"%Y-%m-%d")
 mkdir /root/casper
 cd /root/casper
-wget https://raw.githubusercontent.com/RMBLsukarata/permission/main/ipmini >/dev/null 2>&1
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
 sed -i "/# VIP/a ### ${author2} ${hhari2} ${MYIP2} ON 999 VIP" /root/casper/ipmini
 
@@ -198,9 +198,9 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari3=$(date -d "999 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
-wget https://raw.githubusercontent.com/RMBLsukarata/permission/main/ipmini >/dev/null 2>&1
+mkdir /root/rmbl
+cd /root/rmbl
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
 sed -i "/# RESELLER/a ### ${author3} ${hhari3} ${MYIP3} ON 999" /root/casper/ipmini
 
@@ -228,9 +228,9 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
-wget https://raw.githubusercontent.com/RMBLsukarata/permission/main/ipmini >/dev/null 2>&1
+mkdir /root/rmbl
+cd /root/rmbl
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
 sed -i "/# RESELLER/a ### ${author} ${hhari} ${MYIP} ${ADMIN} ${TOTALIP}" /root/casper/ipmini
 else
@@ -249,11 +249,11 @@ git remote add origin https://github.com/${USERGIT}/permission >/dev/null 2>&1
 git push -f https://${APIGIT}@github.com/${USERGIT}/permission >/dev/null 2>&1
 sleep 0.5
 rm ipmini
-wget https://raw.githubusercontent.com/RMBLsukarata/license/main/key >/dev/null 2>&1
+wget https://raw.githubusercontent.com/RMBL-ZERO/license/main/key >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
-sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/casper/key
+sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/rmbl/key
 else
-sed -i "/^### $LIST $Key $KEY2/d" /root/casper/key
+sed -i "/^### $LIST $Key $KEY2/d" /root/rmbl/key
 fi
 sleep 0.5
 rm -rf .git
@@ -265,7 +265,7 @@ git commit -m register >/dev/null 2>&1
 git branch -M main >/dev/null 2>&1
 git remote add origin https://github.com/${USERGIT}/license >/dev/null 2>&1
 git push -f https://${APIGIT}@github.com/${USERGIT}/license >/dev/null 2>&1
-rm -rf /root/casper
+rm -rf /root/rmbl
 rm -rf /etc/github
 clear
 else
@@ -303,11 +303,11 @@ fun_bar() {
     tput cnorm
 }
 res1() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/install/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
 clear
 }
 res2() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/install/rmbl1.sh && chmod +x rmbl1.sh && ./rmbl1.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/rmbl1.sh && chmod +x rmbl1.sh && ./rmbl1.sh
 clear
 }
 clear
@@ -548,31 +548,31 @@ done
 echo $dns2 >/etc/xray/dns
 fi
 }
-cat <<EOF>> /etc/casper/theme/red
+cat <<EOF>> /etc/rmbl/theme/red
 BG : \E[40;1;41m
 TEXT : \033[0;31m
 EOF
-cat <<EOF>> /etc/casper/theme/green
+cat <<EOF>> /etc/rmbl/theme/green
 BG : \E[40;1;42m
 TEXT : \033[0;32m
 EOF
-cat <<EOF>> /etc/casper/theme/yellow
+cat <<EOF>> /etc/rmbl/theme/yellow
 BG : \E[40;1;43m
 TEXT : \033[0;33m
 EOF
-cat <<EOF>> /etc/casper/theme/blue
+cat <<EOF>> /etc/rmbl/theme/blue
 BG : \E[40;1;44m
 TEXT : \033[0;34m
 EOF
-cat <<EOF>> /etc/casper/theme/magenta
+cat <<EOF>> /etc/rmbl/theme/magenta
 BG : \E[40;1;95m
 TEXT : \033[0;95m
 EOF
-cat <<EOF>> /etc/casper/theme/cyan
+cat <<EOF>> /etc/rmbl/theme/cyan
 BG : \E[40;1;46m
 TEXT : \033[0;36m
 EOF
-cat <<EOF>> /etc/casper/theme/color.conf
+cat <<EOF>> /etc/rmbl/theme/color.conf
 red
 EOF
 function Casper2(){
@@ -580,7 +580,7 @@ cd
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 clear
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/tools.sh &> /dev/null
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/tools.sh &> /dev/null
 chmod +x tools.sh 
 bash tools.sh
 clear
@@ -619,42 +619,42 @@ fun_bar() {
 
 
 res2() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 clear
 } 
 
 res3() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
 }
 
 res4() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
 }
 
 res5() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
 }
 
 res6() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
 }
 
 res7() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/menu/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/menu/update.sh && chmod +x update.sh && ./update.sh
 clear
 }
 
 res8() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/slowdns/installsl.sh && chmod +x installsl.sh && bash installsl.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/slowdns/installsl.sh && chmod +x installsl.sh && bash installsl.sh
 clear
 }
 
 res9() {
-wget https://raw.githubusercontent.com/RMBLsukarata/vip/main/install/udp-custom.sh && chmod +x udp-custom.sh && bash udp-custom.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/udp-custom.sh && chmod +x udp-custom.sh && bash udp-custom.sh
 clear
 }
 
