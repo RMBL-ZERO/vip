@@ -1,7 +1,7 @@
 #!/bin/bash
 function CEKIP () {
 MYIP=$(curl -sS ipv4.icanhazip.com)
-IZIN=$(curl -sS https://raw.githubusercontent.com/casper9/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+IZIN=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
 if [ "$MYIP" = "$IZIN" ]; then
   domain
   Casper2
@@ -98,7 +98,7 @@ fun_bar() {
     tput cnorm
 }
 res1() {
-wget https://raw.githubusercontent.com/casper9/permission/main/ipmini
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini
 
 }
 res2() {
@@ -110,7 +110,7 @@ git push -f https://${APIGIT}@github.com/${USERGIT}/permission &> /dev/null
 sleep 1
 }
 res3() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/casper.sh && chmod +x casper.sh && ./casper.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
 clear
 }
 
@@ -155,15 +155,15 @@ fun_bar() {
     tput cnorm
 }
 res1() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/casper.sh && chmod +x casper.sh && ./casper.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
 clear
 }
 echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
 echo -e "${tyblue}         Please select a domain type below                 ${NC}"
 echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
 echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}  [ 1 ]  Enter your Domain & Random SlowDNS       ${NC}"
-echo -e "${tyblue}  [ 2 ]  Use a random Domain & Random SlowDNS     ${NC}"
+echo -e "${tyblue}  [ 1 ]  Enter your Domain        ${NC}"
+echo -e "${tyblue}  [ 2 ]  Use a random Domain      ${NC}"
 echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
 read -p "   Please select numbers 1-2 or Any Button(Random) : " dns
 echo ""
@@ -172,7 +172,7 @@ echo -e  "${tyblue}┌───────────────────�
 echo -e  "${tyblue}|              TERIMA KASIH                |${NC}"
 echo -e  "${tyblue}|         SUDAH MENGGUNAKAN SCRIPT         |${NC}"
 echo -e  "${tyblue}|                DARI SAYA                 |${NC}"
-#echo -e  "${tyblue}|            BY C A S P E R               |${NC}"
+#echo -e  "${tyblue}|            BY RMBL VPN               |${NC}"
 echo -e  "${tyblue}└──────────────────────────────────────────┘${NC}"
 echo " "
 read -rp "Masukan domain kamu Disini : " -e dnss
@@ -220,31 +220,31 @@ fun_bar 'res1'
 clear
 fi
 }
-cat <<EOF>> /etc/casper/theme/red
+cat <<EOF>> /etc/rmbl/theme/red
 BG : \E[40;1;41m
 TEXT : \033[0;31m
 EOF
-cat <<EOF>> /etc/casper/theme/green
+cat <<EOF>> /etc/rmbl/theme/green
 BG : \E[40;1;42m
 TEXT : \033[0;32m
 EOF
-cat <<EOF>> /etc/casper/theme/yellow
+cat <<EOF>> /etc/rmbl/theme/yellow
 BG : \E[40;1;43m
 TEXT : \033[0;33m
 EOF
-cat <<EOF>> /etc/casper/theme/blue
+cat <<EOF>> /etc/rmbl/theme/blue
 BG : \E[40;1;44m
 TEXT : \033[0;34m
 EOF
-cat <<EOF>> /etc/casper/theme/magenta
+cat <<EOF>> /etc/rmbl/theme/magenta
 BG : \E[40;1;95m
 TEXT : \033[0;95m
 EOF
-cat <<EOF>> /etc/casper/theme/cyan
+cat <<EOF>> /etc/rmbl/theme/cyan
 BG : \E[40;1;46m
 TEXT : \033[0;36m
 EOF
-cat <<EOF>> /etc/casper/theme/color.conf
+cat <<EOF>> /etc/rmbl/theme/color.conf
 magenta
 EOF
 function Casper2(){
@@ -252,7 +252,7 @@ cd
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 clear
-wget https://raw.githubusercontent.com/casper9/perv1/main/tools.sh && chmod +x tools.sh && ./tools.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/tools.sh && chmod +x tools.sh && ./tools.sh
 clear
 start=$(date +%s)
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -289,37 +289,37 @@ fun_bar() {
 
 
 res2() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 clear
 } 
 
 res3() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
 }
 
 res4() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
 }
 
 res5() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
 }
 
 res6() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
 }
 
 res7() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/menu/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/menu/update.sh && chmod +x update.sh && ./update.sh
 clear
 }
 
 res8() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/slowdns/installsl.sh && chmod +x installsl.sh && bash installsl.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/slowdns/installsl.sh && chmod +x installsl.sh && bash installsl.sh
 clear
 }
 
@@ -369,8 +369,8 @@ domain=$(cat /etc/xray/domain)
 LocalVersion=$(cat /root/versi)
 IPVPS=$(curl -s ipinfo.io/ip )
 ISPVPS=$( curl -s ipinfo.io/org )
-CHATID="1319592446"
-KEY="6084073663:AAHdbteum38_25MavUHrZb_bt-NbZul9mvE"
+CHATID="5557374381"
+KEY="6445527360:AAHPDE7rdtTVVmcHR8gpWnySDoJ2P8O9pYU"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 ISP=$(cat /etc/xray/isp)
 CITY=$(cat /etc/xray/city)
@@ -385,14 +385,14 @@ REGION=$(cat $TMPFILE | jq '.region' | sed 's/"//g')
 COUNTRY=$(cat $TMPFILE | jq '.country' | sed 's/"//g')
 author=$(cat /etc/profil)
 MYIP=$(curl -sS ipv4.icanhazip.com)
-IZIN=$(curl -sS https://raw.githubusercontent.com/casper9/permission/main/ipmini | awk '{print 3}' | grep $MYIP)
+IZIN=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | awk '{print 3}' | grep $MYIP)
 TIME=$(date +'%Y-%m-%d %H:%M:%S')
 RAMMS=$(free -m | awk 'NR==2 {print $2}')
 
 
 TEXT="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<b>  ⚠️ AUTOSCRIPT INSTALLER ⚠️</b>
+<b>  🟢 AUTOSCRIPT INSTALLER 🟢</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>TIME :</b> <code>$TIME </code>
 <b>DOMAIN :</b> <code>${domain} </code>
@@ -429,7 +429,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/casper9/perv1/main/versi  )
+serverV=$( curl -sS https://raw.githubusercontent.com/RMBL-ZERO/vip/main/versi  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11
