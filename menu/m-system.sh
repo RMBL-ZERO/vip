@@ -90,18 +90,6 @@ res3() {
 wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/rmbl1.sh && chmod +x rmbl1.sh && ./rmbl1.sh
 clear
 }
-res4() {
-wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/casper2.sh && chmod +x casper2.sh && ./casper2.sh
-clear
-}
-res5() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/casper3.sh && chmod +x casper3.sh && ./casper3.sh
-clear
-}
-res6() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/casper4.sh && chmod +x casper4.sh && ./casper4.sh
-clear
-}
 clear
 echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│ ${WH}Please select a your Choice to Set Domain              ${NC}"
@@ -1940,7 +1928,7 @@ echo -e "  ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}INSTALL TCP BBR ${WH} 
 #echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
 echo -e "  ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}GANTI TEMA WARNA${WH}    ${WH}[${COLOR1}15${WH}]${NC} ${COLOR1}• ${WH}BOT DIGITAL OCEAN MENU ${WH}   $COLOR1 $NC"
 #echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
-echo -e "  ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}LIMIT SPEED${WH}         ${WH}[${COLOR1}    $COLOR1 $NC" 
+echo -e "  ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}LIMIT SPEED${WH}         ${WH}[${COLOR1}16${WH}]${NC} ${COLOR1}• ${WH}BOT CREATE AKUN MENU ${WH}   $COLOR1 $NC"  
 echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
 echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
 echo -e "  ${WH}[${COLOR1}00${WH}]${NC} ${COLOR1}• ${WH}GO BACK $NC         ${WH}[${COLOR1}99${WH}]${NC} ${COLOR1}• ${WH}CLEAR RAM CACHE ${WH}    $COLOR1 $NC"
