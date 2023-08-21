@@ -89,7 +89,7 @@ USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "1 days" +"%Y-%m-%d")
 mkdir /root/casper
 cd /root/casper
-wget https://raw.githubusercontent.com/casper9/permission/main/ipmini >/dev/null 2>&1
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 echo "### $author $hhari $MYIP @trial" >> ipmini
 sleep 1
 rm -rf .git
@@ -118,13 +118,13 @@ if [ -z $kode ]; then
 echo -e "KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
 key2
 fi
-LIST=$(curl -sS https://raw.githubusercontent.com/casper9/license/main/key | grep $kode | awk '{print $2}')
-Key=$(curl -sS https://raw.githubusercontent.com/casper9/license/main/key | grep $kode | awk '{print $3}')
-KEY2=$(curl -sS https://raw.githubusercontent.com/casper9/license/main/key | grep $kode | awk '{print $4}')
-ADMIN=$(curl -sS https://raw.githubusercontent.com/casper9/license/main/key | grep $kode | awk '{print $5}')
-TOTALIP=$(curl -sS https://raw.githubusercontent.com/casper9/license/main/key | grep $kode | awk '{print $6}')
+LIST=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $2}')
+Key=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $3}')
+KEY2=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $4}')
+ADMIN=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $5}')
+TOTALIP=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $6}')
 cd
-if [[ $kode == "CASPERGG" ]]; then
+if [[ $kode == "RMBLGG" ]]; then
 MYIP=$(curl -sS ipv4.icanhazip.com)
 rm -rf /etc/github
 mkdir /etc/github
@@ -138,9 +138,9 @@ USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "30 days" +"%Y-%m-%d")
 mkdir /root/casper
 cd /root/casper
-wget https://raw.githubusercontent.com/casper9/permission/main/ipmini >/dev/null 2>&1
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
-echo "### $author $hhari $MYIP @CASPER" >> ipmini
+echo "### $author $hhari $MYIP @RMBL" >> ipmini
 
 sleep 0.5
 rm -rf .git
@@ -154,7 +154,7 @@ git remote add origin https://github.com/${USERGIT}/permission >/dev/null 2>&1
 git push -f https://${APIGIT}@github.com/${USERGIT}/permission >/dev/null 2>&1
 sleep 0.5
 rm ipmini
-elif [[ $kode == "CASPERVIP" ]]; then
+elif [[ $kode == "RMBLVIP" ]]; then
 MYIP2=$(curl -sS ipv4.icanhazip.com)
 author2=$(cat /etc/profil)
 rm -rf /etc/github
@@ -169,7 +169,7 @@ USERGIT=$(cat /etc/github/username)
 hhari2=$(date -d "999 days" +"%Y-%m-%d")
 mkdir /root/casper
 cd /root/casper
-wget https://raw.githubusercontent.com/casper9/permission/main/ipmini >/dev/null 2>&1
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
 sed -i "/# VIP/a ### ${author2} ${hhari2} ${MYIP2} ON 999 VIP" /root/casper/ipmini
 
@@ -200,7 +200,7 @@ USERGIT=$(cat /etc/github/username)
 hhari3=$(date -d "999 days" +"%Y-%m-%d")
 mkdir /root/casper
 cd /root/casper
-wget https://raw.githubusercontent.com/casper9/permission/main/ipmini >/dev/null 2>&1
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
 sed -i "/# RESELLER/a ### ${author3} ${hhari3} ${MYIP3} ON 999" /root/casper/ipmini
 
@@ -230,7 +230,7 @@ USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
 mkdir /root/casper
 cd /root/casper
-wget https://raw.githubusercontent.com/casper9/permission/main/ipmini >/dev/null 2>&1
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
 sed -i "/# RESELLER/a ### ${author} ${hhari} ${MYIP} ${ADMIN} ${TOTALIP}" /root/casper/ipmini
 else
@@ -249,7 +249,7 @@ git remote add origin https://github.com/${USERGIT}/permission >/dev/null 2>&1
 git push -f https://${APIGIT}@github.com/${USERGIT}/permission >/dev/null 2>&1
 sleep 0.5
 rm ipmini
-wget https://raw.githubusercontent.com/casper9/license/main/key >/dev/null 2>&1
+wget https://raw.githubusercontent.com/RMBL-ZERO/license/main/key >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
 sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/casper/key
 else
@@ -303,36 +303,22 @@ fun_bar() {
     tput cnorm
 }
 res1() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/casper.sh && chmod +x casper.sh && ./casper.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/rmbl.sh && chmod +x rmbl.sh && ./rmbl.sh
 clear
 }
 res2() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/casper1.sh && chmod +x casper1.sh && ./casper1.sh
-clear
-}
-res3() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/casper2.sh && chmod +x casper2.sh && ./casper2.sh
-clear
-}
-res4() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/casper3.sh && chmod +x casper3.sh && ./casper3.sh
-clear
-}
-res5() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/casper4.sh && chmod +x casper4.sh && ./casper4.sh
-clear
-}
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/rmbl1.sh && chmod +x rmbl1.sh && ./rmnl1.sh
 clear
 cd
 echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
 echo -e "${tyblue}│ \033[1;37mPlease select a your Choice to Set Domain${tyblue}│${NC}"
 echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
 echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│  [ 1 ]  \033[1;37mDomain kamu sendiri & Random SlowDNS       ${NC}"
+echo -e "${tyblue}│  [ 1 ]  \033[1;37mDomain kamu sendiri        ${NC}"
 echo -e "${tyblue}│  "                                        
-echo -e "${tyblue}│  [ 2 ]  \033[1;37mDomain Yang Punya Script & Random SlowDNS     ${NC}"
+echo -e "${tyblue}│  [ 2 ]  \033[1;37mDomain Yang Punya Script     ${NC}"
 echo -e "${tyblue}│     "                                     
-echo -e "${tyblue}│  [ 3 ]  \033[1;37mDomain Kamu Sendiri & Domain SlowDNS Kamu Sendiri    ${NC}"
+echo -e "${tyblue}│  [ 3 ]  \033[1;37mDomain Kamu Sendiri    ${NC}"
 echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
 until [[ $domain =~ ^[132]+$ ]]; do 
 read -p "   Please select numbers 1 2 atau 3 : " domain
@@ -375,24 +361,19 @@ echo -e "${tyblue}┌───────────────────�
 echo -e "${tyblue}│ \033[1;37mPlease select a your Choice to Set Domain${tyblue}│${NC}"
 echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
 echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│  [ 1 ]  \033[1;37mDomain xxx.vpnvip.cloud       ${NC}"
+echo -e "${tyblue}│  [ 1 ]  \033[1;37mDomain xxx.vpnvip.app       ${NC}"
 echo -e "${tyblue}│  "                                        
-echo -e "${tyblue}│  [ 2 ]  \033[1;37mDomain xxx.vpnvip.app     ${NC}"
+echo -e "${tyblue}│  [ 2 ]  \033[1;37mDomain xxx.yogkontl     ${NC}"
 echo -e "${tyblue}│  "                                        
-echo -e "${tyblue}│  [ 3 ]  \033[1;37mDomain xxx.slowapp.cfd       ${NC}"
-echo -e "${tyblue}│  "                                        
-echo -e "${tyblue}│  [ 4 ]  \033[1;37mDomain xxx.slowapp.dev     ${NC}"
-echo -e "${tyblue}│  "                                        
-echo -e "${tyblue}│  [ 5 ]  \033[1;37mDomain xxx.vpnvip.tech     ${NC}"
 echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
-until [[ $domain2 =~ ^[1-5]+$ ]]; do 
-read -p "   Please select numbers 1 sampai 5 : " domain2
+until [[ $domain2 =~ ^[1-2]+$ ]]; do 
+read -p "   Please select numbers 1 sampai 2 : " domain2
 done
 fi
 if [[ $domain2 == "1" ]]; then
 clear
 echo -e  "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e  "${tyblue}│  \033[1;37mContoh subdomain xxx.vpnvip.cloud       ${tyblue}│${NC}"
+echo -e  "${tyblue}│  \033[1;37mContoh subdomain xxx.vpnvip.app       ${tyblue}│${NC}"
 echo -e  "${tyblue}│    \033[1;37mxxx jadi subdomain kamu               ${tyblue}│${NC}"
 echo -e  "${tyblue}└──────────────────────────────────────────┘${NC}"
 echo " "
@@ -422,7 +403,7 @@ rm /root/subdomainx
 elif [[ $domain2 == "2" ]]; then
 clear
 echo -e  "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e  "${tyblue}│  \033[1;37mContoh subdomain xxx.vpnvip.app         ${tyblue}│${NC}"
+echo -e  "${tyblue}│  \033[1;37mContoh subdomain xxx.yogkontl         ${tyblue}│${NC}"
 echo -e  "${tyblue}│    \033[1;37mxxx jadi subdomain kamu               ${tyblue}│${NC}"
 echo -e  "${tyblue}└──────────────────────────────────────────┘${NC}"
 echo " "
@@ -567,31 +548,31 @@ done
 echo $dns2 >/etc/xray/dns
 fi
 }
-cat <<EOF>> /etc/casper/theme/red
+cat <<EOF>> /etc/rmbl/theme/red
 BG : \E[40;1;41m
 TEXT : \033[0;31m
 EOF
-cat <<EOF>> /etc/casper/theme/green
+cat <<EOF>> /etc/rmbl/theme/green
 BG : \E[40;1;42m
 TEXT : \033[0;32m
 EOF
-cat <<EOF>> /etc/casper/theme/yellow
+cat <<EOF>> /etc/rmbl/theme/yellow
 BG : \E[40;1;43m
 TEXT : \033[0;33m
 EOF
-cat <<EOF>> /etc/casper/theme/blue
+cat <<EOF>> /etc/rmbl/theme/blue
 BG : \E[40;1;44m
 TEXT : \033[0;34m
 EOF
-cat <<EOF>> /etc/casper/theme/magenta
+cat <<EOF>> /etc/rmbl/theme/magenta
 BG : \E[40;1;95m
 TEXT : \033[0;95m
 EOF
-cat <<EOF>> /etc/casper/theme/cyan
+cat <<EOF>> /etc/rmbl/theme/cyan
 BG : \E[40;1;46m
 TEXT : \033[0;36m
 EOF
-cat <<EOF>> /etc/casper/theme/color.conf
+cat <<EOF>> /etc/rmbl/theme/color.conf
 red
 EOF
 function Casper2(){
@@ -599,7 +580,7 @@ cd
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 >/dev/null 2>&1
 sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 clear
-wget https://raw.githubusercontent.com/casper9/perv1/main/tools.sh &> /dev/null
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/tools.sh &> /dev/null
 chmod +x tools.sh 
 bash tools.sh
 clear
@@ -638,42 +619,42 @@ fun_bar() {
 
 
 res2() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 clear
 } 
 
 res3() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
 }
 
 res4() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/sshws/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
 }
 
 res5() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
 }
 
 res6() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/sshws/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 clear
 }
 
 res7() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/menu/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/menu/update.sh && chmod +x update.sh && ./update.sh
 clear
 }
 
 res8() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/slowdns/installsl.sh && chmod +x installsl.sh && bash installsl.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/slowdns/installsl.sh && chmod +x installsl.sh && bash installsl.sh
 clear
 }
 
 res9() {
-wget https://raw.githubusercontent.com/casper9/perv1/main/install/udp-custom.sh && chmod +x udp-custom.sh && bash udp-custom.sh
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/udp-custom.sh && chmod +x udp-custom.sh && bash udp-custom.sh
 clear
 }
 
@@ -722,8 +703,8 @@ fun_bar 'res9'
 function iinfo(){
 domain=$(cat /etc/xray/domain)
 TIMES="10"
-CHATID="-1001319592446"
-KEY="6084073663:AAHdbteum38_25MavUHrZb_bt-NbZul9mvE"
+CHATID="5557374381"
+KEY="5656406963:AAEdkArMHoYbxdKhMNqsmHlbv51Nlt6azN0"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 ISP=$(cat /etc/xray/isp)
 CITY=$(cat /etc/xray/city)
@@ -739,7 +720,7 @@ EXP=$(( (d1 - d2) / 86400 ))
 
 TEXT="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<code> 🔱 AUTOSCRIPT PREMIUM</code>
+<code> 🟢 AUTOSCRIPT PREMIUM</code>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <code>NAME : </code><code>${author}</code>
 <code>TIME : </code><code>${TIME} WIB</code>
@@ -751,7 +732,7 @@ TEXT="
 <code>EXP SCRIPT : </code><code>$EXP Days</code>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <i>Automatic Notification From Installer Client...</i>
-"'&reply_markup={"inline_keyboard":[[{"text":"🔥ᴏʀᴅᴇʀ","url":"https://t.me/casperinject/355"},{"text":"⚡ᴀᴅᴍɪɴ","url":"https://t.me/CasperGaming"}]]}'
+"'&reply_markup={"inline_keyboard":[[{"text":"🟢ᴏʀᴅᴇʀ","url":"https://t.me/configopok"},{"text":"🟢ᴀᴅᴍɪɴ","url":"https://t.me/rmblvpn"}]]}'
 curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 clear
 }
@@ -779,7 +760,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/casper9/perv1/main/versi  )
+serverV=$( curl -sS https://raw.githubusercontent.com/RMBL-ZERO/vip/main/versi  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11
