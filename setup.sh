@@ -87,8 +87,8 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "1 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
+mkdir /root/rmbl
+cd /root/rmbl
 wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 echo "### $author $hhari $MYIP @trial" >> ipmini
 sleep 1
@@ -102,7 +102,7 @@ git branch -M main >/dev/null 2>&1
 git remote add origin https://github.com/${USERGIT}/permission >/dev/null 2>&1
 git push -f https://${APIGIT}@github.com/${USERGIT}/permission >/dev/null 2>&1
 sleep 1
-rm -rf /root/casper
+rm -rf /root/rmbl
 rm -rf /etc/github
 clear
 fi
@@ -330,7 +330,7 @@ clear
 echo -e  "${tyblue}┌──────────────────────────────────────────┐${NC}"
 echo -e  "${tyblue}│              \033[1;37mTERIMA KASIH                ${tyblue}│${NC}"
 echo -e  "${tyblue}│         \033[1;37mSUDAH MENGGUNAKAN SCRIPT         ${tyblue}│${NC}"
-echo -e  "${tyblue}│                \033[1;37mDARI RMBL VPN                 ${tyblue}│${NC}"
+echo -e  "${tyblue}│                \033[1;37mRMBL VPN                 ${tyblue}│${NC}"
 echo -e  "${tyblue}└──────────────────────────────────────────┘${NC}"
 echo " "
 until [[ $dnss =~ ^[a-zA-Z0-9_.-]+$ ]]; do 
