@@ -134,10 +134,6 @@ Port OVPN TCP    : 1194
 Port OVPN UDP    : 2200,
 BadVPN UDP       : 7100, 7300, 7300
 _______________________________
-Host Slowdns    : $sldomain
-Port Slowdns     : 80, 443, 53
-Pub Key          : $slkey
-_______________________________
 SSH UDP VIRAL : $domen:1-65535@$Login:$Pass
 _______________________________
 HTTP COSTUM : $domen:80@$Login:$Pass
