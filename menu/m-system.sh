@@ -131,9 +131,8 @@ echo -e "$COLOR1│ \033[1;37mPlease select a your Choice to Set Domain$COLOR1�
 echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│  [ 1 ]  \033[1;37mDomain xxx.vpnvip.app       ${NC}"
-echo -e "$COLOR1│  "                                        
 echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
-until [[ $domain2 =~ ^[1-5]+$ ]]; do 
+until [[ $domain2 =~ ^[1-1]+$ ]]; do 
 read -p "   Please select numbers 1  : " domain2
 done
 if [[ $domain2 == "1" ]]; then
@@ -1478,7 +1477,7 @@ menu
 }
 
 function check-dns(){
-    bash <(curl -sSL https://raw.githubusercontent.com/RMBLsukarata/vip/main/install/ceknet.sh)
+    bash <(curl -sSL https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/ceknet.sh)
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu
 }
@@ -1530,7 +1529,7 @@ systemctl stop $STOPWEBSERVER
 systemctl stop nginx
 curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
-/root/.acme.sh/acme.sh --register-account -m casper@slowapp.cfd
+/root/.acme.sh/acme.sh --register-account -m rmblvpn.xyz
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
@@ -1928,7 +1927,7 @@ echo -e "  ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}INSTALL TCP BBR ${WH} 
 #echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
 echo -e "  ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}GANTI TEMA WARNA${WH}    ${WH}[${COLOR1}15${WH}]${NC} ${COLOR1}• ${WH}BOT DIGITAL OCEAN MENU ${WH}   $COLOR1 $NC"
 #echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
-echo -e "  ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}LIMIT SPEED${WH}         ${WH}[${COLOR1}16${WH}]${NC} ${COLOR1}• ${WH}BOT CREATE AKUN MENU ${WH}   $COLOR1 $NC"  
+echo -e "  ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}LIMIT SPEED${WH}          $NC"  
 echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
 echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
 echo -e "  ${WH}[${COLOR1}00${WH}]${NC} ${COLOR1}• ${WH}GO BACK $NC         ${WH}[${COLOR1}99${WH}]${NC} ${COLOR1}• ${WH}CLEAR RAM CACHE ${WH}    $COLOR1 $NC"
