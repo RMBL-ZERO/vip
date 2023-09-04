@@ -75,7 +75,7 @@ U5=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini
 U6=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $6}')
 MYIP=$(curl -sS ipv4.icanhazip.com)
 
-if [[ $kode == "CASPERGG" ]]; then
+if [[ $kode == "RMBLGG" ]]; then
 MYIP=$(curl -sS ipv4.icanhazip.com)
 rm -rf /etc/github
 mkdir /etc/github
@@ -87,8 +87,8 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "30 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
+mkdir /root/rmbl
+cd /root/rmbl
 wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
 if [ "$ADMIN" = "ON" ]; then
@@ -123,8 +123,8 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
+mkdir /root/rmbl
+cd /root/rmbl
 wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
 sed -i '/# RESELLER/a ### $author $hhari $MYIP $ADMIN $TOTALIP' /root/rmbl/ipmini
@@ -370,7 +370,7 @@ clear
 clear && clear && clear
 clear;clear;clear
 echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• RMBL VPN TUNNELING •              ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• RMBL VPN TUNNELING •             ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
 #echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
