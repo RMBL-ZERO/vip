@@ -114,7 +114,7 @@ function vmess() {
 if [ $vmessip = $ssvmess ]; then
 TEXT2="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<b> ⚠️ XRAY VMESS NOTIF </b>
+<b> ⚠️ VMESS NOTIF MULTI LOGIN ⚠️ </b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN : ${domen} </b>
 <b>ISP : ${ISP} $CITY</b>
@@ -138,7 +138,7 @@ curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$T
          else
         TEXT="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<b> ⚠️ XRAY VMESS NOTIF </b>
+<b> ⚠️ VMESS NOTIF MULTI LOGIN ⚠️  </b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN : ${domen} </b>
 <b>ISP : ${ISP} $CITY</b>
@@ -214,7 +214,7 @@ function vless() {
 if [ $vlessip = $ssvless ]; then
  TEXT2="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<b> ⚠️ XRAY VLESS NOTIF </b>
+<b> ⚠️ VLESS NOTIF MULTI LOGIN ⚠️</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN : ${domen} </b>
 <b>ISP : ${ISP} $CITY</b>
@@ -238,7 +238,7 @@ curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$T
        else
 TEXT="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<b> ⚠️ XRAY VLESS NOTIF </b>
+<b> ⚠️ VLESS NOTIF MULTI LOGIN ⚠️</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN : ${domen} </b>
 <b>ISP : ${ISP} $CITY</b>
@@ -314,7 +314,7 @@ function trojan() {
 if [ $trojanip = $sstrojan ]; then
       TEXT2="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<b> ⚠️ XRAY TROJAN NOTIF </b>
+<b> ⚠️ TROJAN NOTIF MULTI LOGIN ⚠️</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN : ${domen} </b>
 <b>ISP : ${ISP} $CITY</b>
@@ -338,7 +338,7 @@ curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$T
          else
      TEXT="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<b> ⚠️ XRAY TROJAN NOTIF </b>
+<b> ⚠️ TROJAN NOTIF MULTI LOGIN ⚠️ </b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN : ${domen} </b>
 <b>ISP : ${ISP} $CITY</b>
