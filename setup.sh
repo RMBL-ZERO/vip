@@ -40,9 +40,9 @@ fi
 secs_to_human() {
 echo "Installation time : $(( ${1} / 3600 )) hours $(( (${1} / 60) % 60 )) minute's $(( ${1} % 60 )) seconds"
 }
-rm -rf /etc/casper
-mkdir -p /etc/casper
-mkdir -p /etc/casper/theme
+rm -rf /etc/rmbl
+mkdir -p /etc/rmbl
+mkdir -p /etc/rmbl/theme
 mkdir -p /var/lib/ >/dev/null 2>&1
 echo "IP=" >> /var/lib/ipvps.conf
 clear
