@@ -118,11 +118,11 @@ if [ -z $kode ]; then
 echo -e "KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
 key2
 fi
-LIST=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $2}')
-Key=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $3}')
-KEY2=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $4}')
-ADMIN=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $5}')
-TOTALIP=$(curl -sS https://raw.githubusercontent.com/RMBLsukarata/license/main/key | grep $kode | awk '{print $6}')
+LIST=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $2}')
+Key=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $3}')
+KEY2=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $4}')
+ADMIN=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $5}')
+TOTALIP=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $6}')
 cd
 if [[ $kode == "RMBLGG" ]]; then
 MYIP=$(curl -sS ipv4.icanhazip.com)
@@ -136,8 +136,8 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "30 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
+mkdir /root/rmbl
+cd /root/rmbl
 wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
 echo "### $author $hhari $MYIP @RMBL" >> ipmini
@@ -167,11 +167,11 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari2=$(date -d "999 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
+mkdir /root/rmbl
+cd /root/rmbl
 wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
-sed -i "/# VIP/a ### ${author2} ${hhari2} ${MYIP2} ON 999 VIP" /root/casper/ipmini
+sed -i "/# VIP/a ### ${author2} ${hhari2} ${MYIP2} ON 999 VIP" /root/rmbl/ipmini
 
 sleep 0.5
 rm -rf .git
@@ -198,11 +198,11 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari3=$(date -d "999 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
+mkdir /root/rmbl
+cd /root/rmbl
 wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
-sed -i "/# RESELLER/a ### ${author3} ${hhari3} ${MYIP3} ON 999" /root/casper/ipmini
+sed -i "/# RESELLER/a ### ${author3} ${hhari3} ${MYIP3} ON 999" /root/rmbl/ipmini
 
 sleep 0.5
 rm -rf .git
@@ -228,11 +228,11 @@ APIGIT=$(cat /etc/github/api)
 EMAILGIT=$(cat /etc/github/email)
 USERGIT=$(cat /etc/github/username)
 hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
-mkdir /root/casper
-cd /root/casper
+mkdir /root/rmbl
+cd /root/rmbl
 wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
-sed -i "/# RESELLER/a ### ${author} ${hhari} ${MYIP} ${ADMIN} ${TOTALIP}" /root/casper/ipmini
+sed -i "/# RESELLER/a ### ${author} ${hhari} ${MYIP} ${ADMIN} ${TOTALIP}" /root/rmbl/ipmini
 else
 echo "### $author $hhari $MYIP @$LIST" >> ipmini
 fi
@@ -251,9 +251,9 @@ sleep 0.5
 rm ipmini
 wget https://raw.githubusercontent.com/RMBL-ZERO/license/main/key >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
-sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/casper/key
+sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/rmbl/key
 else
-sed -i "/^### $LIST $Key $KEY2/d" /root/casper/key
+sed -i "/^### $LIST $Key $KEY2/d" /root/rmbl/key
 fi
 sleep 0.5
 rm -rf .git
@@ -265,7 +265,7 @@ git commit -m register >/dev/null 2>&1
 git branch -M main >/dev/null 2>&1
 git remote add origin https://github.com/${USERGIT}/license >/dev/null 2>&1
 git push -f https://${APIGIT}@github.com/${USERGIT}/license >/dev/null 2>&1
-rm -rf /root/casper
+rm -rf /root/rmbl
 rm -rf /etc/github
 clear
 else
@@ -364,7 +364,6 @@ echo -e "${tyblue}│ \033[1;37mPlease select a your Choice to Set Domain${tyblu
 echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
 echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
 echo -e "${tyblue}│  [ 1 ]  \033[1;37mDomain xxx.vpnvip.app       ${NC}"
-echo -e "${tyblue}│  "                                        
 echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
 until [[ $domain2 =~ ^[1-5]+$ ]]; do 
 read -p "   Please select numbers 1 sampai 2 : " domain2
@@ -373,7 +372,7 @@ fi
 if [[ $domain2 == "1" ]]; then
 clear
 echo -e  "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e  "${tyblue}│  \033[1;37mContoh subdomain xxx.yogzvpn.cloud       ${tyblue}│${NC}"
+echo -e  "${tyblue}│  \033[1;37mContoh subdomain xxx.vpn.app       ${tyblue}│${NC}"
 echo -e  "${tyblue}│    \033[1;37mxxx jadi subdomain kamu               ${tyblue}│${NC}"
 echo -e  "${tyblue}└──────────────────────────────────────────┘${NC}"
 echo " "
@@ -659,7 +658,7 @@ clear
 }
 
 echo -e "${tyblue}┌──────────────────────────────────────────┐${NC}"
-echo -e "${tyblue}│      PROCESS INSTALLED SSH     │${NC}"
+echo -e "${tyblue}│      PROCESS INSTALLED SSH  VPN          │${NC}"
 echo -e "${tyblue}└──────────────────────────────────────────┘${NC}"
 fun_bar 'res2'
 
@@ -703,8 +702,8 @@ fun_bar 'res9'
 function iinfo(){
 domain=$(cat /etc/xray/domain)
 TIMES="10"
-CHATID="5557374381"
-KEY="6445527360:AAHPDE7rdtTVVmcHR8gpWnySDoJ2P8O9pYU"
+CHATID="-1001568029932"
+KEY="6571846319:AAFaNBSeRHOmAG2jRLCMUAqo9EuC9XiW420"
 URL="https://api.telegram.org/bot$KEY/sendMessage"
 ISP=$(cat /etc/xray/isp)
 CITY=$(cat /etc/xray/city)
@@ -720,7 +719,7 @@ EXP=$(( (d1 - d2) / 86400 ))
 
 TEXT="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<code>🟢AUTOSCRIPT PREMIUM🟢</code>
+<code>🪯AUTOSCRIPT PREMIUM🪯</code>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <code>NAME : </code><code>${author}</code>
 <code>TIME : </code><code>${TIME} WIB</code>
@@ -732,7 +731,7 @@ TEXT="
 <code>EXP SCRIPT : </code><code>$EXP Days</code>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <i>Notification Installer Script ...</i>
-"'&reply_markup={"inline_keyboard":[[{"text":"🟢ᴏʀᴅᴇʀ","url":"https://t.me/configopok"},{"text":"🟢ᴀᴅᴍɪɴ","url":"https://t.me/rmblvpn"}]]}'
+"'&reply_markup={"inline_keyboard":[[{"text":"🪯ᴏʀᴅᴇʀ","url":"https://t.me/configopok"},{"text":"🪯ᴀᴅᴍɪɴ","url":"https://t.me/rmblvpn1"}]]}'
 curl -s --max-time $TIMES -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
 clear
 }
