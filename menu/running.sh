@@ -78,5 +78,4 @@ echo -e "$COLOR1 └────────────────────
 echo -e ""
 echo -e "  \033[1;91m Restart All Service... \033[1;37m"
 echo -e ""
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
+restart
