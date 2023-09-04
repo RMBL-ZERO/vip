@@ -144,7 +144,7 @@ fi
 if [ $sship = $ssssh ]; then
 TEXT2="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<b> ⚠️ SSH NOTIF </b>
+<b> ⚠️ SSH NOTIF MULTI LOGIN ⚠️</b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN : ${domen} </b>
 <b>ISP : ${ISP} $CITY</b>
@@ -170,7 +170,7 @@ echo "### ${username[$i]} $exp $pass" >> /etc/xray/sshx/listlock
         else
         TEXT="
 <code>◇━━━━━━━━━━━━━━◇</code>
-<b> ⚠️ SSH NOTIF </b>
+<b> ⚠️ SSH NOTIF MULTI LOGIN ⚠️ </b>
 <code>◇━━━━━━━━━━━━━━◇</code>
 <b>DOMAIN : ${domen} </b>
 <b>ISP : ${ISP} $CITY</b>
