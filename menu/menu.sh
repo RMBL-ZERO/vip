@@ -92,12 +92,12 @@ cd /root/casper
 wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 
 if [ "$ADMIN" = "ON" ]; then
-sed -i '/# RESELLER/a ### $author $hhari $MYIP $ADMIN $TOTALIP' /root/casper/ipmini
+sed -i '/# RESELLER/a ### $author $hhari $MYIP $ADMIN $TOTALIP' /root/rmbl/ipmini
 else
 if [ "$U4" = "$MYIP" ]; then
-sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/casper/ipmini
+sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/rmbl/ipmini
 else
-echo "### $author $hhari $MYIP @CASPER" >> ipmini
+echo "### $author $hhari $MYIP @RMBL" >> ipmini
 fi
 fi
 sleep 0.5
@@ -127,10 +127,10 @@ mkdir /root/casper
 cd /root/casper
 wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
-sed -i '/# RESELLER/a ### $author $hhari $MYIP $ADMIN $TOTALIP' /root/casper/ipmini
+sed -i '/# RESELLER/a ### $author $hhari $MYIP $ADMIN $TOTALIP' /root/rmbl/ipmini
 else
 if [ "$U4" = "$MYIP" ]; then
-sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/casper/ipmini
+sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/rmbl/ipmini
 else
 echo "### $author $hhari $MYIP @$LIST" >> ipmini
 fi
@@ -149,9 +149,9 @@ sleep 0.5
 rm ipmini
 wget https://raw.githubusercontent.com/RMBL-ZERO/license/main/key >/dev/null 2>&1
 if [ "$ADMIN" = "ON" ]; then
-sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/casper/key
+sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/rmbl/key
 else
-sed -i "/^### $LIST $Key $KEY2/d" /root/casper/key
+sed -i "/^### $LIST $Key $KEY2/d" /root/rmbl/key
 fi
 sleep 0.5
 rm -rf .git
@@ -163,7 +163,7 @@ git commit -m register >/dev/null 2>&1
 git branch -M main >/dev/null 2>&1
 git remote add origin https://github.com/${USERGIT}/license >/dev/null 2>&1
 git push -f https://${APIGIT}@github.com/${USERGIT}/license >/dev/null 2>&1
-rm -rf /root/casper
+rm -rf /root/rmbl
 rm -rf /etc/github
 echo -e "SUCCES MASUKKAN KEY SILAHKAN DITUNGGU"
 echo -e "5MENIT AGAR SERVER KEREFRESH"
