@@ -2,12 +2,12 @@
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
 ###########- COLOR CODE -##############
-colornow=$(cat /etc/casper/theme/color.conf)
+colornow=$(cat /etc/rmbl/theme/color.conf)
 export NC="\e[0m"
 export YELLOW='\033[0;33m';
 export RED="\033[0;31m"
-export COLOR1="$(cat /etc/casper/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-export COLBG1="$(cat /etc/casper/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+export COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+export COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
 WH='\033[1;37m'
 ###########- END COLOR CODE -##########
 tram=$( free -h | awk 'NR==2 {print $2}' )
@@ -18,7 +18,7 @@ CITY=$(curl -s ipinfo.io/city )
 ipsaya=$(curl -sS ipinfo.io/ip)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/casper9/permission/main/ipmini"
+data_ip="https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini"
 checking_sc() {
     useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
     if [[ $date_list < $useexp ]]; then
@@ -32,7 +32,7 @@ checking_sc() {
         echo -e "   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}"
         echo -e "     \033[0;33mBuy access permissions for scripts${NC}"
         echo -e "             \033[0;33mContact Admin :${NC}"
-        echo -e "     \033[0;36mTelegram${NC}: https://t.me/CasperGaming"
+        echo -e "     \033[0;36mTelegram${NC}: https://t.me/RMBLVPN1"
         echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
         exit
     fi
@@ -45,7 +45,7 @@ if [ "$res" = "Expired" ]; then
 Exp="\e[36mExpired\033[0m"
 rm -f /home/needupdate > /dev/null 2>&1
 else
-Exp=$(curl -sS https://raw.githubusercontent.com/casper9/permission/main/ipmini | grep $MYIP | awk '{print $3}')
+Exp=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $3}')
 fi
 export RED='\033[0;31m'
 export GREEN='\033[0;32m'
@@ -301,7 +301,7 @@ datediff() {
 mai="datediff "$Exp" "$DATE""
 
 today=`date -d "0 days" +"%Y-%m-%d"`
-Exp2=$(curl -sS https://raw.githubusercontent.com/casper9/permission/main/ipmini | grep $MYIP | awk '{print $3}')
+Exp2=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $3}')
 
 # CERTIFICATE STATUS
 d1=$(date -d "$Exp2" +%s)
@@ -310,7 +310,7 @@ certificate=$(( (d1 - d2) / 86400 ))
 
 # DNS PATCH
 #tipeos2=$(uname -m)
-Name2=$(curl -sS https://raw.githubusercontent.com/casper9/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Name2=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $2}')
 # GETTING DOMAIN NAME
 Domen="$(cat /etc/xray/domain)"
 
@@ -370,63 +370,3 @@ fun_bar 'res1'
 echo -e ""
 read -n 1 -s -r -p "Press [ Enter ] to back on menu"
 menu
-}
-echo -e ""
-echo -e "$COLOR1┌───────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}⇱ SYSTEM INFORMATION ⇲${NC}                       $COLOR1 $NC"
-echo -e "$COLOR1└───────────────────────────────────────────────────┘${NC}"
-#echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1┌───────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Hostname    ${COLOR1}: ${WH}$HOSTNAME$NC"
-echo -e "$COLOR1 $NC  ${WH}🔱 OS Name     ${COLOR1}: ${WH}$Tipe$NC"
-echo -e "$COLOR1 $NC  ${WH}🔱 Total RAM   ${COLOR1}: ${WH}${totalram}MB$NC"
-echo -e "$COLOR1 $NC  ${WH}🔱 Public IP   ${COLOR1}: ${WH}$MYIP$NC"
-echo -e "$COLOR1 $NC  ${WH}🔱 Domain      ${COLOR1}: ${WH}$Domen$NC"
-echo -e "$COLOR1└───────────────────────────────────────────────────┘${NC}"
-#echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1┌───────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}⇱ SUBSCRIPTION INFORMATION ⇲${NC}                $COLOR1 $NC"
-echo -e "$COLOR1└───────────────────────────────────────────────────┘${NC}"
-#echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1┌───────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Client Name ${COLOR1}: ${WH}$Name2${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 License     ${COLOR1}: ${WH}$certificate days${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Version     ${COLOR1}: ${WH}$(cat /opt/.ver) Latest Version${NC}"
-echo -e "$COLOR1└───────────────────────────────────────────────────┘${NC}"
-#echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1┌───────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}⇱ SERVICE INFORMATION ⇲${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└───────────────────────────────────────────────────┘${NC}"
-#echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1┌───────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 SSH / TUN               ${COLOR1}: ${WH}$status_ssh${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 OpenVPN                 ${COLOR1}: ${WH}$status_openvpn${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Dropbear                ${COLOR1}: ${WH}$status_beruangjatuh${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Stunnel4                ${COLOR1}: ${WH}$status_stunnel${NC}"
-#echo -e "🔱 Squid                   :$status_squid"
-#echo -e "$COLOR1 $NC  ${WH}🔱 Fail2Ban                ${COLOR1}: ${WH}$status_fail2ban${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Crons                   ${COLOR1}: ${WH}$status_cron${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Vnstat                  ${COLOR1}: ${WH}$status_vnstat${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 XRAYS Vmess TLS         ${COLOR1}: ${WH}$status_tls_v2ray${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 XRAYS Vmess None TLS    ${COLOR1}: ${WH}$status_nontls_v2ray${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 XRAYS Vless TLS         ${COLOR1}: ${WH}$status_tls_vless${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 XRAYS Vless None TLS    ${COLOR1}: ${WH}$status_nontls_vless${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 XRAYS Trojan            ${COLOR1}: ${WH}$status_virus_trojan${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Shadowsocks             ${COLOR1}: ${WH}$status_shadowsocks${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Websocket TLS           ${COLOR1}: ${WH}$swstls${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Websocket None TLS      ${COLOR1}: ${WH}$swstls${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 Websocket None TLS      ${COLOR1}: ${WH}$swstls${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 SSH UDP COSTUM          ${COLOR1}: ${WH}$udp${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 SlowDNS CLIENT          ${COLOR1}: ${WH}$slc${NC}"
-echo -e "$COLOR1 $NC  ${WH}🔱 SlowDNS SERVER          ${COLOR1}: ${WH}$sls${NC}"
-#echo -e "🔱 SSL / SSH Multiplexer   :$sosslh"
-echo -e "$COLOR1└───────────────────────────────────────────────────┘${NC}"
-#echo -e " $COLOR1 $NC                                              ${NC} $COLOR1 $NC"
-echo -e "$COLOR1┌───────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC}                ${WH}♧ SCRIPT ♧ ${NC}                    $COLOR1 $NC"
-echo -e "$COLOR1 ${NC}                ${WH}♤ PREMIUM ♤ ${NC}                   $COLOR1 $NC"
-#echo -e "$COLOR1 ${NC}                ${WH}◇   BY   ◇ ${NC}                    $COLOR1 $NC"
-#echo -e "$COLOR1 ${NC}             ${WH}♡ C A S P E R ♡ ${NC}                 $COLOR1 $NC"
-echo -e "$COLOR1└───────────────────────────────────────────────────┘${NC}"
-read -n 1 -s -r -p "Press any key to Restart Service or Ctrl + C to Exit"
-restart
