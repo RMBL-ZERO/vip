@@ -2,8 +2,8 @@
 #install
 apt update && apt upgrade
 apt install python3 python3-pip git
-git clone https://github.com/Hunterscrip/bot_panel.git
-unzip bot_panel/xolpanel.zip
+git clone https://github.com/RMBL-ZERO/bot_panel.git
+unzip bot_panel/kyt.zip
 pip3 install -r xolpanel/requirements.txt
 apt install zlib1g-dev libjpeg-dev libpng-dev
 pip3 install pillow
