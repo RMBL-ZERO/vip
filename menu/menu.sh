@@ -369,7 +369,7 @@ fi
 clear
 clear && clear && clear
 clear;clear;clear
-echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
+echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║${NC}${COLBG1}              ${WH} • RMBL VPN TUNNELING •            ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
 echo -e "$COLOR1║${NC}${WH}               ${WH} • INFO SISTEM •                  ${NC}$COLOR1║ $NC"
