@@ -485,8 +485,8 @@ menu
 }
 #echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
 echo -e "$COLOR1║ $NC ${WH}Versi Script  ${COLOR1}: ${WH}$(cat /opt/.ver) Version                    ${NC}$COLOR1║"
-echo -e "$COLOR1║ $NC ${WH}Nama Client   ${COLOR1}: ${WH}$Name${NC}                        ${NC}$COLOR1║"
-echo -e "$COLOR1║ $NC ${WH}Durasi Script ${COLOR1}: ${WH}$certificate hari                       ${NC}$COLOR1║"                    
+echo -e "$COLOR1║ $NC ${WH}Nama Client   ${COLOR1}: ${WH}$Name${NC}                           ${NC}$COLOR1║"
+echo -e "$COLOR1║ $NC ${WH}Durasi Script ${COLOR1}: ${WH}$certificate hari                        ${NC}$COLOR1║"                    
 echo -e "$COLOR1║ $NC ${WH}Exp Script    ${COLOR1}: ${WH}$Exp2 $sts        ${NC}$COLOR1║"
 echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
 echo -e ""
