@@ -373,7 +373,7 @@ echo -e "$COLOR1╠════════════════════�
 echo -e "$COLOR1║${NC}${COLBG1}              ${WH} • RMBL VPN TUNNELING •            ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
 echo -e "$COLOR1║${NC}${WH}               ${WH} • INFO SISTEM •                  ${NC}$COLOR1║ $NC"
-echo -e "$COLOR1║                                                 $COLOR1║ $NC"
+#echo -e "$COLOR1║                                                 $COLOR1║ $NC"
 #echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
 #echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
 #echo -e "$COLOR1║ $NC${WH}🪯 System OS          ${COLOR1}: ${WH}$MODEL2"
