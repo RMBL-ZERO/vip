@@ -415,10 +415,10 @@ echo -e "$COLOR1║                                                 $COLOR1║ $
 echo -e "$COLOR1║ ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}RUNNING  ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}BACKUP    ${WH}[${COLOR1}Menu${WH}]$COLOR1║ $NC"
 echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
 #echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
-echo -e "$COLOR1║ ${COLOR1}Traffic${NC}     ${COLOR1}Today     Yesterday       Month    ║   ${NC}"
+echo -e "$COLOR1║ ${COLOR1}Traffic${NC}     ${COLOR1}Today     Yesterday       Month     ║   ${NC}"
 #echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
 #echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║ ${COLOR1}Total${NC}   ${COLOR1}  $todayd $today_v    $yesterday $yesterday_v     $month $month_v$COLOR1  ${NC}$COLOR1║"
+echo -e "$COLOR1║ ${COLOR1}Total${NC}   ${COLOR1}  $todayd $today_v    $yesterday $yesterday_v     $month $month_v$COLOR1   ${NC}$COLOR1║"
 echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
 if [ "$Isadmin" = "ON" ]; then
 echo -e "$COLOR1┌──────────────── • PANEL ADMIN VIP • ────────────┐${NC}"
