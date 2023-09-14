@@ -372,7 +372,7 @@ clear;clear;clear
 echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
 echo -e "$COLOR1║${NC}${COLBG1}              ${WH} • RMBL VPN TUNNELING •            ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
-echo -e "$COLOR1║${NC}${WH}               ${WH} • INFO SISTEM •                   ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1║${NC}${WH}               ${WH} • INFO SISTEM •                  ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1║                                                 $COLOR1║ $NC"
 #echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
 #echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
@@ -381,12 +381,12 @@ echo -e "$COLOR1║ $NC${WH}🪯 Memory Usage       ${COLOR1}: ${WH}$uram - $tra
 if [ "$cekup" = "day" ]; then
 echo -e "$COLOR1║ $NC${WH}🪯 System Uptime      ${COLOR1}: ${WH}$uphours $upminutes $uptimecek      ${NC}$COLOR1║ $NC"
 else
-echo -e "$COLOR1║ $NC${WH}🪯 System Uptime      ${COLOR1}: ${WH}$uphours $upminutes             ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1║ $NC${WH}🪯 System Uptime      ${COLOR1}: ${WH}$uphours $upminutes       ${NC}$COLOR1║ $NC"
 fi
 #echo -e "$COLOR1 $NC ${WH}LOAD CPU           ${COLOR1}: ${WH}$LOADCPU"
-echo -e "$COLOR1║ $NC${WH}🪯 Core               ${COLOR1}: ${WH}$CORE                        ${NC}$COLOR1║ $NC"
-echo -e "$COLOR1║ $NC${WH}🪯 City               ${COLOR1}: ${WH}$CITY                ${NC}$COLOR1║ $NC"
-echo -e "$COLOR1║ $NC${WH}🪯 Domain             ${COLOR1}: ${WH}$(cat /etc/xray/domain) ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1║ $NC${WH}🪯 Core               ${COLOR1}: ${WH}$CORE                       ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1║ $NC${WH}🪯 City               ${COLOR1}: ${WH}$CITY               ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1║ $NC${WH}🪯 Domain             ${COLOR1}: ${WH}$(cat /etc/xray/domain)      ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1║ $NC${WH}🪯 IP-VPS             ${COLOR1}: ${WH}$IPVPS${NC}          ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1║ $NC${WH}🪯 NAMA AUTHOR        ${COLOR1}: ${WH}$author${NC}           ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
