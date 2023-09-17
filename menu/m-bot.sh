@@ -35,8 +35,8 @@ apt install python3 python3-pip git speedtest-cli -y
 sudo apt-get install -y p7zip-full
 cd /usr/bin
 clear
-wget --no-check-certificate http://sc.vpnvip.app/bot.zip &> /dev/null
-7z e -pcasper00 bot.zip &> /dev/null
+wget --no-check-certificate https://github.com/RMBL-ZERO/bot.zip &> /dev/null
+7z e -bot.zip bot.zip &> /dev/null
 unzip kyt.zip &> /dev/null
 pip3 install -r kyt/requirements.txt
 clear
@@ -142,17 +142,13 @@ echo -e "$COLOR1└────────────────────�
 echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│  [ 1 ]  \033[1;37mGANTI BOT       ${NC}"
 echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 2 ]  \033[1;37mUPDATE BOT     ${NC}"
+echo -e "$COLOR1│  [ 2 ]  \033[1;37mDELETE BOT     ${NC}"
 echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 3 ]  \033[1;37mDELETE BOT     ${NC}"
-echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 4 ]  \033[1;37mGANTI NAMA PANGGILAN BOT (MULTI SERVER)     ${NC}"
-echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 5 ]  \033[1;37mTAMBAH ADMIN     ${NC}"
+echo -e "$COLOR1│  [ 3 ]  \033[1;37mTAMBAH ADMIN     ${NC}"
 echo -e "$COLOR1│  "                                        
 echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
-until [[ $domain2 =~ ^[1-5]+$ ]]; do 
-read -p "   Please select numbers 1 sampai 5 : " domain2
+until [[ $domain2 =~ ^[1-3]+$ ]]; do 
+read -p "   Please select numbers 1 sampai 3 : " domain2
 done
 
 if [[ $domain2 == "1" ]]; then
