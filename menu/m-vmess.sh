@@ -1244,7 +1244,7 @@ echo -e " $COLOR1│ $NC  ${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}• ${WH}DELETE 
 echo -e " $COLOR1│ $NC                                              ${NC} $COLOR1 $NC"
 echo -e " $COLOR1│ $NC  ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}CEK USER LOGIN${NC}  ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}RESTORE EXP/DEL USER${NC}    $COLOR1 $NC"
 echo -e " $COLOR1│ $NC                                              ${NC} $COLOR1 $NC"
-echo -e " $COLOR1│ $NC  ${WH}[${COLOR1}00${WH}]${NC} ${COLOR1}• ${WH}GO BACK${NC}"
+echo -e " $COLOR1│ $NC  ${WH}[${COLOR1}11${WH}]${NC} ${COLOR1}• ${WH}CHANGE USER IP LIMIT${NC}"
 echo -e " $COLOR1└───────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
 echo -e "$COLOR1${NC}              ${WH}   • $author •                 $COLOR1 $NC"
@@ -1262,7 +1262,7 @@ case $opt in
 08 | 8) clear ; login-vmess ;;
 09 | 9) clear ; lock-vmess ;;
 10 | 10) clear ; res-user ;;
-11 | 11) clear ; del-res ;;
+11 | 11) clear ; limit-quota ;;
 00 | 0) clear ; menu ;;
 *) clear ; m-vmess ;;
 esac 
