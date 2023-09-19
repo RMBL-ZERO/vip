@@ -326,8 +326,8 @@ TEXT="
 <code>Remarks      : </code> <code>${user}</code>
 <code>Domain       : </code> <code>${domain}</code>
 <code>User Quota   : </code> <code>${Quota} GB</code>
-<code>User Limit    : </code> <code>${iplim} IP</code>
-<code>ISP           : </code> <code>${ISP}</code>
+<code>User Limit   : </code> <code>${iplim} IP</code>
+<code>ISP          : </code> <code>${ISP}</code>
 <code>CITY         : </code> <code>${CITY}</code>
 <code>Port TLS     : </code> <code>443</code>
 <code>Port NTLS    : </code> <code>80, 8080</code>
