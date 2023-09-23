@@ -426,7 +426,7 @@ echo -e "       ║ ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}RUNNING  ${WH
 echo -e "       ║                                             $COLOR1║ $NC" | lolcat
 echo -e "       ╚═════════════════════════════════════════════╝${NC}" | lolcat
 echo -e " ${z}╔══════════════════════════════════════════════════════════╗${NC}" | lolcat
-echo -e " ${z}║${NC}     HARI ini${NC} ▶️  ${r}$ttoday${NC} KEMARIN${NC} ▶️  ${r}$tyest${NC} BULAN${NC} ▶️  ${r}$tmon${NC} ${NC}" | lolcat
+echo -e " ${z}║${NC}   HARI ini${NC} ▶️  ${r}$ttoday${NC} KEMARIN${NC} ▶️  ${r}$tyest${NC} BULAN${NC} ▶️  ${r}$tmon${NC} ${NC}" | lolcat
 echo -e " ${z}╚══════════════════════════════════════════════════════════╝${NC}" | lolcat
 DATE=$(date +'%d %B %Y')
 datediff() {
