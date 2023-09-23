@@ -436,7 +436,7 @@ datediff() {
 }
 mai="datediff "$Exp" "$DATE""
 echo -e " ${z}╔══════════════════════════════════════════════════════════╗${NC}" | lolcat
-echo -e " ${z}║${NC}${z}   Version   $blue 🪯 ${NC} 1.0 Latest Version ${NC}" | lolcat
+echo -e " ${z}║${NC}${z}   Version   $blue 🪯 ${NC} 1.1  Version ${NC}" | lolcat
 echo -e " ${z}║${NC}${z}   User      $blue 🪯 ${NC}\033[1;36m $Name \e[0m"
 if [ $exp \< 1000 ];
 then
