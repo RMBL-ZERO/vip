@@ -379,6 +379,16 @@ if [[ $vms = "" ]]; then
 else
     ssh=$(cat /etc/ssh/.ssh.db | grep "#ssh1#" | wc -l)
 fi
+# TOTAL ACC CREATE VMESS WS
+vmess=$(grep -c -E "^#vmg " "/etc/xray/config.json")
+# TOTAL ACC CREATE  VLESS WS
+vless=$(grep -c -E "^#vlg " "/etc/xray/config.json")
+# TOTAL ACC CREATE  TROJAN
+trtls=$(grep -c -E "^#trg " "/etc/xray/config.json")
+# TOTAL ACC CREATE OVPN SSH
+total_ssh=$(grep -c -E "^### " "/etc/xray/ssh")
+#total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+
 clear
 echo -e " ${z}╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e " ${z}║$NC\033[41m                  • RMBL VPN TUNNEL •                     $NC${z}║$NC"
