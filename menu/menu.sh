@@ -394,8 +394,9 @@ echo -e " ${z}║ $NC$r ➤  $NC${z} IP-VPS        $blue=$NC $MYIP${NC}"
 echo -e " ${z}║ $NC$r ➤  $NC${z} DOMAIN        $blue=$NC $domain${NC}"
 echo -e " ${z}╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "       ╔═════════════════════════════════════════════╗${NC}" | lolcat
-echo -e "       ${BIYellow}SSH${GREEN} FN ${BIYellow}VMESS ${GREEN}FN ${BIYellow}VLESS ${GREEN}FN ${BIYellow}TROJAN${GREEN} $NC"
-echo -e "       ${Blue} $ssh1       $vma         $vla        $tra    $NC"
+echo -e "           $COLOR1$NC${WH} [ SSH  =  ${COLOR1}$total_ssh${WH}]${WH}    [ VMESS  = ${COLOR1}$vmess${WH}]$COLOR1 $NC"
+echo -e ""
+echo -e "           $COLOR1$NC${WH} [ VLESS  = ${COLOR1}$vless${WH}]${WH}   [ TROJAN  = ${COLOR1}${trtls}${WH}] $COLOR1 $NC"
 echo -e "       ╚═════════════════════════════════════════════╝${NC}" | lolcat
 echo -e " ${z}╔════════════════╗╔══════════════════╗╔════════════════════╗${NC}" | lolcat
 echo -e " ${z}║ ${NC}${z} SSH$NC : $resssh" "        ${z} NGINX$NC : $resngx" "        ${z} XRAY$NC : $resv2r      $NC${z}║$NC" 
