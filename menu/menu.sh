@@ -403,7 +403,7 @@ echo -e " ${z}╔════════════════╗╔═══
 echo -e " ${z}║ ${NC}${z} SSH$NC : $resssh" "        ${z} NGINX$NC : $resngx" "        ${z} XRAY$NC : $resv2r      $NC${z}║$NC" 
 echo -e " ${z}╚════════════════╝╚══════════════════╝╚════════════════════╝${NC}"
 echo -e "       ╔═════════════════════════════════════════════╗${NC}" | lolcat
-echo -e "       ║${NC}${COLBG1}                   ${WH} • MENU •                   ${NC}$COLOR1║ $NC" | lolcat
+echo -e "       ║${NC}${COLBG1}                   ${WH} • MENU •                 ${NC}$COLOR1║ $NC" | lolcat
 echo -e "       ║ ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}SSH-WS   ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}RESTART   ${WH}  ║ $NC" | lolcat 
 echo -e "       ║                                              $COLOR1║ $NC" | lolcat
 echo -e "       ║ ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}VMESS    ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}REBOOT    ${WH}  ║ $NC" | lolcat
