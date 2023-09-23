@@ -403,14 +403,14 @@ echo -e " ${z}║ $NC$r ➤  $NC${z} TIME          $blue=$NC $TIMEZONE${NC}"
 echo -e " ${z}║ $NC$r ➤  $NC${z} IP-VPS        $blue=$NC $MYIP${NC}"
 echo -e " ${z}║ $NC$r ➤  $NC${z} DOMAIN        $blue=$NC $domain${NC}"
 echo -e " ${z}╚══════════════════════════════════════════════════════════╝${NC}"
-echo -e "       ╔═════════════════════════════════════════════╗${NC}" | lolcat
-echo -e "           $COLOR1$NC${WH} [ SSH  =  ${COLOR1}$total_ssh${WH}]${WH}    [ VMESS  = ${COLOR1}$vmess${WH}]$COLOR1 $NC"
-echo -e ""
-echo -e "           $COLOR1$NC${WH} [ VLESS  = ${COLOR1}$vless${WH}]${WH}   [ TROJAN  = ${COLOR1}${trtls}${WH}] $COLOR1 $NC"
-echo -e "       ╚═════════════════════════════════════════════╝${NC}" | lolcat
 echo -e " ${z}╔════════════════╗╔══════════════════╗╔════════════════════╗${NC}" | lolcat
 echo -e " ${z}║ ${NC}${z} SSH$NC : $resssh" "        ${z} NGINX$NC : $resngx" "        ${z} XRAY$NC : $resv2r      $NC${z}║$NC" 
 echo -e " ${z}╚════════════════╝╚══════════════════╝╚════════════════════╝${NC}"
+echo -e "       ╔═════════════════════════════════════════════╗${NC}" | lolcat
+echo -e "           $COLOR1$NC${WH} [ SSH  =  ${COLOR1}$total_ssh${WH}]${WH}          [ VMESS  = ${COLOR1}$vmess${WH}]$COLOR1 $NC"
+echo -e ""
+echo -e "           $COLOR1$NC${WH} [ VLESS  = ${COLOR1}$vless${WH}]${WH}         [ TROJAN  = ${COLOR1}${trtls}${WH}] $COLOR1 $NC"
+echo -e "       ╚═════════════════════════════════════════════╝${NC}" | lolcat
 echo -e "       ╔═════════════════════════════════════════════╗${NC}" | lolcat
 echo -e "       ║${NC}${COLBG1}                   ${WH} • MENU •                 ${NC}$COLOR1║ $NC" | lolcat
 echo -e "       ║ ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}SSH-WS   ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}RESTART   ${WH}  ║ $NC" | lolcat 
