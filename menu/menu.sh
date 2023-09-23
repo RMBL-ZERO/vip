@@ -1,16 +1,4 @@
 #!/bin/bash 
-dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-MYIP=$(curl -sS ipv4.icanhazip.com)
-###########- COLOR CODE -##############
-colornow=$(cat /etc/rmbl/theme/color.conf)
-export NC="\e[0m"
-export yl='\033[0;33m';
-export RED="\033[0;31m"
-export COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-export COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
-WH='\033[1;37m'
-###########- END COLOR CODE -##########
 # COLOR VALIDATION
 clear
 L1="\e[0m\e[1;77m"
@@ -332,7 +320,7 @@ echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 }
-export sem=$( curl -s https://raw.githubusercontent.com/RMBL-ZERO/vip/main/versi)
+export sem=$( curl -s https://raw.githubusercontent.com/RMBL-ZERO/permission/main/versi)
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 #################
@@ -404,20 +392,22 @@ echo -e " ${z}║ $NC$r ➤  $NC${z} DATE          $blue=$NC $DATEVPS${NC}"
 echo -e " ${z}║ $NC$r ➤  $NC${z} TIME          $blue=$NC $TIMEZONE${NC}"
 echo -e " ${z}║ $NC$r ➤  $NC${z} IP-VPS        $blue=$NC $MYIP${NC}"
 echo -e " ${z}║ $NC$r ➤  $NC${z} DOMAIN        $blue=$NC $domain${NC}"
-echo -e " ${z}║ $NC$r ➤  $NC${z} NAMA          $blue=$NC ${WH}$author${NC}
 echo -e " ${z}╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "       ╔═════════════════════════════════════════════╗${NC}" | lolcat
 echo -e "           SSH/OPENVPN${NC}    $y=$NC $ssh1${NC}" "$a"
 echo -e "           VMESS/WS/GRPC${NC}  $y=$NC $vma$NC" "$a"
 echo -e "           VLESS/WS/GRPC${NC}  $y=$NC $vla$NC" "$a"
 echo -e "           TROJAN/WS/GRPC${NC} $y=$NC $tra${NC}" "$a"
+echo -e "           SHADOW/WS/GRPC${NC} $y=$NC $ssa${NC} $a"
 echo -e "       ╚═════════════════════════════════════════════╝${NC}" | lolcat
 echo -e " ${z}╔════════════════╗╔══════════════════╗╔════════════════════╗${NC}" | lolcat
 echo -e " ${z}║ ${NC}${z} SSH$NC : $resssh" "        ${z} NGINX$NC : $resngx" "        ${z} XRAY$NC : $resv2r      $NC${z}║$NC" 
+echo -e " ${z}║ ${NC}${z} WS-ePRO$NC : $ressshws" "    ${z} DROPBEAR$NC : $resdbr" "     ${z} HAPROXY$NC : $resst   $NC${z}║$NC" 
 echo -e " ${z}╚════════════════╝╚══════════════════╝╚════════════════════╝${NC}"
+echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
 echo -e "$COLOR1║${NC}${COLBG1}                   ${WH} • MENU •                     ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╠═════════════════════════════════════════════════╣${NC}"
-#echo -e "$COLOR1║                                                 $COLOR1║ $NC"
+#echo -e"$COLOR1║                                                 $COLOR1║ $NC"
 echo -e "$COLOR1║ ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}SSH-WS   ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}RESTART   ${WH}[${COLOR1}Menu${WH}]$COLOR1║ $NC"
 echo -e "$COLOR1║                                                 $COLOR1║ $NC"
 echo -e "$COLOR1║ ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}VMESS    ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}REBOOT    ${WH}[${COLOR1}Menu${WH}]$COLOR1║ $NC"
@@ -449,8 +439,7 @@ else
 fi;
 echo -e " ${z}╚══════════════════════════════════════════════════════════╝${NC}"
 echo " "
-read -p " Select menu : " opt
-echo -e ""
+echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
 case $opt in
 01 | 1) clear ; m-sshovpn ;;
 02 | 2) clear ; m-vmess ;;
