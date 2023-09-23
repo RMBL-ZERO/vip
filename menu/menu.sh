@@ -413,6 +413,7 @@ echo -e "           $COLOR1$NC${WH} [ VLESS  = ${COLOR1}$vless${WH}]${WH}       
 echo -e "       ╚═════════════════════════════════════════════╝${NC}" | lolcat
 echo -e "       ╔═════════════════════════════════════════════╗${NC}" | lolcat
 echo -e "       ║${NC}${COLBG1}                   ${WH} • MENU •                 ${NC}$COLOR1║ $NC" | lolcat
+echo -e "       ║                                             $COLOR1║ $NC" | lolcat
 echo -e "       ║ ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}SSH-WS   ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}RESTART   ${WH}  ║ $NC" | lolcat 
 echo -e "       ║                                             $COLOR1║ $NC" | lolcat
 echo -e "       ║ ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}VMESS    ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}REBOOT    ${WH}  ║ $NC" | lolcat
@@ -422,6 +423,7 @@ echo -e "       ║                                             $COLOR1║ $NC" 
 echo -e "       ║ ${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}• ${WH}TROJAN   ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}09${WH}]${NC} ${COLOR1}• ${WH}SETTING   ${WH}  ║ $NC" | lolcat
 echo -e "       ║                                             $COLOR1║ $NC" | lolcat
 echo -e "       ║ ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}RUNNING  ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}BACKUP    ${WH}  ║ $NC" | lolcat
+echo -e "       ║                                             $COLOR1║ $NC" | lolcat
 echo -e "       ╚═════════════════════════════════════════════╝${NC}" | lolcat
 echo -e " ${z}╔══════════════════════════════════════════════════════════╗${NC}" | lolcat
 echo -e " ${z}║${NC}     HARI ini${NC} ▶️  ${r}$ttoday${NC} KEMARIN${NC} ▶️  ${r}$tyest${NC} BULAN${NC} ▶️  ${r}$tmon${NC} ${NC}" | lolcat
