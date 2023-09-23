@@ -394,22 +394,22 @@ echo -e " ${z}╔═════════════════════
 echo -e " ${z}║$NC\033[41m                  • RMBL VPN TUNNEL •                     $NC${z}║$NC"
 echo -e " ${z}╚══════════════════════════════════════════════════════════╝${NC}" | lolcat
 echo -e " ${z}╔══════════════════════════════════════════════════════════╗${NC}" | lolcat
-echo -e " ${z}║ $NC$r 🪯  $NC${z} SYSTEM OS     $blue=$NC $MODEL${NC}"
-echo -e " ${z}║ $NC$r 🪯  $NC${z} ISP & CITY    $blue=$NC $ISP & $CITY ${NC}"
-echo -e " ${z}║ $NC$r 🪯  $NC${z} SERVER RAM    $blue=$NC $RAM MB / $USAGERAM MB ${NC}"
-echo -e " ${z}║ $NC$r 🪯  $NC${z} UPTIME SERVER $blue=$NC $uptime${NC}"
-echo -e " ${z}║ $NC$r 🪯  $NC${z} DATE          $blue=$NC $DATEVPS${NC}"
-echo -e " ${z}║ $NC$r 🪯  $NC${z} TIME          $blue=$NC $TIMEZONE${NC}"
-echo -e " ${z}║ $NC$r 🪯  $NC${z} IP-VPS        $blue=$NC $MYIP${NC}"
-echo -e " ${z}║ $NC$r 🪯  $NC${z} DOMAIN        $blue=$NC $domain${NC}"
+echo -e " ${z}║ $NC$r 🪯  $NC${z} SYSTEM OS     $blue=$NC $MODEL${NC}" | lolcat
+echo -e " ${z}║ $NC$r 🪯  $NC${z} ISP & CITY    $blue=$NC $ISP & $CITY ${NC}" | lolcat
+echo -e " ${z}║ $NC$r 🪯  $NC${z} SERVER RAM    $blue=$NC $RAM MB / $USAGERAM MB ${NC}" | lolcat
+echo -e " ${z}║ $NC$r 🪯  $NC${z} UPTIME SERVER $blue=$NC $uptime${NC}" | lolcat
+echo -e " ${z}║ $NC$r 🪯  $NC${z} DATE          $blue=$NC $DATEVPS${NC}" | lolcat
+echo -e " ${z}║ $NC$r 🪯  $NC${z} TIME          $blue=$NC $TIMEZONE${NC}" | lolcat
+echo -e " ${z}║ $NC$r 🪯  $NC${z} IP-VPS        $blue=$NC $MYIP${NC}" | lolcat
+echo -e " ${z}║ $NC$r 🪯  $NC${z} DOMAIN        $blue=$NC $domain${NC}" | lolcat
 echo -e " ${z}╚══════════════════════════════════════════════════════════╝${NC}" | lolcat
 echo -e " ${z}╔════════════════╗╔══════════════════╗╔════════════════════╗${NC}" | lolcat
-echo -e " ${z}║ ${NC}${z} SSH$NC : $resssh" "        ${z} NGINX$NC : $resngx" "        ${z} XRAY$NC : $resv2r      $NC${z}║$NC" 
+echo -e " ${z}║ ${NC}${z} SSH$NC : $resssh" "        ${z} NGINX$NC : $resngx" "        ${z} XRAY$NC : $resv2r      $NC${z}║$NC" | lolcat
 echo -e " ${z}╚════════════════╝╚══════════════════╝╚════════════════════╝${NC}" | lolcat
 echo -e "       ╔═════════════════════════════════════════════╗${NC}" | lolcat
-echo -e "           $COLOR1$NC${WH} [ SSH  =  ${COLOR1}$total_ssh${WH}]${WH}          [ VMESS  = ${COLOR1}$vmess${WH}]$COLOR1 $NC"
+echo -e "           $COLOR1$NC${WH} [ SSH  =  ${COLOR1}$total_ssh${WH}]${WH}          [ VMESS  = ${COLOR1}$vmess${WH}]$COLOR1 $NC" | lolcat
 echo -e ""
-echo -e "           $COLOR1$NC${WH} [ VLESS  = ${COLOR1}$vless${WH}]${WH}         [ TROJAN  = ${COLOR1}${trtls}${WH}] $COLOR1 $NC"
+echo -e "           $COLOR1$NC${WH} [ VLESS  = ${COLOR1}$vless${WH}]${WH}         [ TROJAN  = ${COLOR1}${trtls}${WH}] $COLOR1 $NC" | lolcat
 echo -e "       ╚═════════════════════════════════════════════╝${NC}" | lolcat
 echo -e "       ╔═════════════════════════════════════════════╗${NC}" | lolcat
 echo -e "       ║${NC}${COLBG1}                   ${WH} • MENU •                 ${NC}$COLOR1║ $NC" | lolcat
@@ -424,21 +424,21 @@ echo -e "       ║                                             $COLOR1║ $NC" 
 echo -e "       ║ ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}RUNNING  ${WH}[${COLOR1}Menu${WH}]   ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}BACKUP    ${WH}  ║ $NC" | lolcat
 echo -e "       ╚═════════════════════════════════════════════╝${NC}" | lolcat
 echo -e " ${z}╔══════════════════════════════════════════════════════════╗${NC}" | lolcat
-echo -e " ${z}║${NC} HARI ini${NC} ▶️  ${r}$ttoday${NC} KEMARIN${NC} ▶️  ${r}$tyest${NC} BULAN${NC} ▶️  ${r}$tmon${NC} ${NC}"
+echo -e " ${z}║${NC} HARI ini${NC} ▶️  ${r}$ttoday${NC} KEMARIN${NC} ▶️  ${r}$tyest${NC} BULAN${NC} ▶️  ${r}$tmon${NC} ${NC}" | lolcat
 echo -e " ${z}╚══════════════════════════════════════════════════════════╝${NC}" | lolcat
 DATE=$(date +'%d %B %Y')
 datediff() {
     d1=$(date -d "$1" +%s)
     d2=$(date -d "$2" +%s)
-    echo -e " ${z}║${NC}${z}   Expiry In $blue 🪯 ${NC} ${green}$exp ${NC}( $(( (d1 - d2) / 86400 )) ${NC}Days ) $NC"
+    echo -e " ${z}║${NC} | lolcat${z}   Expiry In $blue 🪯 ${NC} ${green}$exp ${NC}( $(( (d1 - d2) / 86400 )) ${NC}Days ) $NC"
 }
 mai="datediff "$Exp" "$DATE""
 echo -e " ${z}╔══════════════════════════════════════════════════════════╗${NC}" | lolcat
-echo -e " ${z}║${NC}${z}   Version   $blue 🪯 ${NC} 1.0 Latest Version ${NC}"
+echo -e " ${z}║${NC}${z}   Version   $blue 🪯 ${NC} 1.0 Latest Version ${NC}" | lolcat
 echo -e " ${z}║${NC}${z}   User      $blue 🪯 ${NC}\033[1;36m $Name \e[0m"
 if [ $exp \< 1000 ];
 then
-echo -e "   $z║$NC License      🪯   ${GREEN}$sisa_hari$NC Days Tersisa $NC"
+echo -e "   $z║$NC License      🪯   ${GREEN}$sisa_hari$NC Days Tersisa $NC" | lolcat
 else
     datediff "$Exp" "$DATE"
 fi;
