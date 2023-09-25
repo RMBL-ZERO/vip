@@ -2,7 +2,7 @@
 #install
 apt update && apt upgrade
 apt install python3 python3-pip git
-git clone https://github.com/keposekali/bot_panel.git
+git clone https://github.com/kontol/bot_panel.git
 unzip bot_panel/kyt.zip
 pip3 install -r kyt/requirements.txt
 apt install zlib1g-dev libjpeg-dev libpng-dev
