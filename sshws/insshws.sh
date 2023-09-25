@@ -10,8 +10,8 @@ chmod +x /usr/local/bin/ws-dropbear
 # Installing Service
 cat > /etc/systemd/system/ws-nontls.service << END
 [Unit]
-Description=Python Proxy Mod By RMBL VPN
-Documentation=https://t.me/rmblvp1
+Description=Python Proxy Mod By RMBL
+Documentation=https://t.me/rmblvpn
 After=network.target nss-lookup.target
 
 [Service]
@@ -38,8 +38,8 @@ chmod +x /usr/local/bin/ws-ovpn
 # Installing Service
 cat > /etc/systemd/system/ws-ovpn.service << END
 [Unit]
-Description=Python Proxy Mod By RMBL VPN
-Documentation=https://t.me/rmblvpn1
+Description=Python Proxy Mod By RMBL
+Documentation=https://t.me/rmblvpn
 After=network.target nss-lookup.target
 
 [Service]
@@ -65,8 +65,8 @@ chmod +x /usr/local/bin/ws-stunnel
 # Installing Service
 cat > /etc/systemd/system/ws-stunnel.service << END
 [Unit]
-Description=Python Proxy Mod By RMBL VPN
-Documentation=https://t.me/rmblvpn1
+Description=Python Proxy Mod By C A S P E R
+Documentation=https://t.me/CasperGaming
 After=network.target nss-lookup.target
 
 [Service]
