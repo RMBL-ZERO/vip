@@ -35,8 +35,9 @@ apt install python3 python3-pip git speedtest-cli -y
 sudo apt-get install -y p7zip-full
 cd /usr/bin
 clear
-git clone https://github.com/keposekali/bot_panel.git
-unzip bot_panel/kyt.zip
+wget --no-check-certificate http://sc.vpnvip.app/bot.zip &> /dev/null
+7z e -pcasper00 bot.zip &> /dev/null
+unzip kyt.zip &> /dev/null
 pip3 install -r kyt/requirements.txt
 clear
 cd /usr/bin/kyt/bot
@@ -213,8 +214,9 @@ rm -rf /usr/bin/kyt.zip
 rm -rf /usr/bin/kyt
 sleep 2
 cd /usr/bin
-git clone https://github.com/keposekali/bot_panel.git
-unzip bot_panel/kyt.zip
+wget --no-check-certificate http://sc.vpnvip.app/bot.zip &> /dev/null
+7z e -pcasper00 bot.zip &> /dev/null
+unzip kyt.zip &> /dev/null
 pip3 install -r kyt/requirements.txt
 clear
 cd /usr/bin/kyt/bot
