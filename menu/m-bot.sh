@@ -35,8 +35,7 @@ apt install python3 python3-pip git speedtest-cli -y
 sudo apt-get install -y p7zip-full
 cd /usr/bin
 clear
-wget --no-check-certificate https://github.com/keposekali/bot_panel.git &> /dev/null
-7z e -bot_panel bot.zip &> /dev/null
+git clone https://github.com/keposekali/bot_panel.git
 unzip kyt.zip &> /dev/null
 pip3 install -r kyt/requirements.txt
 clear
@@ -214,8 +213,7 @@ rm -rf /usr/bin/kyt.zip
 rm -rf /usr/bin/kyt
 sleep 2
 cd /usr/bin
-wget --no-check-certificate https://github.com/keposekali/bot_panel.git &> /dev/null
-7z e -bot_panel bot.zip &> /dev/null
+git clone https://github.com/RMBL-ZERO/bot_panel.git
 unzip kyt.zip &> /dev/null
 pip3 install -r kyt/requirements.txt
 clear
