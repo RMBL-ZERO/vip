@@ -220,16 +220,6 @@ else
 resv2r="${red}OFF${NC}"
 fi
 function addhost(){
-# TOTAL ACC CREATE VMESS WS
-vmess=$(grep -c -E "^#vmg " "/etc/xray/config.json")
-# TOTAL ACC CREATE  VLESS WS
-vless=$(grep -c -E "^#vlg " "/etc/xray/config.json")
-# TOTAL ACC CREATE  TROJAN
-trtls=$(grep -c -E "^#trg " "/etc/xray/config.json")
-# TOTAL ACC CREATE OVPN SSH
-total_ssh=$(grep -c -E "^### " "/etc/xray/ssh")
-#total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-function updatews(){
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
@@ -290,6 +280,16 @@ ISPVPS=$( curl -s ipinfo.io/org )
 ttoday="$(vnstat | grep today | awk '{print $8" "substr ($9, 1, 3)}' | head -1)"
 tmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $8" "substr ($9, 1 ,3)}' | head -1)"
 IPVPS=$(curl -s ipinfo.io/ip )
+# TOTAL ACC CREATE VMESS WS
+vmess=$(grep -c -E "^#vmg " "/etc/xray/config.json")
+# TOTAL ACC CREATE  VLESS WS
+vless=$(grep -c -E "^#vlg " "/etc/xray/config.json")
+# TOTAL ACC CREATE  TROJAN
+trtls=$(grep -c -E "^#trg " "/etc/xray/config.json")
+# TOTAL ACC CREATE OVPN SSH
+total_ssh=$(grep -c -E "^### " "/etc/xray/ssh")
+#total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+clear
 clear
 echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• RMBL VPN TUNNELING  •            ${NC}$COLOR1║ $NC"
