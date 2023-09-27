@@ -59,7 +59,6 @@ checking_sc
 clear
 
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
-NS=$(cat /etc/xray/dns)
 CITY=$(curl -s ipinfo.io/city)
 IPVPS=$(curl -s ipv4.icanhazip.com)
 domain=$(cat /etc/xray/domain)
@@ -160,7 +159,6 @@ export IP=$( curl -s https://ipinfo.io/ip/ )
 clear
 
 ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
-NS=$(cat /etc/xray/dns)
 CITY=$(curl -s ipinfo.io/city)
 IPVPS=$(curl -s ipv4.icanhazip.com)
 domain=$(cat /etc/xray/domain)
@@ -281,8 +279,6 @@ IPVPS=$(curl -s ipinfo.io/ip )
 ISPVPS=$( curl -s ipinfo.io/org )
 ttoday="$(vnstat | grep today | awk '{print $8" "substr ($9, 1, 3)}' | head -1)"
 tmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $8" "substr ($9, 1 ,3)}' | head -1)"
-export sem=$( curl -s https://raw.githubusercontent.com/RMBL-ZERO/permission/main/version)
-export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
 echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
