@@ -1,10 +1,10 @@
 #!/bin/bash
 MYIP=$(wget -qO- ipinfo.io/ip);
 
-colornow=$(cat /etc/ssnvpn/theme/color.conf)
+colornow=$(cat /etc/rmbl/theme/color.conf)
 NC="\e[0m"
-COLOR1="$(cat /etc/ssnvpn/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
-COLBG1="$(cat /etc/ssnvpn/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
 
 APIGIT=$(cat /etc/kyt/github/api)
 EMAILGIT=$(cat /etc/kyt/github/email)
@@ -29,7 +29,7 @@ if [ -z $EMAIL1 ]; then
 echo -e "$COLOR1│${NC}   [INFO] Please Input Your Github Email Adress"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 • RMBL •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -41,7 +41,7 @@ if [ -z $USERNAME1 ]; then
 echo -e "$COLOR1│${NC}   [INFO] Please Input Your Github Username"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 • RMBL •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -53,7 +53,7 @@ if [ -z $API1 ]; then
 echo -e "$COLOR1│${NC}  [INFO] Please Input Your Github API"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 • RMBL •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "  Press any key to back on menu"
@@ -77,7 +77,7 @@ echo -e "$COLOR1│${NC}   • User  : $USERNAME1"
 echo -e "$COLOR1│${NC}   • API   : $API1"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 • RMBL •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -94,10 +94,10 @@ echo -e "$COLOR1│${NC}  • Email : $EMAILGIT"
 echo -e "$COLOR1│${NC}  • User  : $USERGIT"
 echo -e "$COLOR1│${NC}  • API   : $APIGIT"
 echo -e "$COLOR1│${NC}  • All U need Is Create a new repository "
-echo -e "$COLOR1│${NC}    & Nammed : izinvps "
+echo -e "$COLOR1│${NC}    & Nammed : permission "
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 • RMBL •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -110,17 +110,17 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-rm -rf /root/izinvps
+rm -rf /root/permission
 read -p "│  NEW IPVPS : " daftar
 echo -e "$COLOR1│${NC}"
 echo -e "$COLOR1│${NC}  [INFO] Checking the IPVPS!"
 sleep 1
-REQIP=$(curl -sS https://raw.githubusercontent.com/${USERGIT}/izinvps/ipuk/ip | awk '{print $4}' | grep $daftar)
+REQIP=$(curl -sS https://raw.githubusercontent.com/${USERGIT}/permission/main/ipmini | awk '{print $4}' | grep $daftar)
 if [[ $daftar = $REQIP ]]; then
 echo -e "$COLOR1│${NC}  [INFO] VPS IP Already Registered!!"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 • RMBL •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -141,7 +141,7 @@ cd
 echo -e "$COLOR1│${NC}  [INFO] Please Input client"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 • RMBL •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -155,7 +155,7 @@ cd
 echo -e "$COLOR1│${NC}   [INFO] Please Input exp date"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 • RMBL •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -184,11 +184,11 @@ exp=$(date -d "$exp days" +"%Y-%m-%d")
 hariini=$(date -d "0 days" +"%Y-%m-%d")
 git config --global user.email "${EMAILGIT}" &> /dev/null
 git config --global user.name "${USERGIT}" &> /dev/null
-git clone https://github.com/${USERGIT}/izinvps.git &> /dev/null
-cd /root/izinvps/ &> /dev/null
+git clone https://github.com/${USERGIT}/permission.git &> /dev/null
+cd /root/permission/ &> /dev/null
 rm -rf .git &> /dev/null
 git init &> /dev/null
-touch ip &> /dev/null
+touch ipmini &> /dev/null
 touch newuser &> /dev/null
 TEXT="
 Name        : $client
@@ -197,13 +197,13 @@ Exp         : $exp
 IPVPS       : $daftar
 Reg Date    : $hariini
 "
-echo "${TEXT}" >>/root/izinvps/newuser
-echo "### $client $exp $daftar $isadmin" >>/root/izinvps/ip
+echo "${TEXT}" >>/root/permission/newuser
+echo "### $client $exp $daftar $isadmin" >>/root/permission/ipmini
 git add .
 git commit -m register &> /dev/null
-git branch -M ipuk &> /dev/null
-git remote add origin https://github.com/${USERGIT}/izinvps.git &> /dev/null
-git push -f https://${APIGIT}@github.com/${USERGIT}/izinvps.git &> /dev/null
+git branch -M main &> /dev/null
+git remote add origin https://github.com/${USERGIT}/permission.git &> /dev/null
+git push -f https://${APIGIT}@github.com/${USERGIT}/permission.git &> /dev/null
 sleep 1
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -218,7 +218,7 @@ echo -e "$COLOR1│${NC}  IP VPS        : $daftar"
 echo -e "$COLOR1│${NC}  Register Date : $TheKill"
 echo -e "$COLOR1│${NC}  Expired Date  : $exp"
 cd
-rm -rf /root/izinvps
+rm -rf /root/permission
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              •  •            $COLOR1│$NC"
@@ -229,23 +229,23 @@ menu-ip
 }
 function delipvps(){
 clear
-rm -rf /root/izinvps &> /dev/null
+rm -rf /root/permission &> /dev/null
 git config --global user.email "${EMAILGIT}" &> /dev/null
 git config --global user.name "${USERGIT}" &> /dev/null
-git clone https://github.com/${USERGIT}/izinvps.git &> /dev/null
-cd /root/izinvps/ &> /dev/null
+git clone https://github.com/${USERGIT}/permission.git &> /dev/null
+cd /root/permission/ &> /dev/null
 rm -rf .git &> /dev/null
 git init &> /dev/null
-touch ip &> /dev/null
+touch ipmini &> /dev/null
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}                 • DELETE IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 2-4 | nl -s '. '
+grep -E "^### " "/root/permission/ip" | cut -d ' ' -f 2-4 | nl -s '. '
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -rp "   Please Input Number : " nombor
@@ -258,30 +258,30 @@ echo -e "$COLOR1└────────────────────�
 echo -e "$COLOR1│${NC}   [INFO] Please Input Correct Number"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 • •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu-ip
 fi
 
-name1=$(grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 2 | sed -n "$nombor"p) #name
-exp=$(grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 3 | sed -n "$nombor"p) #exp
-ivps1=$(grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 4 | sed -n "$nombor"p) #ip
-sed -i "s/### $name1 $exp $ivps1//g" /root/izinvps/ip &> /dev/null
+name1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | sed -n "$nombor"p) #name
+exp=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 3 | sed -n "$nombor"p) #exp
+ivps1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 4 | sed -n "$nombor"p) #ip
+sed -i "s/### $name1 $exp $ivps1//g" /root/permission/ipmini &> /dev/null
 hariini2=$(date -d "0 days" +"%Y-%m-%d")
 TEXTD="
 Name     : $name1
 IPVPS    : $ivps1
 Status   : Deleted on  $hariini2
 "
-echo "${TEXTD}" >>/root/izinvps/delete_log  &> /dev/null
+echo "${TEXTD}" >>/root/permission/delete_log  &> /dev/null
 
 git add . &> /dev/null
 git commit -m remove &> /dev/null
-git branch -M ipuk &> /dev/null
-git remote add origin https://github.com/${USERGIT}/izinvps.git &> /dev/null
-git push -f https://${APIGIT}@github.com/${USERGIT}/izinvps.git &> /dev/null
+git branch -M main &> /dev/null
+git remote add origin https://github.com/${USERGIT}/permission.git &> /dev/null
+git push -f https://${APIGIT}@github.com/${USERGIT}/permission.git &> /dev/null
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
@@ -293,10 +293,10 @@ echo -e "$COLOR1│${NC}  Ip VPS       : $ivps1"
 echo -e "$COLOR1│${NC}  Expired Date : $exp"
 echo -e "$COLOR1│${NC}  Client Name  : $name1"
 cd
-rm -rf /root/izinvps
+rm -rf /root/permission
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -309,17 +309,17 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-rm -rf /root/izinvps
+rm -rf /root/permission
 git config --global user.email "${EMAILGIT}" &> /dev/null
 git config --global user.name "${USERGIT}" &> /dev/null
-git clone https://github.com/${USERGIT}/izinvps.git
-cd /root/izinvps/
+git clone https://github.com/${USERGIT}/permission.git
+cd /root/permission/
 rm -rf .git
 git init
-touch ip
+touch ipmini
 echo -e "   [ ${Lyellow}INFO${NC} ] Checking list.."
 
-NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/root/izinvps/ip")
+NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/root/permission/ipmini")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
   clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -329,7 +329,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC}   [INFO] You have no existing clients!"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -340,10 +340,10 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 2-4 | nl -s '. '
+grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2-4 | nl -s '. '
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -362,7 +362,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC}   [INFO] Please Input Correct Number"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -381,15 +381,15 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC}  [INFO] Please Input Correct Number"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu-ip
 fi
-name1=$(grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p) #name
-exp=$(grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p) #exp
-ivps1=$(grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p) #ip
+name1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p) #name
+exp=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p) #exp
+ivps1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p) #ip
 
 now=$(date +%Y-%m-%d)
 d1=$(date -d "$exp" +%s)
@@ -397,12 +397,12 @@ d2=$(date -d "$now" +%s)
 exp2=$(((d1 - d2) / 86400))
 exp3=$(($exp2 + $masaaktif))
 exp4=$(date -d "$exp3 days" +"%Y-%m-%d")
-sed -i "s/### $name1 $exp $ivps1/### $name1 $exp4 $ivps1/g" /root/izinvps/ip
+sed -i "s/### $name1 $exp $ivps1/### $name1 $exp4 $ivps1/g" /root/permission/ipmini
 git add .
 git commit -m renew
-git branch -M ipuk
-git remote add origin https://github.com/${USERGIT}/izinvps.git
-git push -f https://${APIGIT}@github.com/${USERGIT}/izinvps.git
+git branch -M main
+git remote add origin https://github.com/${USERGIT}/permission.git
+git push -f https://${APIGIT}@github.com/${USERGIT}/permission.git
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
@@ -416,10 +416,10 @@ echo -e "$COLOR1│${NC}  Days Added    : $masaaktif Days"
 echo -e "$COLOR1│${NC}  Expired Date  : $exp4"
 echo -e "$COLOR1│${NC}  Client Name   : $name1"
 cd
-rm -rf /root/izinvps
+rm -rf /root/permission
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -428,26 +428,26 @@ menu-ip
 
 function useripvps(){
 clear
-rm -rf /root/izinvps
+rm -rf /root/permission
 git config --global user.email "${EMAILGIT}"
 git config --global user.name "${USERGIT}"
-git clone https://github.com/${USERGIT}/izinvps.git
-cd /root/izinvps/
+git clone https://github.com/${USERGIT}/permission.git
+cd /root/permission/
 rm -rf .git
 git init
-touch ip
+touch ipmini
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 2 | nl -s '. '
+grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | nl -s '. '
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 cd
-rm -rf /root/izinvps
+rm -rf /root/permission
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu-ip
@@ -466,13 +466,13 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC}  [INFO] Github API Reseted Successfully"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu-ip
 }
-Isadmin=$(curl -sS https://raw.githubusercontent.com/MyRidwan/izinvps/ipuk/ip | grep $MYIP | awk '{print $5}')
+Isadmin=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $5}')
 if [ "$Isadmin" = "OFF" ]; then
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -484,7 +484,7 @@ echo -e "$COLOR1│${NC} [INFO] Buy Premium Membership : "
 echo -e "$COLOR1│${NC} [INFO] PM : "
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
@@ -514,7 +514,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC}   • You Need To Set Github API First!"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
-echo -e "$COLOR1│${NC}                 • ARH-PROJECT •                 $COLOR1│$NC"
+echo -e "$COLOR1│${NC}                 •  •                 $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to Set API"
