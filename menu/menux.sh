@@ -332,7 +332,17 @@ echo -e "$COLOR1║                                                 $COLOR1║ $
 echo -e "$COLOR1║ ${WH} ${BICyan}[${BIWhite}05${BICyan}]${RED} •${NC} ${BIGreen}RUNNING ${GREEN}MENU   $NC  ${BICyan}[${BIWhite}10${BICyan}]${RED} • ${NC}${BIGreen}BACKUP          $COLOR1║ $NC"
 echo -e "$COLOR1║                                                 $COLOR1║ $NC"
 echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
-
+if [ "$Isadmin" = "ON" ]; then
+echo -e "$COLOR1┌──────────────── • PANEL ADMIN VIP • ────────────┐${NC}"
+echo -e "$COLOR1│  ${WH}[${COLOR1}11${WH}]${NC} ${COLOR1}• ${WH}RESELLER IP ${WH}[${COLOR1}MENU${WH}] $COLOR1 $NC"
+ressee="m-ip2"
+bottt="m-bot"
+echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+else
+ressee="menu"
+bottt="menu"
+fi
+myver="$(cat /opt/.ver)"
 echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║ ${WH} ${BOLD}${GREEN}Client    = $Name                           ${NC}"
 echo -e "$COLOR1║ ${WH} ${BOLD}${RED}Expired   = $Exp                            ${NC}"
