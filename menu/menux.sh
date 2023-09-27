@@ -313,7 +313,7 @@ echo -e "     ${BICyan} XRAY  ${NC}: ${GREEN}$resv2r         ${LIGHT} Monthly: $
 echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║ ${WH} \033[0m ${BOLD}${YELLOW}SSH     VMESS       VLESS      TROJAN       $NC  $COLOR1║ $NC"
-echo -e "$COLOR1║ ${WH} \033[0m ${Blue} $ssh1        $vma           $vla          $tra        $NC    $COLOR1║ $NC"
+echo -e "$COLOR1║ ${WH} \033[0m ${COLOR1}$total_ssh${WH}        ${COLOR1}$vmess${WH}           ${COLOR1}$vless${WH}          ${COLOR1}${trtls}${WH}        $NC    $COLOR1║ $NC"
 echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
 
 echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
