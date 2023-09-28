@@ -28,12 +28,12 @@ add-ip() {
     git clone https://github.com/RMBL-ZERO/permission.git /root/ipvps/ &> /dev/null
     clear
     read -p "Input IP Address : " ip
-    CLIENT_EXISTS=$(grep -w $ip /root/ipvps/ip | wc -l)
+    CLIENT_EXISTS=$(grep -w $ip /root/ipvps/ipmini | wc -l)
     if [[ ${CLIENT_EXISTS} == '1' ]]; then
     echo "IP Already Exist !"
     exit 0
     fi
-    read -p "Input Username IP (Example : reyz) : " name
+    read -p "Input Username IP (Example : rmbl) : " name
     echo "How Much Days Do You Want ?"
     echo "1) 30 Days"
     echo "2) 60 Days"
@@ -44,20 +44,20 @@ add-ip() {
     
     if [[ ${exp} == '1' ]]; then
     exp2=`date -d "30 days" +"%Y-%m-%d"`
-    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ip
+    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ipmini
     elif [[ ${exp} == '2' ]]; then
     exp2=`date -d "60 days" +"%Y-%m-%d"`
-    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ip
+    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ipmini
     elif [[ ${exp} == '3' ]]; then
     exp2=`date -d "90 days" +"%Y-%m-%d"`
-    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ip
+    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ipmini
     elif [[ ${exp} == '4' ]]; then
     exp2="Lifetime"
-    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ip
+    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ipmini
     elif [[ ${exp} == '5' ]]; then
     read -p "Input Expired Days : " exp11
     exp2=`date -d "$exp11 days" +"%Y-%m-%d"`
-    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ip
+    echo "### ${name} $ran ${exp2} ${ip}" >> /root/ipvps/ipmini
     fi
     cd /root/ipvps
     git config --global user.email "rmblvpn7@gmail.com" &> /dev/null
@@ -89,17 +89,17 @@ del-ip() {
     clear
     echo "List IP Address Have Been Registered"
     echo ""
-    grep -E "^###" "/root/ipvps/ip" | cut -d ' ' -f 2-6 | column -t | sort | uniq
-    grep -E "^#&" "/root/ipvps/ip" | cut -d ' ' -f 2-6 | column -t | sort | uniq
+    grep -E "^###" "/root/ipvps/ipmini" | cut -d ' ' -f 2-6 | column -t | sort | uniq
+    grep -E "^#&" "/root/ipvps/ipmini" | cut -d ' ' -f 2-6 | column -t | sort | uniq
     echo ""
     read -p "Input IP Address To Delete : " ipdel
-    name=$(cat /root/ipvps/ip | grep $ipdel | awk '{print $2}')
-    oid=$(cat /root/ipvps/ip | grep $ipdel | awk '{print $3}')
-    exp=$(cat /root/ipvps/ip | grep $ipdel | awk '{print $4}')
+    name=$(cat /root/ipvps/ipmini | grep $ipdel | awk '{print $2}')
+    oid=$(cat /root/ipvps/ipmini | grep $ipdel | awk '{print $3}')
+    exp=$(cat /root/ipvps/ipmini | grep $ipdel | awk '{print $4}')
     if [[ ${exp} == 'Lifetime' ]]; then
-    sed -i "/^#& $name $oid $exp $ipdel/,/^},{/d" /root/ipvps/ip
+    sed -i "/^#& $name $oid $exp $ipdel/,/^},{/d" /root/ipvps/ipmini
     else
-    sed -i "/^### $name $oid $exp $ipdel/,/^},{/d" /root/ipvps/ip
+    sed -i "/^### $name $oid $exp $ipdel/,/^},{/d" /root/ipvps/ipmini
     fi
     cd /root/ipvps
     git config --global user.email "rmblvpn7@gmail.com" &> /dev/null
@@ -124,20 +124,20 @@ renew-ip() {
     clear
     echo "List IP Address Have Been Registered"
     echo ""
-    grep -E "^###" "/root/ipvps/ip" | cut -d ' ' -f 2-6 | column -t | sort | uniq
+    grep -E "^###" "/root/ipvps/ipmini" | cut -d ' ' -f 2-6 | column -t | sort | uniq
     echo ""
     read -p "Input IP Address To Renew : " ipdel
     read -p "Input Days  : " days
-    name=$(cat /root/ipvps/ip | grep $ipdel | awk '{print $2}')
-    oid=$(cat /root/ipvps/ip | grep $ipdel | awk '{print $3}')
-    exp=$(cat /root/ipvps/ip | grep $ipdel | awk '{print $4}')
+    name=$(cat /root/ipvps/ipmini | grep $ipdel | awk '{print $2}')
+    oid=$(cat /root/ipvps/ipmini | grep $ipdel | awk '{print $3}')
+    exp=$(cat /root/ipvps/ipmini | grep $ipdel | awk '{print $4}')
     now=$(date +%Y-%m-%d)
     d1=$(date -d "$exp" +%s)
     d2=$(date -d "$now" +%s)
     exp2=$(( (d1 - d2) / 86400 ))
     exp3=$(($exp2 + $days))
     exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
-    sed -i "s/### $name $oid $exp $ipdel/### $name $oid $exp4 $ipdel/g" /root/ipvps/ip
+    sed -i "s/### $name $oid $exp $ipdel/### $name $oid $exp4 $ipdel/g" /root/ipvps/ipmini
     cd /root/ipvps
     git config --global user.email "rmblvpn7@gmail.com" &> /dev/null
     git config --global user.name "RMBL-ZERO" &> /dev/null
