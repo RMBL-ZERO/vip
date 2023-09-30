@@ -33,7 +33,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 
 read -p " Username : " USERNAME1
@@ -45,7 +45,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 
 read -p " API      : " API1
@@ -57,7 +57,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "  Press any key to back on menu"
-menu-ip
+m-ip
 fi
 
 sleep 2
@@ -81,7 +81,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 }
 
 function viewapi(){
@@ -101,7 +101,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 }
 
 function add_ip(){
@@ -124,7 +124,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 else
 echo -e "$COLOR1│${NC}  [INFO] OK! IP VPS is not Registered!"
 echo -e "$COLOR1│${NC}  [INFO] Lets Regester it!"
@@ -145,7 +145,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 
 
@@ -159,7 +159,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 
 x="ok"
@@ -188,7 +188,7 @@ git clone https://github.com/${USERGIT}/permission.git &> /dev/null
 cd /root/permission/ &> /dev/null
 rm -rf .git &> /dev/null
 git init &> /dev/null
-touch ip &> /dev/null
+touch ipmini &> /dev/null
 touch newuser &> /dev/null
 TEXT="
 Name        : $client 
@@ -225,7 +225,7 @@ echo -e "$COLOR1│${NC}              • RMBL VPN •            $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 }
 function delipvps(){
 clear
@@ -262,7 +262,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 
 name1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | sed -n "$nombor"p) #name
@@ -300,7 +300,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 }
 
 function renewipvps(){
@@ -316,7 +316,7 @@ git clone https://github.com/${USERGIT}/permission.git
 cd /root/permission/
 rm -rf .git
 git init
-touch ip
+touch ipmini
 echo -e "   [ ${Lyellow}INFO${NC} ] Checking list.."
 
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/root/permission/ipmini")
@@ -333,7 +333,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -366,7 +366,7 @@ echo -e "$COLOR1│${NC}                 • Rmbl VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 done
 echo -e ""
@@ -385,7 +385,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 name1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p) #name
 exp=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p) #exp
@@ -423,7 +423,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 }
 
 function useripvps(){
@@ -435,7 +435,7 @@ git clone https://github.com/${USERGIT}/permission.git
 cd /root/permission/
 rm -rf .git
 git init
-touch ip
+touch ipmini
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
@@ -450,7 +450,7 @@ cd
 rm -rf /root/permission
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 }
 function resetipvps(){
 clear
@@ -470,7 +470,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip  
+m-ip  
 }
 Isadmin=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $5}')
 if [ "$Isadmin" = "OFF" ]; then
@@ -488,7 +488,7 @@ echo -e "$COLOR1│${NC}                 • RMBL VPN •                 $COLOR
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip  
+m-ip  
 fi
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -533,7 +533,7 @@ ISON="RESET API"
 ressee="resetipvps"
 else
 ISON=""
-ressee="menu-ip"
+ressee="m-ip"
 fi
 echo -e "   $COLOR1 [01]$NC • $APIOK        $COLOR1 [04]$NC • RENEW IPVPS" 
 echo -e "   $COLOR1 [02]$NC • ADD IPVPS      $COLOR1 [05]$NC • LIST IPVPS"
@@ -556,5 +556,5 @@ case $opt in
 05 | 5) clear ; useripvps ;;
 06 | 6) clear ; $ressee ;;
 00 | 0) clear ; menu ;;
-*) clear ; menu-ip ;;
+*) clear ; m-ip ;;
 esac
