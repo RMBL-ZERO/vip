@@ -6,9 +6,9 @@ NC="\e[0m"
 COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
 COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
 
-APIGIT=$(cat /etc/rmblvpn/github/api)
-EMAILGIT=$(cat /etc/rmblvpn/github/email)
-USERGIT=$(cat /etc/rmblvpn/github/username)
+APIGIT=$(cat /etc/rmbl/github/api)
+EMAILGIT=$(cat /etc/rmbl/github/email)
+USERGIT=$(cat /etc/rmbl/github/username)
 
 
 function setapi(){
@@ -18,10 +18,10 @@ echo -e "$COLOR1│${NC} ${COLBG1}              • IPVPS GITHUB API •        
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 
-if [[ -f /etc/rmblvpn/github/api && -f /etc/rmblvpn/github/email && /etc/rmblvpn/github/username ]]; then
+if [[ -f /etc/rmbl/github/api && -f /etc/rmblvpn/github/email && /etc/rmblvpn/github/username ]]; then
    rec="OK"
 else
-    mkdir /etc/rmblvpn/github > /dev/null 2>&1
+    mkdir /etc/rmbl/github > /dev/null 2>&1
 fi
 
 read -p " E-mail   : " EMAIL1
@@ -61,10 +61,10 @@ menu-ip
 fi
 
 sleep 2
-echo "$EMAIL1" > /etc/rmblvpn/github/email
-echo "$USERNAME1" > /etc/ssnvpn/github/username
-echo "$API1" > /etc/rmblvpn/github/api
-echo "ON" > /etc/rmblvpn/github/gitstat
+echo "$EMAIL1" > /etc/rmbl/github/email
+echo "$USERNAME1" > /etc/rmbl/github/username
+echo "$API1" > /etc/rmbl/github/api
+echo "ON" > /etc/rmbl/github/gitstat
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
@@ -265,9 +265,9 @@ read -n 1 -s -r -p "   Press any key to back on menu"
 menu-ip
 fi
 
-name1=$(grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 2 | sed -n "$nombor"p) #name
-exp=$(grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 3 | sed -n "$nombor"p) #exp
-ivps1=$(grep -E "^### " "/root/izinvps/ip" | cut -d ' ' -f 4 | sed -n "$nombor"p) #ip
+name1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | sed -n "$nombor"p) #name
+exp=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 3 | sed -n "$nombor"p) #exp
+ivps1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 4 | sed -n "$nombor"p) #ip
 sed -i "s/### $name1 $exp $ivps1//g" /root/permission/ipmini &> /dev/null
 hariini2=$(date -d "0 days" +"%Y-%m-%d")
 TEXTD="
@@ -454,11 +454,11 @@ menu-ip
 }
 function resetipvps(){
 clear
-rm -f /etc/rmblvpn/github/email
-rm -f /etc/rmblvpn/github/username
-rm -f /etc/rmblvpn/github/api
-rm -f /etc/rmblvpn/github/gitstat
-echo "OFF" > /etc/rmblvpn/github/gitstat
+rm -f /etc/rmbl/github/email
+rm -f /etc/rmbl/github/username
+rm -f /etc/rmbl/github/api
+rm -f /etc/rmbl/github/gitstat
+echo "OFF" > /etc/rmbl/github/gitstat
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}              • RESET GITUB API •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -495,16 +495,16 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-GITREQ=/etc/rmblvpn/github/gitstat
+GITREQ=/etc/rmbl/github/gitstat
 if [ -f "$GITREQ" ]; then
     cekk="ok"
 else 
-    mkdir /etc/rmblvpn/github
-    touch /etc/rmblvpn/github/gitstat
-    echo "OFF" > /etc/rmblvpn/github/gitstat
+    mkdir /etc/rmbl/github
+    touch /etc/rmbl/github/gitstat
+    echo "OFF" > /etc/rmbl/github/gitstat
 fi
 
-stst1=$(cat /etc/rmblvpn/github/gitstat)
+stst1=$(cat /etc/rmbl/github/gitstat)
 if [ "$stst1" = "OFF" ]; then
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -520,7 +520,7 @@ echo -e ""
 read -n 1 -s -r -p "   Press any key to Set API"
 setapi
 fi
-stst=$(cat /etc/rmblvpn/github/gitstat)
+stst=$(cat /etc/rmbl/github/gitstat)
 if [ "$stst" = "ON" ]; then
 APIOK="CEK API"
 rex="viewapi"
