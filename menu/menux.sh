@@ -397,7 +397,7 @@ echo -e "$COLOR1║  $NC ${WH}[ XRAY   : ${status_xray} ${WH}]            ${WH}[
 echo -e "$COLOR1║  $NC ${WH}[ NGINX  : ${status_nginx} ${WH}]            ${WH}[ Month     : $month $month_v]             $COLOR1║$NC"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║ $COLOR1$NC${WH} [ SSH   =  ${COLOR1}$total_ssh${WH}]${WH}    [ VMESS   = ${COLOR1}$vmess${WH}]  [ VLESS  = ${COLOR1}$vless${WH}]  [ TROJAN  = ${COLOR1}${trtls}${WH}] $COLOR1║$NC"
+echo -e "$COLOR1║$COLOR1$NC${WH} [ SSH   =  ${COLOR1}$total_ssh${WH}]${WH}  [ VMESS   = ${COLOR1}$vmess${WH}]  [ VLESS  = ${COLOR1}$vless${WH}]  [ TROJAN  = ${COLOR1}${trtls}${WH}] $COLOR1║$NC"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "      $COLOR1╔═════════════════════════════════════════════╗${NC}"
 echo -e "      $COLOR1║${NC}${COLBG1}                   ${WH} • MENU •                 ${NC}$COLOR1║ $NC"
