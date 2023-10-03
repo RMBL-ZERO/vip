@@ -373,7 +373,7 @@ echo -e "$COLOR1╔════════════════════�
 echo -e "$COLOR1║${NC}${COLBG1}              ${WH} • RMBL VPN TUNNELING •            ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║${NC}${WH}               ${WH} • INFO SISTEM •                  ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1║${NC}${WH}               ${WH} • INFO SISTEM •                  ${NC}$COLOR1 $NC"
 #echo -e "$COLOR1║                                                 $COLOR1║ $NC"
 #echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
 #echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
@@ -384,7 +384,7 @@ echo -e "$COLOR1║ $NC${WH}🪯 System Uptime      ${COLOR1}: ${WH}$uphours $up
 else
 echo -e "$COLOR1║ $NC${WH}🪯 System Uptime      ${COLOR1}: ${WH}$uphours $upminutes     "
 fi
-echo -e "$COLOR1║ $NC${WH}🪯LOAD CPU            ${COLOR1}: ${WH}$LOADCPU"
+#echo -e "$COLOR1║ $NC${WH}🪯LOAD CPU            ${COLOR1}: ${WH}$LOADCPU"
 echo -e "$COLOR1║ $NC${WH}🪯 Core               ${COLOR1}: ${WH}$CORE                       "
 echo -e "$COLOR1║ $NC${WH}🪯 City               ${COLOR1}: ${WH}$CITY               "
 echo -e "$COLOR1║ $NC${WH}🪯 Domain             ${COLOR1}: ${WH}$(cat /etc/xray/domain)      "
