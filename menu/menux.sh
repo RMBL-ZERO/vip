@@ -374,9 +374,6 @@ echo -e "$COLOR1║${NC}${COLBG1}              ${WH} • RMBL VPN TUNNELING • 
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║${NC}${WH}               ${WH} • INFO SISTEM •                  ${NC}$COLOR1 $NC"
-#echo -e "$COLOR1║                                                 $COLOR1║ $NC"
-#echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
-#echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
 echo -e "$COLOR1║ $NC${WH}🪯 System OS          ${COLOR1}: ${WH}$MODEL2"
 echo -e "$COLOR1║ $NC${WH}🪯 Memory Usage       ${COLOR1}: ${WH}$uram - $tram           "
 if [ "$cekup" = "day" ]; then
@@ -384,7 +381,6 @@ echo -e "$COLOR1║ $NC${WH}🪯 System Uptime      ${COLOR1}: ${WH}$uphours $up
 else
 echo -e "$COLOR1║ $NC${WH}🪯 System Uptime      ${COLOR1}: ${WH}$uphours $upminutes     "
 fi
-#echo -e "$COLOR1║ $NC${WH}🪯LOAD CPU            ${COLOR1}: ${WH}$LOADCPU"
 echo -e "$COLOR1║ $NC${WH}🪯 Core               ${COLOR1}: ${WH}$CORE                       "
 echo -e "$COLOR1║ $NC${WH}🪯 City               ${COLOR1}: ${WH}$CITY               "
 echo -e "$COLOR1║ $NC${WH}🪯 Domain             ${COLOR1}: ${WH}$(cat /etc/xray/domain)      "
@@ -392,9 +388,9 @@ echo -e "$COLOR1║ $NC${WH}🪯 IP-VPS             ${COLOR1}: ${WH}$IPVPS${NC} 
 echo -e "$COLOR1║ $NC${WH}🪯 NAMA AUTHOR        ${COLOR1}: ${WH}$author${NC}                    "
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║  $NC ${WH}[ SSH WS : ${status_ws} ${WH}]           ${WH}[ Today     : $todayd $today_v]            $COLOR1║$NC"
-echo -e "$COLOR1║  $NC ${WH}[ XRAY   : ${status_xray} ${WH}]           ${WH}[ Yesterday : $yesterday $yesterday_v]        $COLOR1║$NC"
-echo -e "$COLOR1║  $NC ${WH}[ NGINX  : ${status_nginx} ${WH}]           ${WH}[ Month     : $month $month_v]           $COLOR1║$NC"
+echo -e "$COLOR1║ $NC ${WH}[ SSH WS : ${status_ws} ${WH}]           ${WH}[ Today     : $todayd $today_v]            $COLOR1║$NC"
+echo -e "$COLOR1║ $NC ${WH}[ XRAY   : ${status_xray} ${WH}]           ${WH}[ Yesterday : $yesterday $yesterday_v]        $COLOR1║$NC"
+echo -e "$COLOR1║ $NC ${WH}[ NGINX  : ${status_nginx} ${WH}]           ${WH}[ Month     : $month $month_v]           $COLOR1║$NC"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║$COLOR1$NC${WH} [ SSH =  ${COLOR1}$total_ssh${WH}]${WH}  [ VMESS = ${COLOR1}$vmess${WH}]  [ VLESS = ${COLOR1}$vless${WH}]  [ TROJAN = ${COLOR1}${trtls}${WH}] $COLOR1║$NC"
