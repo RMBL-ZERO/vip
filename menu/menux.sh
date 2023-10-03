@@ -373,7 +373,7 @@ echo -e "$COLOR1╔════════════════════�
 echo -e "$COLOR1║${NC}${COLBG1}              ${WH} • RMBL VPN TUNNELING •                     ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║${NC}${WH}               ${WH} • INFO SISTEM •                  ${NC}$COLOR1 $NC"
+echo -e "$COLOR1║${NC}${WH}                ${WH} • INFO SISTEM •                  ${NC}$COLOR1 $NC"
 echo -e "$COLOR1║ $NC${WH}🪯 System OS          ${COLOR1}: ${WH}$MODEL2"
 echo -e "$COLOR1║ $NC${WH}🪯 Memory Usage       ${COLOR1}: ${WH}$uram - $tram           "
 if [ "$cekup" = "day" ]; then
