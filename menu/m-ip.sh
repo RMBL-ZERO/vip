@@ -197,7 +197,7 @@ Exp         : $exp
 IPVPS       : $daftar 
 Reg Date    : $hariini
 " 
-echo "${TEXT}" >>/root/permission/newuser 
+echo "${TEXT}" >>/root/permission/ipmini 
 echo "### $client $exp $daftar $isadmin" >>/root/permission/ipmini 
 git add .
 git commit -m register &> /dev/null
