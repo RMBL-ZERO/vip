@@ -18,7 +18,7 @@ echo -e "$COLOR1│${NC} ${COLBG1}              • IPVPS GITHUB API •        
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 
-if [[ -f /etc/rmbl/github/api && -f /etc/rmblvpn/github/email && /etc/rmblvpn/github/username ]]; then
+if [[ -f /etc/rmbl/github/api && -f /etc/rmbl/github/email && /etc/rmbl/github/username ]]; then
    rec="OK"
 else
     mkdir /etc/rmbl/github > /dev/null 2>&1
