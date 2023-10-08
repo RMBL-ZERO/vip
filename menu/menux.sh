@@ -223,7 +223,7 @@ else
 uis="${COLOR1}Premium Version$NC"
 fi
 echo -e "$COLOR1║ $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
-echo -e "$COLOR1║ $NC${WH}🪯 NAMA AUTHOR        ${COLOR1}: ${WH}$author${NC}"
+echo -e "$COLOR1║ $NC${WH}NAMA AUTHOR        ${COLOR1}: ${WH}$author${NC}"
 if [ "$cekup" = "day" ]; then
 echo -e "$COLOR1║ $NC ${WH}System Uptime     ${COLOR1}: ${WH}$uphours $upminutes $uptimecek"
 else
