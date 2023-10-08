@@ -195,8 +195,7 @@ trtls=$(grep -c -E "^#tr " "/etc/xray/config.json")
 # TOTAL ACC CREATE  TROJAN
 ss=$(grep -c -E "^#ss " "/etc/xray/config.json")
 # TOTAL ACC CREATE OVPN SSH
-total_ssh="$(awk -F: '$3 >= 1000 && $ != "nobody" {print $}' /etc/passwd | wc -l)"
-#total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 function updatews(){
 clear
 
