@@ -272,9 +272,10 @@ export sem=$( curl -s https://raw.githubusercontent.com/RMBL-ZERO/vip/main/versi
 export pak=$( cat /home/.ver)
 IPVPS=$(curl -s ipinfo.io/ip )
 clear
-echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
-echo -e "                      << INFORMASI VPS >>                    \E[0m" | lolcat
-echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
+echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
+echo -e "$COLOR1║${NC}${COLBG1}              ${WH} • RMBL VPN TUNNELING •                     ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
+echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e "  ${BLUE}• ${GREEN}Sever Uptime        ${NC}= $( uptime -p  | cut -d " " -f 2-10000 ) "
 echo -e "  ${BLUE}• ${GREEN}Current Time        ${NC}= $( date -d "0 days" +"%d-%m-%Y | %X" )"
 echo -e "  ${BLUE}• ${GREEN}Operating System    ${NC}= $( cat /etc/os-release | grep -w PRETTY_NAME | sed 's/PRETTY_NAME//g' | sed 's/=//g' | sed 's/"//g')( $(uname -m))"
@@ -285,93 +286,102 @@ echo -e "  ${BLUE}• ${GREEN}ISP-VPS             ${NC}= $ISP"
 echo -e "  ${BLUE}• ${GREEN}City                ${NC}= $CITY"
 echo -e "  ${BLUE}• ${GREEN}RAM                 ${NC}= $uram / $tram"
 echo -e "  ${BLUE}• ${GREEN}CPU                 ${NC}= $cpu_usage"
-echo -e "  ${BLUE}• ${GREEN}Clients Name        ${NC}= ${YELLOW}$Name ${NC}"
-echo -e "  ${BLUE}• ${GREEN}Script Exfire       ${NC}= ${YELLOW}$Exp (${NC}${RED} $dayleft Days ${NC}${YELLOW})${NC}"
-echo -e "  ${BLUE}• ${GREEN}Developer           ${NC}= RstoreVPN Tunneling ${NC}"
-echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
-echo -e "                     << STATUS SERVICE >>                    \E[0m" | lolcat
-echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
-echo -e "      ${COLOR2}[ SSH Websocket${NC}: ${GREEN}ON ${NC}]  [ NGINX${NC}: ${GREEN}$resngx ] [ XRAY${NC} : ${GREEN}$resv2r ] "
-echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│  \033[0m ${BOLD}${YELLOW}SSH     VMESS       VLESS      TROJAN       SHADOWSOCKS$NC  $COLOR1│"
-echo -e "$COLOR1│  \033[0m ${Blue} $ssh1        $vma           $vla          $tra               $ssa   $NC    $COLOR1│"
-echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌────────────────────────────────────────────────────────────┐${NC}"
-echo -e "                     << MENU TUNNELING >>                    \E[0m" | lolcat
-echo -e "$COLOR1└────────────────────────────────────────────────────────────┘${NC}"
+#echo -e "  ${BLUE}• ${GREEN}Clients Name        ${NC}= ${YELLOW}$Name ${NC}"
+#echo -e "  ${BLUE}• ${GREEN}Script Exfire       ${NC}= ${YELLOW}$Exp (${NC}${RED} $dayleft Days ${NC}${YELLOW})${NC}"
+echo -e "  ${BLUE}• ${GREEN}Developer           ${NC}= RMBL VPN Tunneling ${NC}"
+echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
+echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
+echo -e "$COLOR1║ $NC ${WH}[ SSH WS : ${status_ws} ${WH}]           ${WH}[ Today     : $todayd $today_v]$NC"
+echo -e "$COLOR1║ $NC ${WH}[ XRAY   : ${status_xray} ${WH}]           ${WH}[ Yesterday : $yesterday $yesterday_v]$NC"
+echo -e "$COLOR1║ $NC ${WH}[ NGINX  : ${status_nginx} ${WH}]           ${WH}[ Month     : $month $month_v]$NC"
+echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
+echo -e "      $COLOR1╔═════════════════════════════════════════════╗${NC}"
+echo -e "      $COLOR1║${NC}${COLBG1}                   ${WH} • MENU •                 ${NC}$COLOR1║ $NC"
+echo -e "      $COLOR1╚═════════════════════════════════════════════╝${NC}"
+echo -e "      $COLOR1╔═════════════════════════════════════════════╗${NC}"
+#echo -e "     $COLOR1║                                                 $COLOR1║ $NC"
+echo -e "      $COLOR1║ ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}SSH-WS   ${WH}[${COLOR1}Menu${WH}]     ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}RESTART   ${WH}$COLOR1║ $NC"
+echo -e "      $COLOR1║                                             $COLOR1║ $NC"
+echo -e "      $COLOR1║ ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}VMESS    ${WH}[${COLOR1}Menu${WH}]     ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}REBOOT    ${WH}$COLOR1║ $NC"
+echo -e "      $COLOR1║                                             $COLOR1║ $NC"
+echo -e "      $COLOR1║ ${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}VLESS    ${WH}[${COLOR1}Menu${WH}]     ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}UPDATE    ${WH}$COLOR1║ $NC"
+echo -e "      $COLOR1║                                             $COLOR1║ $NC"
+echo -e "      $COLOR1║ ${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}• ${WH}TROJAN   ${WH}[${COLOR1}Menu${WH}]     ${WH}[${COLOR1}09${WH}]${NC} ${COLOR1}• ${WH}SETTING   ${WH}$COLOR1║ $NC"
+echo -e "      $COLOR1║                                             $COLOR1║ $NC"
+echo -e "      $COLOR1║ ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}RUNNING  ${WH}[${COLOR1}Menu${WH}]     ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}BACKUP    ${WH}$COLOR1║ $NC"
+echo -e "      $COLOR1╚═════════════════════════════════════════════╝${NC}"
+echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
+echo -e "$COLOR1║$COLOR1$NC${WH} [ SSH =  ${COLOR1}$total_ssh${WH}]${WH}  [ VMESS = ${COLOR1}$vmess${WH}]  [ VLESS = ${COLOR1}$vless${WH}]  [ TROJAN = ${COLOR1}${trtls}${WH}] $COLOR1║$NC"
+echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "\E[39;1;92m                    ⇱ STATUS PENGUNAAN ⇲                        \E[0m"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "             ${LIGHT} Today  : $ttoday"
-echo -e "             ${LIGHT} Monthly: $tmon"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+DATE=$(date +'%Y-%m-%d')
+datediff() {
+    d1=$(date -d "$1" +%s)
+    d2=$(date -d "$2" +%s)
+    echo -e "$COLOR1 $NC Expiry In   : $(( (d1 - d2) / 86400 )) Days"
+}
+function new(){
+cat> /etc/cron.d/autocpu << END
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+*/3 * * * * root /usr/bin/autocpu
+END
+echo "Auto-Reboot CPU 100% TURN ON."
+sleep 1
+menu
+}
 
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e "\E[39;1;92m                     ⇱ MENU SERVICE ⇲                         \E[0m"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
+function newx(){
+clear
+until [[ $usagee =~ ^[0-9]+$ ]]; do
+read -p "kuota user format angka 1, 2 atau 3 (TERA): " usagee
+done
+echo "$usagee" > /etc/usagee
+cat> /etc/cron.d/bantwidth << END
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+*/10 * * * * root /usr/bin/bantwidth
+END
+echo "Auto-Shutdown $usagee TERA TURN ON."
+sleep 1
+menu
+}
+mai="datediff "$Exp" "$DATE""
+
+# CERTIFICATE STATUS
+d1=$(date -d "$Exp2" +%s)
+d2=$(date -d "$today" +%s)
+certificate=$(( (d1 - d2) / 86400 ))
+
+function bannner(){
+wget -O /etc/issue.net "https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/issue2.net" &> /dev/null
+menu
+}
+echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
+echo -e "$COLOR1║       $NC ${WH}Versi Script  ${COLOR1}: ${WH}$(cat /opt/.ver) Version                    ${NC}"
+echo -e "$COLOR1║       $NC ${WH}Nama Client   ${COLOR1}: ${WH}$Name${NC}                           "
+echo -e "$COLOR1║       $NC ${WH}Durasi Script ${COLOR1}: ${WH}$certificate hari                        ${NC}"                    
+echo -e "$COLOR1║       $NC ${WH}Exp Script    ${COLOR1}: ${WH}$Exp2 $sts        ${NC}"
+echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e ""
-echo -e " ${BICyan}[${BIWhite}01${BICyan}]${RED} •${NC} ${YELLOW}SSH ${GREEN}MENU        $NC  ${BICyan}[${BIWhite}12${BICyan}]${RED} • ${NC}${YELLOW}GEN-SSL / CERTV $NC"
-echo -e " ${BICyan}[${BIWhite}02${BICyan}]${RED} •${NC} ${YELLOW}VMESS ${GREEN}MENU      $NC  ${BICyan}[${BIWhite}13${BICyan}]${RED} • ${NC}${YELLOW}BANNER CHAGE $NC"
-echo -e " ${BICyan}[${BIWhite}03${BICyan}]${RED} •${NC} ${YELLOW}VLESS ${GREEN}MENU      $NC  ${BICyan}[${BIWhite}14${BICyan}]${RED} • ${NC}${YELLOW}CEK RUNNING SERVICE $NC"
-echo -e " ${BICyan}[${BIWhite}04${BICyan}]${RED} •${NC} ${YELLOW}TROJAN ${GREEN}MENU     $NC  ${BICyan}[${BIWhite}15${BICyan}]${RED} • ${NC}${YELLOW}CEK TRAFIC $NC"
-echo -e " ${BICyan}[${BIWhite}05${BICyan}]${RED} •${NC} ${YELLOW}S-SOCK ${GREEN}MENU     $NC  ${BICyan}[${BIWhite}16${BICyan}]${RED} • ${NC}${YELLOW}SPEEDTEDT  $NC"
-echo -e " ${BICyan}[${BIWhite}06${BICyan}]${RED} •${NC} ${YELLOW}MENU ${GREEN}BACKUP     $NC  ${BICyan}[${BIWhite}17${BICyan}]${RED} • ${NC}${YELLOW}CEK BANDWIDTH USE $NC"
-echo -e " ${BICyan}[${BIWhite}07${BICyan}]${RED} •${NC} ${YELLOW}AUTO ${GREEN}REBOOT     $NC  ${BICyan}[${BIWhite}18${BICyan}]${RED} • ${NC}${YELLOW}LIMMIT SPEED $NC"
-echo -e " ${BICyan}[${BIWhite}08${BICyan}]${RED} •${NC} ${YELLOW}REBOOT          $NC  ${BICyan}[${BIWhite}19${BICyan}]${RED} • ${NC}${YELLOW}WEBMIN $NC"
-echo -e " ${BICyan}[${BIWhite}09${BICyan}]${RED} •${NC} ${YELLOW}RESTART ${GREEN}SERVICE $NC  ${BICyan}[${BIWhite}20${BICyan}]${RED} • ${NC}${YELLOW}SCRIPT INFO $NC"
-echo -e " ${BICyan}[${BIWhite}10${BICyan}]${RED} •${NC} ${YELLOW}TRIAL           $NC  ${BICyan}[${BIWhite}21${BICyan}]${RED} • ${NC}${YELLOW}CLEAR LOG $NC"
-echo -e " ${BICyan}[${BIWhite}11${BICyan}]${RED} •${NC} ${YELLOW}ADD ${GREEN}HOST        $NC  ${BICyan}[${BIWhite}22${BICyan}]${RED} • ${NC}${YELLOW}FIX MISSING POINTING $NC"
-echo -e " ${BICyan}[${BIWhite} X ${BICyan}] TYPE X FOR EXIT ${BICyan}${BIYellow}${BICyan}${NC}"  
-echo -e " ${RED}"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-echo -e " ${BICyan}[${BIWhite}23${BICyan}]${RED} •${NC} ${YELLOW}INSTALL ${GREEN}UDP        $NC"
-echo -e " ${BICyan}[${BIWhite}24${BICyan}]${RED} •${NC} ${YELLOW}GANTI PW VPS           $NC"
-echo -e " ${BICyan}[${BIWhite}25${BICyan}]${RED} •${NC} ${YELLOW}INSTALL BOT           $NC"
-echo -e " ${BICyan}[${BIWhite} 99 ${BICyan}] UPDATE SC ${BICyan}${BIYellow}${BICyan}${NC}"
-echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
-
-echo -e "${BICyan}┌──────────────────────────────────────────────────┐${NC}"
-echo -e "${BICyan}│ ${BOLD}${GREEN}Client    = $Name                           ${NC}"
-echo -e "${BICyan}│ ${BOLD}${RED}Expired   = $Exp                            ${NC}"
-echo -e "${BICyan}│ ${BOLD}${YELLOW}Developer = AndyYuda                   ${NC}"
-echo -e "${BICyan}│ ${BOLD}${PURPLE}Version   = SUPER LTS                       ${NC}"
-echo -e "${BICyan}└──────────────────────────────────────────────────┘${NC}"
-
-echo
-read -p " Select menu : " opt
-echo -e ""
+echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
 case $opt in
-1) clear ; menun-ssh ;;
-2) clear ; menu-vmess ;;
-3) clear ; menu-vless ;;
-4) clear ; menu-trojan ;;
-5) clear ; menu-ss ;;
-6) clear ; menu-backup ;;
-7) clear ; autoreboot ;;
-8) clear ; reboot ;;
-9) clear ; restarts ;;
-10) clear ; trialssh ;;
-11) clear ; addhost ;;
-12) clear ; genssl ;;
-13) clear ; nano /etc/issue.net ;;
-14) clear ; running ;;
-15) clear ; cek-trafik ;;
-16) clear ; cek-speed ;;
-17) clear ; cek-bandwidth ;;
-#18) clear ; cek-ram ;;
-18) clear ; limit-speed ;;
-19) clear ; wbm ;;
-20) clear ; cat /root/log-install.txt ;;
-21) clear ; clearlog ;;
-99) clear ; update ;;
-22) clear ; fix ;;
-23) clear ; clear ; wget --load-cookies /tmp/cookies.txt ${UDPX} -O install-udp && rm -rf /tmp/cookies.txt && chmod +x install-udp && ./install-udp ;;
-24) clear ; passwd ;;
-25) clear ; xolpanel ;;
-
-0) clear ; menu ;;
-x) exit ;;
-*) echo -e "" ; echo "Press any key to back exit" ; sleep 1 ; menu ;;
-esac
+01 | 1) clear ; m-sshovpn ;;
+02 | 2) clear ; m-vmess ;;
+03 | 3) clear ; m-vless ;;
+04 | 4) clear ; m-trojan ;;
+05 | 5) clear ; m-allxray ;;
+06 | 6) clear ; running ;;
+07 | 7) clear ; reboot ;;
+08 | 8) clear ; m-update ;;
+19 | 9) clear ; m-system ;;
+10 | 10) clear ; m-backup;;
+11 | 11) clear ; $ressee ;;
+12 | 12) clear ; key ;;
+89 | 89) clear ; bannner ;;
+88 | 88) clear ; new ;;
+77 | 77) clear ; newx ;;
+100) clear ; $up2u ;;
+00 | 0) clear ; menu ;;
+*) clear ; menu ;;
+esac 
