@@ -207,7 +207,7 @@ menu
 }
 clear
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• RMBL VPN TUNNELING •             ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• RMBL VPN TUNNELING •                    ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 #echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
@@ -222,18 +222,18 @@ uis="${COLOR1}Premium User$NC"
 else
 uis="${COLOR1}Premium Version$NC"
 fi
-echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
+echo -e "$COLOR1║ $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
 if [ "$cekup" = "day" ]; then
-echo -e "$COLOR1 $NC ${WH}System Uptime     ${COLOR1}: ${WH}$uphours $upminutes $uptimecek"
+echo -e "$COLOR1║ $NC ${WH}System Uptime     ${COLOR1}: ${WH}$uphours $upminutes $uptimecek"
 else
-echo -e "$COLOR1 $NC ${WH}System Uptime     ${COLOR1}: ${WH}$uphours $upminutes"
+echo -e "$COLOR1║ $NC ${WH}System Uptime     ${COLOR1}: ${WH}$uphours $upminutes"
 fi
-echo -e "$COLOR1 $NC ${WH}Memory Usage      ${COLOR1}: ${WH}$uram / $tram"
-echo -e "$COLOR1 $NC ${WH}Date              ${COLOR1}: ${WH}$DATEVPS $TIMEZONE${NC}"
-echo -e "$COLOR1 $NC ${WH}ISP & City       ${COLOR1} : ${WH}$ISP & $CITY"
-echo -e "$COLOR1 $NC ${WH}Current Domain    ${COLOR1}: ${WH}$(cat /etc/xray/domain)${NC}"
-echo -e "$COLOR1 $NC ${WH}NS                ${COLOR1}: ${WH}$(cat /etc/xray/dns)${NC}"
-echo -e "$COLOR1 $NC ${WH}IP-VPS            ${COLOR1}: ${WH}$IPVPS${NC}"
+echo -e "$COLOR1║ $NC ${WH}Memory Usage      ${COLOR1}: ${WH}$uram / $tram"
+echo -e "$COLOR1║ $NC ${WH}Date              ${COLOR1}: ${WH}$DATEVPS $TIMEZONE${NC}"
+echo -e "$COLOR1║ $NC ${WH}ISP & City       ${COLOR1} : ${WH}$ISP & $CITY"
+echo -e "$COLOR1║ $NC ${WH}Current Domain    ${COLOR1}: ${WH}$(cat /etc/xray/domain)${NC}"
+echo -e "$COLOR1║ $NC ${WH}NS                ${COLOR1}: ${WH}$(cat /etc/xray/dns)${NC}"
+echo -e "$COLOR1║ $NC ${WH}IP-VPS            ${COLOR1}: ${WH}$IPVPS${NC}"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║ $NC ${WH}[ SSH WS : ${status_ws} ${WH}]           ${WH}[ Today     : $todayd $today_v]$NC"
