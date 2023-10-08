@@ -212,7 +212,7 @@ sleep 2
 ./install_up.sh
 rm /root/install_up.sh
 rm /opt/.ver
-version_up=$( curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/versi)
+version_up=$( curl -sS https://raw.githubusercontent.com/RMBL-ZERO/vip/main/version)
 echo "$version_up" > /opt/.verecho "$version_up" > /opt/.ver
 echo -e "$COLOR1 ${NC}  $COLOR1[INFO]${NC} Successfully Up To Date!"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
@@ -223,14 +223,6 @@ echo ""
 read -n 1 -s -r -p "  Press any key to back on menu"
 menu
 }
-
-IPVPS=$(curl -s ipinfo.io/ip )
-ISPVPS=$( curl -s ipinfo.io/org )
-ttoday="$(vnstat | grep today | awk '{print $8" "substr ($9, 1, 3)}' | head -1)"
-tmon="$(vnstat -m | grep `date +%G-%m` | awk '{print $8" "substr ($9, 1 ,3)}' | head -1)"
-export sem=$( curl -s https://raw.githubusercontent.com/RMBL-ZERO/vip/main/version)
-export pak=$( cat /home/.ver)
-IPVPS=$(curl -s ipinfo.io/ip )
 clear
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║${NC}${COLBG1}              ${WH} • RMBL VPN TUNNELING •                     ${NC}$COLOR1║ $NC"
@@ -248,7 +240,7 @@ echo -e "$COLOR1║ $NC${WH}RAM                 ${NC}= $uram / $tram"
 echo -e "$COLOR1║ $NC${WH}CPU                 ${NC}= $cpu_usage"
 #echo -e "  ${BLUE}• ${GREEN}Clients Name        ${NC}= ${YELLOW}$Name ${NC}"
 #echo -e "  ${BLUE}• ${GREEN}Script Exfire       ${NC}= ${YELLOW}$Exp (${NC}${RED} $dayleft Days ${NC}${YELLOW})${NC}"
-echo -e "$COLOR1║ $NC${WH}NAMA AUTHOR     ${COLOR1}= ${WH}$author${NC}"
+echo -e "$COLOR1║ $NC${WH}NAMA AUTHOR        ${NC}= ${WH}$author${NC}"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║ $NC ${WH}[ SSH WS : ${status_ws} ${WH}]           ${WH}[ Today     : $todayd $today_v]$NC"
