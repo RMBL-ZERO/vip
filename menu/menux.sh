@@ -169,47 +169,107 @@ cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
 cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
 cpu_usage+=" %"
 # TOTAL RAM
-total_ram=` grep "MemTotal: " /proc/meminfo | awk '{ print $2}'`
-totalram=$(($total_ram/1024))
-
-persenmemori="$(echo "scale=2; $usmem*100/$tomem" | bc)"
-#persencpu=
-persencpu="$(echo "scale=2; $cpu1+$cpu2" | bc)"
-
-
-
-# // Exporting Network Interface
-export NETWORK_IFACE="$(ip route show to default | awk '{print $5}')"
-
-data_ip="https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini"
-d2=$(date -d "$date_list" +"+%s")
-d1=$(date -d "$Exp" +"+%s")
-dayleft=$(( ($d1 - $d2) / 86400 ))
-
-
-# // Clear
-clear
-clear && clear && clear
-clear;clear;clear
-cek=$(service ssh status | grep active | cut -d ' ' -f5)
-if [ "$cek" = "active" ]; then
-stat=-f5
+# usage
+vnstat_profile=$(vnstat | sed -n '3p' | awk '{print $1}' | grep -o '[^:]*')
+vnstat -i ${vnstat_profile} >/root/t1
+bulan=$(date +%b)
+today=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')
+todayd=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')
+today_v=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $9}')
+today_rx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $2}')
+today_rxv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $3}')
+today_tx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $5}')
+today_txv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $6}')
+if [ "$(grep -wc ${bulan} /root/t1)" != '0' ]; then
+    bulan=$(date +%b)
+    month=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $9}')
+    month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $10}')
+    month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $3}')
+    month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $4}')
+    month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $6}')
+    month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $7}')
 else
-stat=-f7
+    bulan=$(date +%Y-%m)
+    month=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $8}')
+    month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $9}')
+    month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $2}')
+    month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $3}')
+    month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $5}')
+    month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $6}')
 fi
-ngx=$(service nginx status | grep active | cut -d ' ' $stat)
-if [ "$ngx" = "active" ]; then
-resngx="${green}ON${NC}"
+if [ "$(grep -wc yesterday /root/t1)" != '0' ]; then
+    yesterday=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $8}')
+    yesterday_v=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $9}')
+    yesterday_rx=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $2}')
+    yesterday_rxv=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $3}')
+    yesterday_tx=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $5}')
+    yesterday_txv=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $6}')
 else
-resngx="${red}OFF${NC}"
+    yesterday=NULL
+    yesterday_v=NULL
+    yesterday_rx=NULL
+    yesterday_rxv=NULL
+    yesterday_tx=NULL
+    yesterday_txv=NULL
 fi
-v2r=$(service xray status | grep active | cut -d ' ' $stat)
-if [ "$v2r" = "active" ]; then
-resv2r="${green}ON${NC}"
+
+# // SSH Websocket Proxy
+ssh_ws=$( systemctl status ws-stunnel | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $ssh_ws == "running" ]]; then
+    status_ws="${COLOR1}ON${NC}"
 else
-resv2r="${red}OFF${NC}"
+    status_ws="${RED}OFF${NC}"
 fi
-function addhost(){
+# // SSH Dropbear
+dbr=$(systemctl status ws-dropbear.service | grep active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [ "$dbr" = "active" ]; then
+resdbr="${green}ON${NC}"
+else
+resdbr="${red}OFF${NC}"
+fi
+# // nginx
+nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $nginx == "running" ]]; then
+    status_nginx="${COLOR1}ON${NC}"
+else
+    status_nginx="${RED}OFF${NC}"
+fi
+sshstunel=$(/etc/init.d/stunnel4 status | grep active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [ "$sshstunel" = "active" ]; then
+resst="${green}ON${NC}"
+else
+resst="${red}OFF${NC}"
+fi
+# // SSH Websocket Proxy
+xray=$( systemctl status xray | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+if [[ $xray == "running" ]]; then
+    status_xray="${COLOR1}ON${NC}"
+else
+    status_xray="${RED}OFF${NC}"
+fi
+# STATUS EXPIRED ACTIVE
+Green_font_prefix="\033[32m" && Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[4$below" && Font_color_suffix="\033[0m"
+Info="${Green_font_prefix}(Registered)${Font_color_suffix}"
+Error="${Green_font_prefix}${Font_color_suffix}${Red_font_prefix}[EXPIRED]${Font_color_suffix}"
+
+today=$(date -d "0 days" +"%Y-%m-%d")
+Exp1=$(curl https://raw.githubusercontent.com/kuhing/ip/main/vps | grep $MYIP | awk '{print $4}')
+if [[ $today < $Exp1 ]]; then
+    sts="${Info}"
+else
+    sts="${Error}"
+fi
+# TOTAL ACC CREATE VMESS WS
+vmess=$(grep -c -E "^#vmg " "/etc/xray/config.json")
+# TOTAL ACC CREATE  VLESS WS
+vless=$(grep -c -E "^#vlg " "/etc/xray/config.json")
+# TOTAL ACC CREATE  TROJAN
+trtls=$(grep -c -E "^#tr " "/etc/xray/config.json")
+# TOTAL ACC CREATE  TROJAN
+ss=$(grep -c -E "^#ss " "/etc/xray/config.json")
+# TOTAL ACC CREATE OVPN SSH
+total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
