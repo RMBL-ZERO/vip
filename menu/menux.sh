@@ -67,21 +67,14 @@ fi
 
 # =========================================
 #vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
-#let vla=$vlx/2
-#vmc=$(grep -c -E "^### " "/etc/xray/config.json")
-#let vma=$vmc/2
-#ssh1="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-
-#trx=$(grep -c -E "^#! " "/etc/xray/config.json")
-#let tra=$trx/2
-#ssx=$(grep -c -E "^## " "/etc/xray/config.json")
-#let ssa=$ssx/2
-vmess=$(cat /root/akun/vmess/.vmess.db | wc -l)
-vless=$(cat /root/akun/vless/.vless.db | wc -l)
-trojan=$(cat /root/akun/trojan/.trojan.db | wc -l)
-ss=$(cat /root/akun/shadowsocks/.shadowsocks.db | wc -l)
-ssh=$(cat /root/akun/ssh/ssh.db | wc -l)
-
+# TOTAL ACC CREATE VMESS WS
+vmess=$(grep -c -E "^#vmg " "/etc/xray/config.json")
+# TOTAL ACC CREATE  VLESS WS
+vless=$(grep -c -E "^#vlg " "/etc/xray/config.json")
+# TOTAL ACC CREATE  TROJAN
+trtls=$(grep -c -E "^#trg " "/etc/xray/config.json")
+# TOTAL ACC CREATE OVPN SSH
+total_ssh=$(grep -c -E "^### " "/etc/xray/ssh")
 #total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 COLOR1='\033[0;35m'
 COLOR2='\033[0;39m'
