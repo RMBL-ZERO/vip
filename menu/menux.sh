@@ -211,20 +211,29 @@ echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• RMBL VPN TUNNELING •  
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 #echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
-echo -e "$COLOR1║ $NC${WH}🪯 System OS          ${COLOR1}: ${WH}$MODEL2"
-echo -e "$COLOR1║ $NC${WH}🪯 Memory Usage       ${COLOR1}: ${WH}$uram - $tram"
-if [ "$cekup" = "day" ]; then
-echo -e "$COLOR1║ $NC${WH}🪯 System Uptime      ${COLOR1}: ${WH}$uphours $upminutes $uptimecek"
+uphours=`uptime -p | awk '{print $2,$3}' | cut -d , -f1`
+upminutes=`uptime -p | awk '{print $4,$5}' | cut -d , -f1`
+uptimecek=`uptime -p | awk '{print $6,$7}' | cut -d , -f1`
+cekup=`uptime -p | grep -ow "day"`
+IPVPS=$(curl -s ipinfo.io/ip )
+serverV=$( curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/version )
+if [ "$Isadmin" = "ON" ]; then
+uis="${COLOR1}Premium User$NC"
 else
-echo -e "$COLOR1║ $NC${WH}🪯 System Uptime      ${COLOR1}: ${WH}$uphours $upminutes"
+uis="${COLOR1}Premium Version$NC"
 fi
-#echo -e "$COLOR1 $NC ${WH}LOAD CPU           ${COLOR1}: ${WH}$LOADCPU"
-echo -e "$COLOR1║ $NC${WH}🪯 Core & CPU Usage   ${COLOR1}: ${WH}$CORE & $cpu_usage"
-echo -e "$COLOR1║ $NC${WH}🪯 ISP & City         ${COLOR1}: ${WH}$ISP & $CITY"
-echo -e "$COLOR1║ $NC${WH}🪯 Domain             ${COLOR1}: ${WH}$(cat /etc/xray/domain)"
-echo -e "$COLOR1║ $NC${WH}🪯 IP-VPS             ${COLOR1}: ${WH}$IPVPS${NC}"
-echo -e "$COLOR1║ $NC${WH}🪯 DATE & TIME        ${COLOR1}: ${WH}$DATE2 WIB${NC}"
-echo -e "$COLOR1║ $NC${WH}🪯 NAMA AUTHOR        ${COLOR1}: ${WH}$author${NC}"
+echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
+if [ "$cekup" = "day" ]; then
+echo -e "$COLOR1 $NC ${WH}System Uptime     ${COLOR1}: ${WH}$uphours $upminutes $uptimecek"
+else
+echo -e "$COLOR1 $NC ${WH}System Uptime     ${COLOR1}: ${WH}$uphours $upminutes"
+fi
+echo -e "$COLOR1 $NC ${WH}Memory Usage      ${COLOR1}: ${WH}$uram / $tram"
+echo -e "$COLOR1 $NC ${WH}Date              ${COLOR1}: ${WH}$DATEVPS $TIMEZONE${NC}"
+echo -e "$COLOR1 $NC ${WH}ISP & City       ${COLOR1} : ${WH}$ISP & $CITY"
+echo -e "$COLOR1 $NC ${WH}Current Domain    ${COLOR1}: ${WH}$(cat /etc/xray/domain)${NC}"
+echo -e "$COLOR1 $NC ${WH}NS                ${COLOR1}: ${WH}$(cat /etc/xray/dns)${NC}"
+echo -e "$COLOR1 $NC ${WH}IP-VPS            ${COLOR1}: ${WH}$IPVPS${NC}"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║ $NC ${WH}[ SSH WS : ${status_ws} ${WH}]           ${WH}[ Today     : $todayd $today_v]$NC"
