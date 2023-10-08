@@ -269,63 +269,33 @@ trtls=$(grep -c -E "^#tr " "/etc/xray/config.json")
 ss=$(grep -c -E "^#ss " "/etc/xray/config.json")
 # TOTAL ACC CREATE OVPN SSH
 total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-fi
-function addhost(){
+#total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+function updatews(){
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo ""
-read -rp "Domain/Host: " -e host
-echo ""
-if [ -z $host ]; then
-echo "????"
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-read -n 1 -s -r -p "Press any key to back on menu"
-setting-menu
-else
-rm -fr /etc/xray/domain
-echo "IP=$host" > /var/lib/scrz-prem/ipvps.conf
-echo $host > /etc/xray/domain
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo "Dont forget to renew gen-ssl"
-echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
-fi
-}
-function genssl(){
-clear
-systemctl stop nginx
-systemctl stop xray
-domain=$(cat /var/lib/scrz-prem/ipvps.conf | cut -d'=' -f2)
-Cek=$(lsof -i:80 | cut -d' ' -f1 | awk 'NR==2 {print $1}')
-if [[ ! -z "$Cek" ]]; then
-sleep 1
-echo -e "[ ${red}WARNING${NC} ] Detected port 80 used by $Cek " 
-systemctl stop $Cek
+
+echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$COLOR1 ${NC} ${COLBG1}            ${WH}• UPDATE SCRIPT VPS •              ${NC} $COLOR1 $NC"
+echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
+echo -e "$COLOR1 ${NC}  $COLOR1[INFO]${NC} Check for Script updates"
 sleep 2
-echo -e "[ ${green}INFO${NC} ] Processing to stop $Cek " 
-sleep 1
-fi
-echo -e "[ ${green}INFO${NC} ] Starting renew gen-ssl... " 
+wget -q -O /root/install_up.sh "https://raw.githubusercontent.com/RMBL-ZERO/vip/main/menu/install-up.sh" && chmod +x /root/install_up.sh
 sleep 2
-/root/.acme.sh/acme.sh --upgrade
-/root/.acme.sh/acme.sh --upgrade --auto-upgrade
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
-echo -e "[ ${green}INFO${NC} ] Renew gen-ssl done... " 
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Starting service $Cek " 
-sleep 2
-echo $domain > /etc/xray/domain
-systemctl start nginx
-systemctl start xray
-echo -e "[ ${green}INFO${NC} ] All finished... " 
-sleep 0.5
+./install_up.sh
+rm /root/install_up.sh
+rm /opt/.ver
+version_up=$( curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/versi)
+echo "$version_up" > /opt/.verecho "$version_up" > /opt/.ver
+echo -e "$COLOR1 ${NC}  $COLOR1[INFO]${NC} Successfully Up To Date!"
+echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
+echo -e "$COLOR1 ${NC}             ${WH}• $author •${NC}                $COLOR1 $NC"
+echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
+read -n 1 -s -r -p "  Press any key to back on menu"
 menu
 }
+
 IPVPS=$(curl -s ipinfo.io/ip )
 ISPVPS=$( curl -s ipinfo.io/org )
 ttoday="$(vnstat | grep today | awk '{print $8" "substr ($9, 1, 3)}' | head -1)"
