@@ -372,7 +372,7 @@ echo -e "      $COLOR1║                                             $COLOR1║
 echo -e "      $COLOR1║ ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}RUNNING  ${WH}[${COLOR1}Menu${WH}]     ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}BACKUP    ${WH}$COLOR1║ $NC"
 echo -e "      $COLOR1╚═════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║$COLOR1$NC${WH} [ SSH =  ${COLOR1}$$ssh1${WH}]${WH}  [ VMESS = ${COLOR1}$vma${WH}]  [ VLESS = ${COLOR1}$vla${WH}]  [ TROJAN = ${COLOR1}$tra${WH}] $COLOR1║$NC"
+echo -e "$COLOR1║$COLOR1$NC${WH} [ SSH =  ${COLOR1}$total_ssh${WH}]${WH}  [ VMESS = ${COLOR1}$vmess${WH}]  [ VLESS = ${COLOR1}$vless${WH}]  [ TROJAN = ${COLOR1}${trtls}${WH}] $COLOR1║$NC"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 
 DATE=$(date +'%Y-%m-%d')
