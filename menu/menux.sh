@@ -207,7 +207,7 @@ menu
 }
 clear
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• RMBL VPN TUNNELING •                    ${NC}$COLOR1║ $NC"
+echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• RMBL VPN TUNNELING •                       ${NC}$COLOR1║ $NC"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 #echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
@@ -223,6 +223,7 @@ else
 uis="${COLOR1}Premium Version$NC"
 fi
 echo -e "$COLOR1║ $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
+echo -e "$COLOR1║ $NC${WH}🪯 NAMA AUTHOR        ${COLOR1}: ${WH}$author${NC}"
 if [ "$cekup" = "day" ]; then
 echo -e "$COLOR1║ $NC ${WH}System Uptime     ${COLOR1}: ${WH}$uphours $upminutes $uptimecek"
 else
@@ -260,7 +261,7 @@ echo -e "$COLOR1║$COLOR1$NC${WH} [ SSH =  ${COLOR1}$total_ssh${WH}]${WH}  [ VM
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 if [ "$Isadmin" = "ON" ]; then
-echo -e "  ${WH}[${COLOR1}11${WH}]${NC} ${COLOR1}• ${WH}REG IP  ${WH}[${COLOR1}Menu${WH}] ${WH}[${COLOR1}12${WH}]${NC} ${COLOR1}• ${WH}SET BOT  ${WH}[${COLOR1}Menu${WH}]  $COLOR1 $NC"
+echo -e "  ${WH}[${COLOR1}11${WH}]${NC} ${COLOR1}• ${WH}REG IP  ${WH}[${COLOR1}Menu${WH}] ${WH}  $COLOR1 $NC"
 ressee="m-ip"
 bottt="m-bot"
 else
@@ -270,27 +271,42 @@ fi
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 myver="$(cat /opt/.ver)"
 
-if [[ $serverV > $myver ]]; then
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 $NC ${WH}[${COLOR1}100${WH}]${NC} ${COLOR1}• ${WH}UPDATE TO V$serverV${NC}"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-up2u="updatews"
-else
-up2u="menu"
-fi
-
 DATE=$(date +'%Y-%m-%d')
 datediff() {
     d1=$(date -d "$1" +%s)
     d2=$(date -d "$2" +%s)
     echo -e "$COLOR1 $NC Expiry In   : $(( (d1 - d2) / 86400 )) Days"
 }
-mai="datediff "$Exp1" "$DATE""
+function new(){
+cat> /etc/cron.d/autocpu << END
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+*/3 * * * * root /usr/bin/autocpu
+END
+echo "Auto-Reboot CPU 100% TURN ON."
+sleep 1
+menu
+}
 
-today=`date -d "0 days" +"%Y-%m-%d"`
+function newx(){
+clear
+until [[ $usagee =~ ^[0-9]+$ ]]; do
+read -p "kuota user format angka 1, 2 atau 3 (TERA): " usagee
+done
+echo "$usagee" > /etc/usagee
+cat> /etc/cron.d/bantwidth << END
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+*/10 * * * * root /usr/bin/bantwidth
+END
+echo "Auto-Shutdown $usagee TERA TURN ON."
+sleep 1
+menu
+}
+mai="datediff "$Exp" "$DATE""
 
 # CERTIFICATE STATUS
-d1=$(date -d "$exp" +%s)
+d1=$(date -d "$Exp2" +%s)
 d2=$(date -d "$today" +%s)
 certificate=$(( (d1 - d2) / 86400 ))
 
@@ -298,12 +314,12 @@ function bannner(){
 wget -O /etc/issue.net "https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/issue2.net" &> /dev/null
 menu
 }
-echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║ $NC ${WH}Version     ${COLOR1}: ${WH}$(cat /opt/.ver) Version${NC}"
-echo -e "$COLOR1║ $NC ${WH}Client Name ${COLOR1}: ${WH}$Name${NC}"
-echo -e "$COLOR1║ $NC ${WH}License     ${COLOR1}: ${WH}$certificate days${NC}"
-echo -e "$COLOR1║ $NC ${WH}Exp Status  ${COLOR1}: ${WH}$exp $sts${NC}"
-echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
+echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
+echo -e "$COLOR1║ $NC ${WH}Versi Script  ${COLOR1}: ${WH}$(cat /opt/.ver) Latest Version${NC}$COLOR1"
+echo -e "$COLOR1║ $NC ${WH}Nama Client   ${COLOR1}: ${WH}$Name${NC}$COLOR1"
+echo -e "$COLOR1║ $NC ${WH}Durasi Script ${COLOR1}: ${WH}$certificate hari${NC}$COLOR1"                    
+echo -e "$COLOR1║ $NC ${WH}Exp Script    ${COLOR1}: ${WH}$Exp2 $sts ${NC}$COLOR1"
+echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
 echo -e ""
 echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
 case $opt in
@@ -325,4 +341,4 @@ case $opt in
 100) clear ; $up2u ;;
 00 | 0) clear ; menu ;;
 *) clear ; menu ;;
-esac
+esac 
