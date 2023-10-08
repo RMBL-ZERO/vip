@@ -1,34 +1,42 @@
 #!/bin/bash
-# =========================================
-vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
-let vla=$vlx/2
-vmc=$(grep -c -E "^### " "/etc/xray/config.json")
-let vma=$vmc/2
-ssh1="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
+MYIP=$(curl -sS ipv4.icanhazip.com)
+###########- COLOR CODE -##############
+colornow=$(cat /etc/rmbl/theme/color.conf)
+export NC="\e[0m"
+export yl='\033[0;33m';
+export RED="\033[0;31m"
+export COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+export COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"
+WH='\033[1;37m'
+###########- END COLOR CODE -##########
+tram=$( free -h | awk 'NR==2 {print $2}' )
+uram=$( free -h | awk 'NR==2 {print $3}' )
+ISP=$(cat /etc/xray/isp)
+CITY=$(cat /etc/xray/city)
+author=$(cat /etc/profil)
+WKT=$(curl -s ipinfo.io/timezone?token=$ipn )
+DAY=$(date +%A)
+DATE=$(date +%m/%d/%Y)
+DATE2=$(date -R | cut -d " " -f -5)
+IPVPS=$(curl -s ipinfo.io/ip?token=7578ac19afd785 )
+MYIP=$(curl -sS ipv4.icanhazip.com)
+Isadmin=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $5}')
+Exp2=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $3}')
+export RED='\033[0;31m'
+export GREEN='\033[0;32m'
 
-trx=$(grep -c -E "^#! " "/etc/xray/config.json")
-let tra=$trx/2
-ssx=$(grep -c -E "^## " "/etc/xray/config.json")
-let ssa=$ssx/2
-COLOR1='\033[0;35m'
-COLOR2='\033[0;39m'
-clear
-#total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-COLOR1='\033[0;35m'
-COLOR2='\033[0;39m'
-clear
-UDPX="https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2"
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-IPVPS=$(wget -qO- ipinfo.io/ip)
+Name=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+ipsaya=$(curl -sS ipinfo.io/ip)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
 data_ip="https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini"
 checking_sc() {
-  useexp=$(wget -qO- $data_ip | grep $IPVPS | awk '{print $3}')
-  if [[ $date_list < $useexp ]]; then
-    echo -ne
-  else
+    useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
+    if [[ $date_list < $useexp ]]; then
+        echo -ne
+    else
     echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
     echo -e "\033[42m          404 NOT FOUND AUTOSCRIPT          \033[0m"
     echo -e "\033[1;93m────────────────────────────────────────────\033[0m"
