@@ -290,10 +290,10 @@ wget -O /etc/issue.net "https://raw.githubusercontent.com/RMBL-ZERO/vip/main/ins
 menu
 }
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e "$COLOR1║       $NC ${WH}Versi Script  ${COLOR1}: ${WH}$(cat /opt/.ver) Version                    ${NC}"
-echo -e "$COLOR1║       $NC ${WH}Nama Client   ${COLOR1}: ${WH}$Name${NC}                           "
-echo -e "$COLOR1║       $NC ${WH}Durasi Script ${COLOR1}: ${WH}$certificate hari                        ${NC}"                    
-echo -e "$COLOR1║       $NC ${WH}Exp Script    ${COLOR1}: ${WH}$Exp2 $sts        ${NC}"
+echo -e "$COLOR1║ $NC ${WH}Version     ${COLOR1}: ${WH}$(cat /opt/.ver) Version${NC}"
+echo -e "$COLOR1║ $NC ${WH}Client Name ${COLOR1}: ${WH}$Name${NC}"
+echo -e "$COLOR1║ $NC ${WH}License     ${COLOR1}: ${WH}$certificate days${NC}"
+echo -e "$COLOR1║ $NC ${WH}Exp Status  ${COLOR1}: ${WH}$exp $sts${NC}"
 echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e ""
 echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
