@@ -206,10 +206,10 @@ read -n 1 -s -r -p "  Press any key to back on menu"
 menu
 }
 clear
-echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
+echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• RMBL VPN TUNNELING •             ${NC}$COLOR1║ $NC"
-echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
-echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
+echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
+echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 #echo -e "$COLOR1 $NC ${WH}User Roles        ${COLOR1}: ${WH}$uis"
 echo -e "$COLOR1║ $NC${WH}🪯 System OS          ${COLOR1}: ${WH}$MODEL2"
 echo -e "$COLOR1║ $NC${WH}🪯 Memory Usage       ${COLOR1}: ${WH}$uram - $tram"
@@ -225,7 +225,7 @@ echo -e "$COLOR1║ $NC${WH}🪯 Domain             ${COLOR1}: ${WH}$(cat /etc/x
 echo -e "$COLOR1║ $NC${WH}🪯 IP-VPS             ${COLOR1}: ${WH}$IPVPS${NC}"
 echo -e "$COLOR1║ $NC${WH}🪯 DATE & TIME        ${COLOR1}: ${WH}$DATE2 WIB${NC}"
 echo -e "$COLOR1║ $NC${WH}🪯 NAMA AUTHOR        ${COLOR1}: ${WH}$author${NC}"
-echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
+echo -e "$COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║ $NC ${WH}[ SSH WS : ${status_ws} ${WH}]           ${WH}[ Today     : $todayd $today_v]$NC"
 echo -e "$COLOR1║ $NC ${WH}[ XRAY   : ${status_xray} ${WH}]           ${WH}[ Yesterday : $yesterday $yesterday_v]$NC"
