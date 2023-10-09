@@ -44,23 +44,53 @@ checking_sc() {
   fi
 }
 checking_sc
-clear
-
-ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10)
-NS=$(cat /etc/xray/dns)
-CITY=$(curl -s ipinfo.io/city)
-IPVPS=$(curl -s ipv4.icanhazip.com)
-domain=$(cat /etc/xray/domain)
-Name=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $2}')
-if [ "$res" = "Expired" ]; then
-Exp="\e[36mExpired\033[0m"
-else
-Exp=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $3}')
+#check folder
+cd
+if [ ! -e /etc/per/id ]; then
+  mkdir -p /etc/per
+  echo "" > /etc/per/id
+  echo "" > /etc/per/token
+elif [ ! -e /etc/perlogin/id ]; then
+  mkdir -p /etc/perlogin
+  echo "" > /etc/perlogin/id
+  echo "" > /etc/perlogin/token
+elif [ ! -e /usr/bin/id ]; then
+  echo "" > /usr/bin/idchat
+  echo "" > /usr/bin/token
 fi
+
+if [ ! -e /etc/xray/ssh ]; then
+  echo "" > /etc/xray/ssh
+elif [ ! -e /etc/xray/sshx ]; then
+  mkdir -p /etc/xray/sshx
+elif [ ! -e /etc/xray/sshx/listlock ]; then
+  echo "" > /etc/xray/sshx/listlock
+elif [ ! -e /etc/vmess ]; then
+  mkdir -p /etc/vmess
+elif [ ! -e /etc/vmess/listlock ]; then
+  echo "" > /etc/vmess/listlock
+elif [ ! -e /etc/vless ]; then
+  mkdir -p /etc/vless
+elif [ ! -e /etc/vless/listlock ]; then
+  echo "" > /etc/vless/listlock
+elif [ ! -e /etc/trojan ]; then
+  mkdir -p /etc/trojan
+elif [ ! -e /etc/trojan/listlock ]; then
+  echo "" > /etc/trojan/listlock
+fi
+clear
+MODEL2=$(cat /etc/os-release | grep -w PRETTY_NAME | head -n1 | sed 's/=//g' | sed 's/"//g' | sed 's/PRETTY_NAME//g')
+LOADCPU=$(printf '%-0.00001s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
+CORE=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
+cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
+cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
+cpu_usage+=" %"
 # usage
 vnstat_profile=$(vnstat | sed -n '3p' | awk '{print $1}' | grep -o '[^:]*')
-vnstat -i ${vnstat_profile} >/root/t1
+vnstat -i ${vnstat_profile} >/etc/t1
 bulan=$(date +%b)
+tahun=$(date +%y)
+ba=$(curl -s https://pastebin.com/raw/0gWiX6hE)
 today=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')
 todayd=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')
 today_v=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $9}')
@@ -68,24 +98,24 @@ today_rx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $2}')
 today_rxv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $3}')
 today_tx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $5}')
 today_txv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $6}')
-if [ "$(grep -wc ${bulan} /root/t1)" != '0' ]; then
+if [ "$(grep -wc ${bulan} /etc/t1)" != '0' ]; then
     bulan=$(date +%b)
-    month=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $9}')
-    month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $10}')
-    month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $3}')
-    month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $4}')
-    month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $6}')
-    month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $7}')
+    month=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $9}')
+    month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $10}')
+    month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $3}')
+    month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $4}')
+    month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $6}')
+    month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $7}')
 else
-    bulan=$(date +%Y-%m)
-    month=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $8}')
-    month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $9}')
-    month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $2}')
-    month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $3}')
-    month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $5}')
-    month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan " | awk '{print $6}')
+    bulan2=$(date +%Y-%m)
+    month=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $8}')
+    month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $9}')
+    month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $2}')
+    month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $3}')
+    month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $5}')
+    month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $6}')
 fi
-if [ "$(grep -wc yesterday /root/t1)" != '0' ]; then
+if [ "$(grep -wc yesterday /etc/t1)" != '0' ]; then
     yesterday=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $8}')
     yesterday_v=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $9}')
     yesterday_rx=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $2}')
@@ -108,28 +138,25 @@ if [[ $ssh_ws == "running" ]]; then
 else
     status_ws="${RED}OFF${NC}"
 fi
-# // SSH Dropbear
-dbr=$(systemctl status ws-dropbear.service | grep active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
-if [ "$dbr" = "active" ]; then
-resdbr="${green}ON${NC}"
-else
-resdbr="${red}OFF${NC}"
-fi
+
 # // nginx
 nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
 if [[ $nginx == "running" ]]; then
     status_nginx="${COLOR1}ON${NC}"
 else
     status_nginx="${RED}OFF${NC}"
+    systemctl start nginx
 fi
-sshstunel=$(/etc/init.d/stunnel4 status | grep active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
-if [ "$sshstunel" = "active" ]; then
-resst="${green}ON${NC}"
-else
-resst="${red}OFF${NC}"
-fi
+
+# status
+
+rm -rf /etc/status
+
+wget -q -O /etc/status "https://raw.githubusercontent.com/RMBL-ZERO/vip/main/status"
+
+
 # // SSH Websocket Proxy
-xray=$( systemctl status xray | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
+xray=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 if [[ $xray == "running" ]]; then
     status_xray="${COLOR1}ON${NC}"
 else
@@ -141,8 +168,7 @@ Info="${Green_font_prefix}(Registered)${Font_color_suffix}"
 Error="${Green_font_prefix}${Font_color_suffix}${Red_font_prefix}[EXPIRED]${Font_color_suffix}"
 
 today=$(date -d "0 days" +"%Y-%m-%d")
-Exp1=$(curl https://raw.githubusercontent.com/kuhing/ip/main/vps | grep $MYIP | awk '{print $4}')
-if [[ $today < $Exp1 ]]; then
+if [[ $today < $Exp2 ]]; then
     sts="${Info}"
 else
     sts="${Error}"
@@ -152,11 +178,10 @@ vmess=$(grep -c -E "^#vmg " "/etc/xray/config.json")
 # TOTAL ACC CREATE  VLESS WS
 vless=$(grep -c -E "^#vlg " "/etc/xray/config.json")
 # TOTAL ACC CREATE  TROJAN
-trtls=$(grep -c -E "^#tr " "/etc/xray/config.json")
-# TOTAL ACC CREATE  TROJAN
-ss=$(grep -c -E "^#ss " "/etc/xray/config.json")
+trtls=$(grep -c -E "^#trg " "/etc/xray/config.json")
 # TOTAL ACC CREATE OVPN SSH
-total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
+total_ssh=$(grep -c -E "^### " "/etc/xray/ssh")
+#total_ssh="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
 function updatews(){
 clear
 
@@ -195,7 +220,7 @@ echo -e "$COLOR1║ $NC${WH}Server IP           ${NC}= $IPVPS"
 echo -e "$COLOR1║ $NC${WH}ISP-VPS             ${NC}= $ISP"
 echo -e "$COLOR1║ $NC${WH}City                ${NC}= $CITY"
 echo -e "$COLOR1║ $NC${WH}RAM                 ${NC}= $uram / $tram"
-echo -e "$COLOR1║ $NC${WH}CPU                 ${NC}= $cpu_usage"
+#echo -e "$COLOR1║ $NC${WH}CPU                 ${NC}= $cpu_usage"
 #echo -e "  ${BLUE}• ${GREEN}Clients Name        ${NC}= ${YELLOW}$Name ${NC}"
 #echo -e "  ${BLUE}• ${GREEN}Script Exfire       ${NC}= ${YELLOW}$Exp (${NC}${RED} $dayleft Days ${NC}${YELLOW})${NC}"
 echo -e "$COLOR1║ $NC${WH}NAMA AUTHOR         ${NC}= ${WH}$author${NC}"
