@@ -24,7 +24,7 @@ checking_sc() {
 checking_sc
 
 cd
-if [[ -e /usr/local/geo/var.txt ]]; then
+if [[ -e /usr/local/kyt/var.txt ]]; then
 echo -ne
 else
 apt -y install python3 python3-pip libjpeg-dev zlib1g-dev p7zip-full
