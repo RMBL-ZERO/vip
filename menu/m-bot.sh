@@ -35,7 +35,7 @@ apt install python3 python3-pip git speedtest-cli -y
 sudo apt-get install -y p7zip-full
 cd /usr/bin
 clear
-git clone https://github.com/keposekali/bot_panel/main/bot.zip.git
+git clone https://github.com/keposekali/bot_panel.git
 unzip kyt.zip &> /dev/null
 pip3 install -r kyt/requirements.txt
 clear
@@ -143,15 +143,13 @@ echo -e "$COLOR1│  [ 1 ]  \033[1;37mGANTI BOT       ${NC}"
 echo -e "$COLOR1│  "                                        
 echo -e "$COLOR1│  [ 2 ]  \033[1;37mUPDATE BOT     ${NC}"
 echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 3 ]  \033[1;37mDELETE BOT     ${NC}"
+echo -e "$COLOR1│  [ 3 ]  \033[1;37mDELETE BOT     ${NC}"                                        
 echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 4 ]  \033[1;37mGANTI NAMA PANGGILAN BOT (MULTI SERVER)     ${NC}"
-echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 5 ]  \033[1;37mTAMBAH ADMIN     ${NC}"
+echo -e "$COLOR1│  [ 4 ]  \033[1;37mTAMBAH ADMIN     ${NC}"
 echo -e "$COLOR1│  "                                        
 echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
-until [[ $domain2 =~ ^[1-5]+$ ]]; do 
-read -p "   Please select numbers 1 sampai 5 : " domain2
+until [[ $domain2 =~ ^[1-4]+$ ]]; do 
+read -p "   Please select numbers 1 sampai 4 : " domain2
 done
 
 if [[ $domain2 == "1" ]]; then
@@ -213,7 +211,7 @@ rm -rf /usr/bin/kyt.zip
 rm -rf /usr/bin/kyt
 sleep 2
 cd /usr/bin
-git clone https://github.com/keposekali/bot_panel/main/bot.zip.git
+git clone https://github.com/keposekali/bot_panel.git
 unzip kyt.zip &> /dev/null
 pip3 install -r kyt/requirements.txt
 clear
