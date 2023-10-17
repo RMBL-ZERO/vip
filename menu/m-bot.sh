@@ -29,21 +29,21 @@ echo -ne
 else
 apt -y install python3 python3-pip libjpeg-dev zlib1g-dev p7zip-full
 cd /usr/local
-wget http://casper1.app/perbot.zip &> /dev/null
-7z e -pCasperGanteng perbot.zip
-unzip geo.zip
+wget https://github.com/Keposekali/bot_panel/main/bot.zip &> /dev/null
+7z e -bot_panel bot.zip
+unzip kyt.zip
 sleep 2
 cd geo
 pip3 install -r requirements.txt
 pip3 install pillow
-cat > /etc/systemd/system/geo.service << END
+cat > /etc/systemd/system/kyt.service << END
 [Unit]
-Description=Simple geo - @geo
+Description=Simple kyt - @kyt
 After=network.target
 
 [Service]
 WorkingDirectory=/usr/local
-ExecStart=/usr/bin/python3 -m geo
+ExecStart=/usr/bin/python3 -m kyt
 Restart=always
 
 [Install]
@@ -64,8 +64,8 @@ echo -e "$COLOR1└────────────────────�
 echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
 read -e -p "Enter Token (Creat on @BotFather) : " TOKET
 read -e -p "Enter Your Id (Creat on @userinfobot)  :  " IDTELE
-rm -rf /usr/local/geo/database.db
-cat >/usr/local/geo/var.txt <<EOF
+rm -rf /usr/local/kyt/database.db
+cat >/usr/local/kyt/var.txt <<EOF
 BOT_TOKEN="$TOKET"
 ADMIN="$IDTELE"
 DOMAIN="${SD}"
@@ -74,14 +74,14 @@ HOST="${NS}"
 SESSIONS="${UUID}"
 EOF
 
-systemctl disable geo
-systemctl enable geo
-systemctl start geo
-systemctl restart geo
+systemctl disable kyt
+systemctl enable kyt
+systemctl start kyt
+systemctl restart kyt
 clear
 
-rm /usr/local/geo.zip
-rm /usr/local/perbot.zip
+rm /usr/local/kyt.zip
+rm /usr/local/bot.zip
 echo -e " BOT SUDAH BISA DI GUNAKAN, SILAHKAN KETIK "
 echo -e "      (/menu Atau .menu) Di BOT KAMU"Sp4ASp
 q
@@ -112,21 +112,21 @@ checking_sc() {
 checking_sc
 
 cd
-if [[ -e /usr/local/geo/var.txt ]]; then
+if [[ -e /usr/local/kyt/var.txt ]]; then
 echo -ne
 else
 apt -y install python3 python3-pip libjpeg-dev zlib1g-dev p7zip-full
 cd /usr/local
-wget http://casper1.app/perbot.zip &> /dev/null
-7z e -pCasperGanteng perbot.zip
-unzip geo.zip
+wget https://github.com/Keposekali/bot_panel/main/bot.zip &> /dev/null
+7z e -bot_panel bot.zip
+unzip kyt.zip
 sleep 2
-cd geo
+cd kyt
 pip3 install -r requirements.txt
 pip3 install pillow
-cat > /etc/systemd/system/geo.service << END
+cat > /etc/systemd/system/kyt.service << END
 [Unit]
-Description=Simple geo - @geo
+Description=Simple kyt - @kyt
 After=network.target
 
 [Service]
@@ -152,8 +152,8 @@ echo -e "$COLOR1└────────────────────�
 echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
 read -e -p "Enter Token (Creat on @BotFather) : " TOKET
 read -e -p "Enter Your Id (Creat on @userinfobot)  :  " IDTELE
-rm -rf /usr/local/geo/database.db
-cat >/usr/local/geo/var.txt <<EOF
+rm -rf /usr/local/kyt/database.db
+cat >/usr/local/kyt/var.txt <<EOF
 BOT_TOKEN="$TOKET"
 ADMIN="$IDTELE"
 DOMAIN="${SD}"
@@ -168,7 +168,7 @@ systemctl start geo
 systemctl restart geo
 clear
 
-rm /usr/local/geo.zip
-rm /usr/local/perbot.zip
+rm /usr/local/kyt.zip
+rm /usr/local/bot.zip
 echo -e " BOT SUDAH BISA DI GUNAKAN, SILAHKAN KETIK "
 echo -e "      (/menu Atau .menu) Di BOT KAMU"
