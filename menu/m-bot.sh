@@ -1,320 +1,190 @@
 #!/bin/bash
-ipsaya=$(curl -sS ipinfo.io/ip)
-data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
-date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini"
-checking_sc() {
-    useexp=$(curl -sS $data_ip | grep $ipsaya | awk '{print $3}')
-    if [[ $date_list < $useexp ]]; then
-        echo -ne
+dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
+biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
+###########- COLOR CODE -##############
+colornow=$(cat /etc/rmbl/theme/color.conf)
+NC="\e[0m"
+export GREEN='\033[0;32m';
+RED="\033[0;31m" 
+COLOR1="$(cat /etc/rmbl/theme/$colornow | grep -w "TEXT" | cut -d: -f2|sed 's/ //g')"
+COLBG1="$(cat /etc/rmbl/theme/$colornow | grep -w "BG" | cut -d: -f2|sed 's/ //g')"                    
+###########- END COLOR CODE -##########
+
+ipes=$(curl -sS ipv4.icanhazip.com)
+[[ ! -f /usr/bin/jq ]] && {
+    red "Downloading jq file!"
+    wget -qc --no-check-certificate "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64" -O /usr/bin/jq
+    chmod +x usr/bin/jq
+}
+
+dircreate() {
+    [[ ! -d /root/multi ]] && mkdir -p /root/multi && touch /root/multi/voucher && touch /root/multi/claimed && touch /root/multi/reseller && touch /root/multi/public && touch /root/multi/hist && echo "off" >/root/multi/public
+    [[ ! -d /etc/.maAsiss ]] && mkdir -p /etc/.maAsiss
+}
+
+BURIQ () {
+    curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini > /root/tmp
+    data=( `cat /root/tmp | grep -E "^### " | awk '{print $2}'` )
+    for user in "${data[@]}"
+    do
+    exp=( `grep -E "^### $user" "/root/tmp" | awk '{print $3}'` )
+    d1=(`date -d "$exp" +%s`)
+    d2=(`date -d "$biji" +%s`)
+    exp2=$(( (d1 - d2) / 86400 ))
+    if [[ "$exp2" -le "0" ]]; then
+    echo $user > /etc/.$user.ini
     else
-        echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-        echo -e "$COLOR1 ${NC} ${COLBG1}          ${WH}• AUTOSCRIPT PREMIUM •               ${NC} $COLOR1 $NC"
-        echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-        echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-        echo -e "            ${RED}PERMISSION DENIED !${NC}"
-        echo -e "   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}"
-        echo -e "     \033[0;33mBuy access permissions for scripts${NC}"
-        echo -e "             \033[0;33mContact Your Admin ${NC}"
-        echo -e "     \033[0;36mTelegram${NC}: https://t.me/rmblvpn1"
-        echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-        exit
+    rm -f /etc/.$user.ini > /dev/null 2>&1
     fi
+    done
+    rm -f /root/tmp
 }
-checking_sc
 
-domain=$(cat /etc/xray/domain)
-#color
-grenbo="\e[92;1m"
-NC='\e[0m'
-WH='\033[1;37m'
-#install
-function install-bot(){
-apt update -y && apt upgrade -y
-apt install python3 python3-pip git speedtest-cli -y
-sudo apt-get install -y p7zip-full
-cd /usr/bin
-clear
-git clone https://github.com/keposekali/bot_panel.git
-unzip kyt.zip &> /dev/null
-pip3 install -r kyt/requirements.txt
-clear
-cd /usr/bin/kyt/bot
-chmod +x *
-mv -f * /usr/bin
-rm -rf /usr/bin/kyt/bot
-rm -rf /usr/bin/*.zip
-cd
-rm -rf /etc/tele
+MYIP=$(curl -sS ipv4.icanhazip.com)
+Name=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+Isadmin=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $5}')
+echo $Name > /usr/local/etc/.$Name.ini
+CekOne=$(cat /usr/local/etc/.$Name.ini)
 
-clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}                ${WH}• BOT PANEL •                  ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "${grenbo}Tutorial Creat Bot and ID Telegram${NC}"
-echo -e "${grenbo}[*] Creat Bot and Token Bot : @BotFather${NC}"
-echo -e "${grenbo}[*] Info Id Telegram : @MissRose_bot , perintah /info${NC}"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-rm -rf /usr/bin/ddsdswl.session
-rm -rf /usr/bin/kyt/var.txt
-rm -rf /usr/bin/kyt/database.db
-echo -e ""
-read -e -p "[*] Input your Bot Token : " bottoken
-read -e -p "[*] Input Your Id Telegram :" admin
-
-cat >/usr/bin/kyt/var.txt <<EOF
-BOT_TOKEN="$bottoken"
-ADMIN="$admin"
-DOMAIN="$domain"
-EOF
-
-echo 'TEXT=$'"(cat /etc/notiftele)"'' > /etc/tele
-echo "TIMES=10" >> /etc/tele
-echo 'KEY=$'"(cat /etc/per/token)"'' >> /etc/tele
-
-echo "$bottoken" > /etc/per/token
-echo "$admin" > /etc/per/id
-echo "$bottoken" > /usr/bin/token
-echo "$admin" > /usr/bin/idchat
-echo "$bottoken" > /etc/perlogin/token
-echo "$admin" > /etc/perlogin/id
-clear
-
-echo "SHELL=/bin/sh" >/etc/cron.d/cekbot
-echo "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" >>/etc/cron.d/cekbot
-echo "*/1 * * * * root /usr/bin/cekbot" >>/etc/cron.d/cekbot
-
-cat > /usr/bin/cekbot << END
-nginx=$( systemctl status kyt | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
-if [[ $nginx == "running" ]]; then
-    echo -ne
+Bloman () {
+if [ -f "/etc/.$Name.ini" ]; then
+CekTwo=$(cat /etc/.$Name.ini)
+    if [ "$CekOne" = "$CekTwo" ]; then
+        res="Expired"
+    fi
 else
-    systemctl restart kyt
-    systemctl start kyt
+res="Permission Accepted..."
 fi
-
-kyt=$( systemctl status kyt | grep "TERM" | wc -l )
-if [[ $kyt == "0" ]]; then
-echo -ne
-else
-    systemctl restart kyt
-    systemctl start kyt
-fi
-END
-
-cat > /etc/systemd/system/kyt.service << END
-[Unit]
-Description=Simple kyt - @kyt
-After=syslog.target network-online.target
-
-[Service]
-WorkingDirectory=/usr/bin
-ExecStart=/usr/bin/python3 -m kyt
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-END
-
-systemctl daemon-reload &> /dev/null
-systemctl enable kyt &> /dev/null
-systemctl start kyt &> /dev/null
-systemctl restart kyt &> /dev/null
-
-echo "Done"
-echo " Installations complete, type /menu on your bot"
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
 }
-cd
-if [ -e /usr/bin/kyt ]; then
-echo -ne
+
+PERMISSION () {
+    MYIP=$(curl -sS ipv4.icanhazip.com)
+    IZIN=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | awk '{print $4}' | grep $MYIP)
+    if [ "$MYIP" = "$IZIN" ]; then
+    Bloman
+    else
+    res="Permission Denied!"
+    fi
+    BURIQ
+}
+
+x="ok"
+
+
+PERMISSION
+
+if [ "$res" = "Expired" ]; then
+Exp="\e[36mExpired\033[0m"
+rm -f /home/needupdate > /dev/null 2>&1
 else
-install-bot
+Exp=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $3}')
 fi
 
-#isi data
-echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│ \033[1;37mPlease select a your Choice              $COLOR1│${NC}"
-echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌──────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1│  [ 1 ]  \033[1;37mGANTI BOT       ${NC}"
-echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 2 ]  \033[1;37mUPDATE BOT     ${NC}"
-echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 3 ]  \033[1;37mDELETE BOT     ${NC}"                                        
-echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1│  [ 4 ]  \033[1;37mTAMBAH ADMIN     ${NC}"
-echo -e "$COLOR1│  "                                        
-echo -e "$COLOR1└──────────────────────────────────────────┘${NC}"
-until [[ $domain2 =~ ^[1-4]+$ ]]; do 
-read -p "   Please select numbers 1 sampai 4 : " domain2
-done
-
-if [[ $domain2 == "1" ]]; then
+function botonoff(){
 clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}                ${WH}• BOT PANEL •                  ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "${grenbo}Tutorial Creat Bot and ID Telegram${NC}"
-echo -e "${grenbo}[*] Creat Bot and Token Bot : @BotFather${NC}"
-echo -e "${grenbo}[*] Info Id Telegram : @MissRose_bot , perintah /info${NC}"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-rm -rf /usr/bin/ddsdswl.session
-rm -rf /usr/bin/kyt/var.txt
-rm -rf /usr/bin/kyt/database.db
-echo -e ""
-read -e -p "[*] Input your Bot Token : " bottoken
-read -e -p "[*] Input Your Id Telegram :" admin
-
-cat >/usr/bin/kyt/var.txt <<EOF
-BOT_TOKEN="$bottoken"
-ADMIN="$admin"
-DOMAIN="$domain"
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e "$COLBG1                  • BOT PANEL •                   $NC"
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+dircreate
+[[ ! -f /root/multi/bot.conf ]] && {
+echo -e "
+• Status ${GREEN}Installer${NC} And ${GREEN}Running!${NC}
+"
+[[ ! -f /root/ResBotAuth ]] && {
+echo -ne " API TOKEN : "
+read bot_tkn
+echo "Toket: $bot_tkn" >/root/ResBotAuth
+echo -ne " ADMIN ID  : "
+read adm_ids
+echo "Admin_ID: $adm_ids" >>/root/ResBotAuth
+}
+echo -ne " BOT NAMME : "
+read bot_user
+[[ -z $bot_user ]] && bot_user="kamunikan"
+echo ""
+echo -ne " LIMIT     : "
+read limit_pnl
+[[ -z $limit_pnl ]] && limit_pnl="1"
+echo ""
+cat <<-EOF >/root/multi/bot.conf
+Botname: $bot_user
+Limit: $limit_pnl
 EOF
 
-echo "$bottoken" > /etc/per/token
-echo "$admin" > /etc/per/id
+fun_bot1() {
 clear
-
-cat > /etc/systemd/system/kyt.service << END
-[Unit]
-Description=Simple kyt - @kyt
-After=syslog.target network-online.target
-
-[Service]
-WorkingDirectory=/usr/bin
-ExecStart=/usr/bin/python3 -m kyt
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-END
-
-systemctl daemon-reload &> /dev/null
-systemctl stop kyt &> /dev/null
-systemctl enable kyt &> /dev/null
-systemctl start kyt &> /dev/null
-systemctl restart kyt &> /dev/null
-
-echo "Done"
-echo " Installations complete, type /menu on your bot"
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
-fi
-if [[ $domain2 == "2" ]]; then
-clear
-cp -r /usr/bin/kyt/var.txt /usr/bin &> /dev/null
-rm -rf /usr/bin/kyt.zip
-rm -rf /usr/bin/kyt
-sleep 2
-cd /usr/bin
-git clone https://github.com/keposekali/bot_panel.git
-unzip kyt.zip &> /dev/null
-pip3 install -r kyt/requirements.txt
-clear
-cd /usr/bin/kyt/bot
-chmod +x *
-mv -f * /usr/bin
-rm -rf /usr/bin/kyt/bot
-rm -rf /usr/bin/*.zip
-mv /usr/bin/var.txt /usr/bin/kyt
-cd
-clear
-
-systemctl daemon-reload &> /dev/null
-systemctl stop kyt &> /dev/null
-systemctl enable kyt &> /dev/null
-systemctl start kyt &> /dev/null
-systemctl restart kyt &> /dev/null
-clear
-echo -e "Succes Update BOT Telegram"
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
-fi
-
-if [[ $domain2 == "3" ]]; then
-clear
-rm -rf /usr/bin/kyt
-echo -e "Succes Delete BOT Telegram"
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
-fi
-
-if [[ $domain2 == "4" ]]; then
-clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}                ${WH}• BOT PANEL •                  ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "${grenbo}Ini digunakan jika Mau memakai 1bot saja tanpa perlu ${NC}"
-echo -e "${grenbo}memakai banyak bot create ini digunakan untuk create akun ${NC}"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+[[ ! -e "/etc/.maAsiss/.Shellbtsss" ]] && {
+wget -qc O- https://raw.githubusercontent.com/bracoli/api/main/BotAPI.sh >/etc/.maAsiss/.Shellbtsss
+}
+[[ "$(grep -wc "sam_bot" "/etc/rc.local")" = '0' ]] && {
+sed -i '$ i\screen -dmS sam_bot bbt' /etc/rc.local >/dev/null 2>&1
+}
+}
+screen -dmS sam_bot bbt >/dev/null 2>&1
+fun_bot1
+[[ $(ps x | grep "sam_bot" | grep -v grep | wc -l) != '0' ]] && {
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e "$COLBG1                  • BOT PANEL •                   $NC"
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
 echo -e ""
-read -e -p "[*] Input Nama Panggilan Botnya : " namabot
-
-sed -i "s/77/${namabot}/g" /usr/bin/kyt/modules/menu.py
-sed -i "s/77/${namabot}/g" /usr/bin/kyt/modules/start.py
-sed -i "s/"sshovpn"/"sshovpn${namabot}"/g" /usr/bin/kyt/modules/menu.py
-sed -i "s/"vmess"/"vmess${namabot}"/g" /usr/bin/kyt/modules/menu.py
-sed -i "s/"vless"/"vless${namabot}"/g" /usr/bin/kyt/modules/menu.py
-sed -i "s/"trojan"/"trojan${namabot}"/g" /usr/bin/kyt/modules/menu.py
-sed -i "s&.menu|/menu&.${namabot}|/${namabot}&g" /usr/bin/kyt/modules/menu.py
-sed -i "s&.start|/start&.start${namabot}|/start${namabot}&g" /usr/bin/kyt/modules/start.py
-sed -i "s&.admin|/admin&.admin${namabot}|/admin${namabot}&g" /usr/bin/kyt/modules/admin.py
-sed -i "s/b'start'/b'start${namabot}'/g" /usr/bin/kyt/modules/start.py
-sed -i "s/b'admin'/b'admin${namabot}'/g" /usr/bin/kyt/modules/admin.py
-sed -i "s/b'menu'/b'${namabot}'/g" /usr/bin/kyt/modules/menu.py
-sed -i "s/b'menu'/b'${namabot}'/g" /usr/bin/kyt/modules/start.py
-sed -i "s/add-ip/add-ip${namabot}/g" /usr/bin/kyt/modules/admin.py
-sed -i "s/change-ip/change-ip${namabot}/g" /usr/bin/kyt/modules/admin.py
-sed -i "s/add-key/add-key${namabot}/g" /usr/bin/kyt/modules/admin.py
-sed -i "s/7-/${namabot}-/g" /usr/bin/kyt/modules/vmess.py
-sed -i "s/b'vmess'/b'vmess${namabot}'/g" /usr/bin/kyt/modules/vmess.py
-sed -i "s/7-/${namabot}-/g" /usr/bin/kyt/modules/vless.py
-sed -i "s/b'vless'/b'vless${namabot}'/g" /usr/bin/kyt/modules/vless.py
-sed -i "s/7-/${namabot}-/g" /usr/bin/kyt/modules/trojan.py
-sed -i "s/b'trojan'/b'trojan${namabot}'/g" /usr/bin/kyt/modules/trojan.py
-sed -i "s/7-/${namabot}-/g" /usr/bin/kyt/modules/ssh.py
-sed -i "s/b'sshovpn'/b'sshovpn${namabot}'/g" /usr/bin/kyt/modules/ssh.py
-sed -i "s/"menu"/"${namabot}"/g" /usr/bin/kyt/modules/vmess.py
-sed -i "s/"menu"/"${namabot}"/g" /usr/bin/kyt/modules/vless.py
-sed -i "s/"menu"/"${namabot}"/g" /usr/bin/kyt/modules/trojan.py
-sed -i "s/"menu"/"${namabot}"/g" /usr/bin/kyt/modules/ssh.py
-sed -i "s/"menu"/"${namabot}"/g" /usr/bin/kyt/modules/menu.py
-
-clear
-echo -e "Succes Ganti Nama Panggilan BOT Telegram"
-echo -e "Kalau Mau Panggil Menu botnya Ketik .${namabot} atau /${namabot}"
-echo -e "Kalau Mau Panggil Start botnya Ketik .start${namabot} atau /start${namabot}"
-systemctl restart kyt
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
-fi
-
-
-if [[ $domain2 == "5" ]]; then
-clear
-echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-echo -e "$COLOR1 ${NC} ${COLBG1}                ${WH}• BOT PANEL •                  ${NC} $COLOR1 $NC"
-echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+echo -e " [INFO]  Bot successfully activated !" 
 echo -e ""
-read -e -p "[*] Input ID Usernya : " user
-userke=$(cat /usr/bin/kyt/var.txt | wc -l)
-sed -i '/(ADMIN,))/a hello	c.execute("INSERT INTO admin (user_id) VALUES (?)",(USER'""$userke""',))' /usr/bin/kyt/__init__.py
-cat >>/usr/bin/kyt/var.txt <<EOF
-USER${userke}="$user"
-EOF
-sed -i "s/hello//g" /usr/bin/kyt/__init__.py
-
-echo 'curl -s --max-time $TIMES -d "chat_id='""$user""'&disable_web_page_preview=1&text=$TEXT&parse_mode=html" https://api.telegram.org/bot$KEY/sendMessage >/dev/null' >> /etc/tele
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e ""
+read -n 1 -s -r -p " Press any key to back on menu"
+menu-bot
+} || {
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e "$COLBG1                  • BOT PANEL •                   $NC"
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e ""
+echo -e " [INFO] Information not valid !"
+echo -e ""
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e ""
+read -n 1 -s -r -p " Press any key to back on menu"
+menu-bot
+}
+} || {
 clear
-echo -e "Succes TAMBAH Admin BOT Telegram"
-rm -rf /usr/bin/ddsdswl.session
-rm -rf /usr/bin/kyt/database.db
-systemctl restart kyt 
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
-fi
+fun_bot2() {
+screen -r -S "sam_bot" -X quit >/dev/null 2>&1
+[[ $(grep -wc "sam_bot" /etc/rc.local) != '0' ]] && {
+sed -i '/sam_bot/d' /etc/rc.local
+}
+rm -f /root/multi/bot.conf
+sleep 1
+}
+fun_bot2
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e "$COLBG1                  • BOT PANEL •                   $NC"
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e ""
+echo -e " [INFO] Bot Stoped Successfully"
+echo -e ""
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e ""
+read -n 1 -s -r -p " Press any key to back on menu"
+menu-bot
+}
+}
+clear
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e "$COLBG1                  • BOT PANEL •                   $NC"
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e ""
+echo -e " $COLOR1 [01]$NC • Start & Stop Bot"
+echo -e ""
+echo -e " $COLOR1 [00]$NC • Back To Main Menu"
+echo -e ""
+echo -e "$COLOR1━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━$NC"
+echo -e ""
+read -p " Select menu :  "  opt
+echo -e   ""
+case $opt in
+01 | 1) clear ; botonoff ;;
+02 | 2) clear ; menu2 ;;
+03 | 3) clear ; menu3 ;;
+00 | 0) clear ; menu ;;
+*) clear ; menu-bot ;;
+esac
