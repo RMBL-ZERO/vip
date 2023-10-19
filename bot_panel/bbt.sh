@@ -4470,7 +4470,7 @@ while :; do
                         wsssl=`cat /root/log-install.txt | grep -w "SSH SSL Websocket" | cut -d: -f2 | awk '{print $1}'`
 
                         env_msg="━━━━━━━━━━━━━━━━━━━━━\n<b>       🔸 SSH ACCOUNT 🔸 </b>\n━━━━━━━━━━━━━━━━━━━━━\n"
-                        env_msg+="Domain : $domain \n"
+                        env_msg+="Host : $IPs \n"
                         env_msg+="Username: <code>$(awk -F " " '/Name/ {print $2}' $CAD_ARQ)</code>\n"
                         env_msg+="Password: <code>$(awk -F " " '/Password/ {print $2}' $CAD_ARQ)</code>\n"
                         env_msg+="Expired On: $(awk -F " " '/Validity/ {print $2}' $CAD_ARQ) 🗓\n"
@@ -4527,7 +4527,7 @@ while :; do
 
                         local env_msg
                         env_msg="━━━━━━━━━━━━━━━━━━━━━\n<b>       🔸 SSH ACCOUNT 🔸 </b>\n━━━━━━━━━━━━━━━━━━━━━\n"
-                        env_msg+="Domain : $domain
+                        env_msg+="Host : $IPs \n"
                         env_msg+="Username: <code>$(awk -F " " '/Name/ {print $2}' $CAD_ARQ)</code>\n"
                         env_msg+="Password: <code>$(awk -F " " '/Password/ {print $2}' $CAD_ARQ)</code>\n"
                         env_msg+="Expired On: $(awk -F " " '/Validity/ {print $2}' $CAD_ARQ) 🗓\n"
