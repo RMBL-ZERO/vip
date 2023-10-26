@@ -35,8 +35,14 @@ apt install python3 python3-pip git speedtest-cli -y
 sudo apt-get install -y p7zip-full
 cd /usr/bin
 clear
-git clone https://github.com/Hunterscrip/bot_panel.git
-unzip bot_panel/kyt.zip &> /dev/null
+wget https://raw.githubusercontent.com/wingshope/vip/main/bot/bot.zip
+unzip bot.zip
+mv bot/* /usr/bin
+chmod +x /usr/bin/*
+rm -rf bot.zip
+clear
+wget https://raw.githubusercontent.com/wingshope/vip/main/bot/kyt.zip
+unzip kyt.zip
 pip3 install -r kyt/requirements.txt
 clear
 cd /usr/bin/kyt/bot
@@ -213,8 +219,14 @@ rm -rf /usr/bin/kyt.zip
 rm -rf /usr/bin/kyt
 sleep 2
 cd /usr/bin
-git clone https://github.com/Hunterscrip/bot_panel.git
-unzip bot_panel/kyt.zip &> /dev/null
+wget https://raw.githubusercontent.com/wingshope/vip/main/bot/bot.zip
+unzip bot.zip
+mv bot/* /usr/bin
+chmod +x /usr/bin/*
+rm -rf bot.zip
+clear
+wget https://raw.githubusercontent.com/wingshope/vip/main/bot/kyt.zip
+unzip kyt.zip
 pip3 install -r kyt/requirements.txt
 clear
 cd /usr/bin/kyt/bot
