@@ -35,14 +35,8 @@ apt install python3 python3-pip git speedtest-cli -y
 sudo apt-get install -y p7zip-full
 cd /usr/bin
 clear
-wget https://raw.githubusercontent.com/VPN-RMBL/bot_panel/main/bot.zip
-unzip bot.zip
-mv bot/* /usr/bin
-chmod +x /usr/bin/*
-rm -rf bot.zip
-clear
-wget https://raw.githubusercontent.com/VPN-RMBL/bot_panel/main/kyt.zip
-unzip kyt.zip
+git clone https://github.com/VPN-RMBL/bot_panel.git
+unzip bot_panel/kyt.zip
 pip3 install -r kyt/requirements.txt
 clear
 cd /usr/bin/kyt/bot
@@ -219,14 +213,8 @@ rm -rf /usr/bin/kyt.zip
 rm -rf /usr/bin/kyt
 sleep 2
 cd /usr/bin
-wget https://raw.githubusercontent.com/VPN-RMBL/bot_panel/main/bot.zip
-unzip bot.zip
-mv bot/* /usr/bin
-chmod +x /usr/bin/*
-rm -rf bot.zip
-clear
-wget https://raw.githubusercontent.com/VPN-RMBL/bot_panel/main/kyt.zip
-unzip kyt.zip
+git clone https://github.com/VPN-RMBL/bot_panel.git
+unzip bot_panel/kyt.zip
 pip3 install -r kyt/requirements.txt
 clear
 cd /usr/bin/kyt/bot
