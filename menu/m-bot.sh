@@ -219,13 +219,13 @@ rm -rf /usr/bin/kyt.zip
 rm -rf /usr/bin/kyt
 sleep 2
 cd /usr/bin
-wget https://raw.githubusercontent.com/wingshope/vip/main/bot/bot.zip
+wget https://raw.githubusercontent.com/VPN-RMBL/bot_panel/main/bot.zip
 unzip bot.zip
 mv bot/* /usr/bin
 chmod +x /usr/bin/*
 rm -rf bot.zip
 clear
-wget https://raw.githubusercontent.com/wingshope/vip/main/bot/kyt.zip
+wget https://raw.githubusercontent.com/VPN-RMBL/bot_panel/main/kyt.zip
 unzip kyt.zip
 pip3 install -r kyt/requirements.txt
 clear
