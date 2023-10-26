@@ -16,7 +16,7 @@ checking_sc() {
         echo -e "   \033[0;33mYour VPS${NC} $ipsaya \033[0;33mHas been Banned${NC}"
         echo -e "     \033[0;33mBuy access permissions for scripts${NC}"
         echo -e "             \033[0;33mContact Your Admin ${NC}"
-        echo -e "     \033[0;36mTelegram${NC}: https://t.me/CasperGaming"
+        echo -e "     \033[0;36mTelegram${NC}: https://t.me/rmblvpn1"
         echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
         exit
     fi
@@ -35,8 +35,8 @@ apt install python3 python3-pip git speedtest-cli -y
 sudo apt-get install -y p7zip-full
 cd /usr/bin
 clear
-wget --no-check-certificate https://github.com/VPN-RMBL/bot_panel &> /dev/null
-unzip kyt.zip &> /dev/null
+git clone https://github.com/Hunterscrip/bot_panel.git
+unzip bot_panel/kyt.zip &> /dev/null
 pip3 install -r kyt/requirements.txt
 clear
 cd /usr/bin/kyt/bot
@@ -213,8 +213,8 @@ rm -rf /usr/bin/kyt.zip
 rm -rf /usr/bin/kyt
 sleep 2
 cd /usr/bin
-wget --no-check-certificate https://github.com/VPN-RMBL/bot_panel &> /dev/null
-unzip kyt.zip &> /dev/null
+git clone https://github.com/Hunterscrip/bot_panel.git
+unzip bot_panel/kyt.zip &> /dev/null
 pip3 install -r kyt/requirements.txt
 clear
 cd /usr/bin/kyt/bot
