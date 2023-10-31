@@ -35,13 +35,13 @@ apt install python3 python3-pip git speedtest-cli -y
 sudo apt-get install -y p7zip-full
 cd /usr/bin
 clear
-wget https://raw.githubusercontent.com/RMBL-ZERO/rmbl/main/bot/bot.zip
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/bot/bot.zip
 unzip bot.zip
 mv bot/* /usr/bin
 chmod +x /usr/bin/*
 rm -rf bot.zip
 clear
-wget https://raw.githubusercontent.com/RMBL-ZERO/rmbl/main/bot/kyt.zip
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/bot/kyt.zip
 unzip kyt.zip
 pip3 install -r kyt/requirements.txt
 clear
@@ -219,13 +219,13 @@ rm -rf /usr/bin/kyt.zip
 rm -rf /usr/bin/kyt
 sleep 2
 cd /usr/bin
-wget https://raw.githubusercontent.com/RMBL-ZERO/rmbl/main/bot/bot.zip
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/bot/bot.zip
 unzip bot.zip
 mv bot/* /usr/bin
 chmod +x /usr/bin/*
 rm -rf bot.zip
 clear
-wget https://raw.githubusercontent.com/RMBL-ZERO/rmbl/main/bot/kyt.zip
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/bot/kyt.zip
 unzip kyt.zip
 pip3 install -r kyt/requirements.txt
 clear
