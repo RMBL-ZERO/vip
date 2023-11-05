@@ -13,26 +13,6 @@ green='\033[0;32m'
 grenbo="\e[92;1m"
 purple="\033[1;95m"
 YELL='\033[0;33m'
-BIBlack='\033[1;90m'      # Black
-BIRed='\033[1;91m'        # Red
-BIGreen='\033[1;92m'      # Green
-BIYellow='\033[1;93m'     # Yellow
-BIBlue='\033[1;94m'       # Blue
-BIPurple='\033[1;95m'     # Purple
-BICyan='\033[1;96m'       # Cyan
-BIWhite='\033[1;97m'      # White
-UWhite='\033[4;37m'       # White
-On_IPurple='\033[0;105m'  #
-On_IRed='\033[0;101m'
-IBlack='\033[0;90m'       # Black
-IRed='\033[0;91m'         # Red
-IGreen='\033[0;92m'       # Green
-IYellow='\033[0;93m'      # Yellow
-IBlue='\033[0;94m'        # Blue
-IPurple='\033[0;95m'      # Purple
-ICyan='\033[0;96m'        # Cyan
-IWhite='\033[0;97m'       # White
-NC='\e[0m'
 #INTALLER-UDP
 UDPX="https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1S3IE25v_fyUfCLslnujFBSBMNunDHDk2"
 ISP=$(cat /etc/xray/isp)
@@ -161,20 +141,6 @@ if [[ $dropbear_service == "running" ]]; then
 else
    status_dropbear="${RED}🔴${NC} "
 fi
-# usage
-#Download/Upload today
-dtoday="$(vnstat -i eth0 | grep "today" | awk '{print $2" "substr ($3, 1, 1)}')"
-utoday="$(vnstat -i eth0 | grep "today" | awk '{print $5" "substr ($6, 1, 1)}')"
-ttoday="$(vnstat -i eth0 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}')"
-#Download/Upload yesterday
-dyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $2" "substr ($3, 1, 1)}')"
-uyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $5" "substr ($6, 1, 1)}')"
-tyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}')"
-#Download/Upload current month
-dmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $3" "substr ($4, 1, 1)}')"
-umon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $6" "substr ($7, 1, 1)}')"
-tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}')"
-clear
 #####INFOAKUN
 vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
 let vla=$vlx/2
@@ -192,56 +158,42 @@ KIRI="\033[1;32m>\033[1;33m>\033[1;31m>\033[1;31m$NC"
 r="\033[1;31m"  #REDTERANG
 a=" ${grenbo}ACCOUNT PREMIUM" 
 echo -e " "
-echo -e " ${BIYellow}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e " ${BIYellow}│$NC\033[41m         Welcome To Script Premium RMBL VPN               $NC${BIYellow}│$NC"
-echo -e " ${BIYellow}╰══════════════════════════════════════════════════════════╯${NC}"
-echo -e " ${BIYellow}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e " ${BIYellow}│$NC$r ⇲ $NC$Blue System OS ${NC}     $Blue   =   $NC $MODEL${NC}"
-echo -e " ${BIYellow}│$NC$r ⇲ $NC$Blue Server RAM ${NC}    $Blue   =   $NC $RAM MB $NC"
-echo -e " ${BIYellow}│$NC$r ⇲ $NC$Blue Uptime Server ${NC} $Blue   =   $NC $SERONLINE${NC}"
-echo -e " ${BIYellow}│$NC$r ⇲ $NC$Blue Date ${NC}          $Blue   =   $NC $DATEVPS${NC}"
-echo -e " ${BIYellow}│$NC$r ⇲ $NC$Blue Time ${NC}          $Blue   =   $NC $TIMEZONE${NC}"
-echo -e " ${BIYellow}│$NC$r ⇲ $NC$Blue IP VPS ${NC}        $Blue   =   $NC $IPVPS${NC}"
-echo -e " ${BIYellow}│$NC$r ⇲ $NC$Blue Domain ${NC}        $Blue   =   $NC $domain${NC}"
-echo -e " ${BIYellow}╰══════════════════════════════════════════════════════════╯${NC}"
-echo -e "      ${BIYellow} ───────────────────────────────────────────────${NC}"  
+echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
+echo -e " ${z}│$NC\033[41m         Welcome To Script Premium RMBL VPN               $NC${z}│$NC"
+echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
+echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
+echo -e " ${z}│$NC$r ⇲ $NC$Blue System OS ${NC}     $Blue   =   $NC $MODEL${NC}"
+echo -e " ${z}│$NC$r ⇲ $NC$Blue Server RAM ${NC}    $Blue   =   $NC $RAM MB $NC"
+echo -e " ${z}│$NC$r ⇲ $NC$Blue Uptime Server ${NC} $Blue   =   $NC $SERONLINE${NC}"
+echo -e " ${z}│$NC$r ⇲ $NC$Blue Date ${NC}          $Blue   =   $NC $DATEVPS${NC}"
+echo -e " ${z}│$NC$r ⇲ $NC$Blue Time ${NC}          $Blue   =   $NC $TIMEZONE${NC}"
+echo -e " ${z}│$NC$r ⇲ $NC$Blue IP VPS ${NC}        $Blue   =   $NC $IPVPS${NC}"
+echo -e " ${z}│$NC$r ⇲ $NC$Blue Domain ${NC}        $Blue   =   $NC $domain${NC}"
+echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
+echo -e "                ${KIRI} ${purple}INFORMATION ACCOUNT${NC} ${KANAN}"
+echo -e "       ───────────────────────────────────────────────${NC}"  
 echo -e "           ${Blue}SSH/OPENVPN${NC}    $y=$NC $ssh1${NC}" "$a"
 echo -e "           ${Blue}VMESS/WS/GRPC${NC}  $y=$NC $vma$NC" "$a"
 echo -e "           ${Blue}VLESS/WS/GRPC${NC}  $y=$NC $vla$NC" "$a"
 echo -e "           ${Blue}TROJAN/WS/GRPC${NC} $y=$NC $trb${NC}" "$a"
-echo -e "     ${BIYellow} ───────────────────────────────────────────────${NC}"  
-echo -e " ${BIYellow}╭════════════════╮╭══════════════════╮╭════════════════════╮${NC}"
-echo -e " ${BIYellow}│ ${NC}$Blue SSH$NC : $status_ssh" "        $Blue NGINX$NC : $status_nginx" "        $Blue XRAY$NC : $status_xray      $NC${${BIYellow}}│$NC" 
-echo -e " ${BIYellow}╰════════════════╯╰══════════════════╯╰════════════════════╯${NC}"
-echo -e "     ${BIYellow}╔═════════════════════════════════════════════════╗${NC}"
-echo -e "     ${BIYellow}║${NC} ${COLBG1}                  ${WH}• LIST MENU •                ${NC}${BIYellow} ║ $NC"
-echo -e "     ${BIYellow}╚═════════════════════════════════════════════════╝${NC}"
-echo -e "     ${BIYellow}╔═════════════════════════════════════════════════╗${NC}"
-echo -e "     ${BIYellow}║                                                 ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║ $NC ${BICyan}[${BIWhite}01${BICyan}]${RED} •${NC} ${BIGreen}SSH OVPN ${GREEN}MENU  $NC    ${BICyan}[${BIWhite}8${BICyan}]${RED}  • ${NC}${BIGreen}RESTART       ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║                                                 ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║ $NC ${BICyan}[${BIWhite}02${BICyan}]${RED} •${NC} ${BIGreen}VMESS    ${GREEN}MENU  $NC    ${BICyan}[${BIWhite}9${BICyan}]${RED}  • ${NC}${BIGreen}REBOOT        ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║                                                 ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║ $NC ${BICyan}[${BIWhite}03${BICyan}]${RED} •${NC} ${BIGreen}VLESS    ${GREEN}MENU  $NC    ${BICyan}[${BIWhite}10${BICyan}]${RED} • ${NC}${BIGreen}DOMAIN        ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║                                                 ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║ $NC ${BICyan}[${BIWhite}04${BICyan}]${RED} •${NC} ${BIGreen}TROJAN   ${GREEN}MENU  $NC    ${BICyan}[${BIWhite}11${BICyan}]${RED} • ${NC}${BIGreen}REN.CRT       ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║                                                 ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║ $NC ${BICyan}[${BIWhite}05${BICyan}]${RED} •${NC} ${BIGreen}BOT AKUN ${GREEN}MENU  $NC    ${BICyan}[${BIWhite}12${BICyan}]${RED} • ${NC}${BIGreen}BACKUP        ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║                                                 ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║ $NC ${BICyan}[${BIWhite}06${BICyan}]${RED} •${NC} ${BIGreen}NOTIF    ${GREEN}MENU  $NC    ${BICyan}[${BIWhite}13${BICyan}]${RED} • ${NC}${BIGreen}INS UDP       ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║                                                 ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║ $NC ${BICyan}[${BIWhite}07${BICyan}]${RED} •${NC} ${BIGreen}RUNNING  ${GREEN}MENU  $NC    ${BICyan}[${BIWhite}14${BICyan}]${RED} • ${NC}${BIGreen}SPEED TES     ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}║                                                 ${BIYellow}║ $NC"
-echo -e "     ${BIYellow}╚═════════════════════════════════════════════════╝${NC}"
-echo -e " ${BIYellow}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e " ${BIYellow}│$NC ${BICyan}HARI ini${NC}: ${red}$ttoday$NC ${BICyan}KEMARIN${NC}: ${red}$tyest$NC ${BICyan}BULAN${NC}: ${red}$tmon$NC $NC"
-echo -e " ${BIYellow}╰══════════════════════════════════════════════════════════╯${NC}"
-echo -e " ${BIYellow}╭══════════════════════════════════════════════════════════╮${NC}"
-echo -e " ${BIYellow}│$NC$Blue Version$NC       ${Blue}=$NC V2.0"
-echo -e " ${BIYellow}│$NC$Blue User$NC          ${Blue}=$NC $username"
-echo -e " ${BIYellow}│$NC$Blue Script Status$NC ${Blue}=$NC $sts "
-echo -e " ${BIYellow}│$NC$Blue Expiry script$NC $Blue=$grenbo $exp$NC ($r $certifacate ${NC}Days )"
-echo -e " ${BIYellow}╰══════════════════════════════════════════════════════════╯${NC}"
+echo -e "       ───────────────────────────────────────────────${NC}"  
+echo -e " ${z}╭════════════════╮╭══════════════════╮╭════════════════════╮${NC}"
+echo -e " ${z}│ ${NC}$Blue SSH$NC : $status_ssh" "        $Blue NGINX$NC : $status_nginx" "        $Blue XRAY$NC : $status_xray      $NC${z}│$NC" 
+echo -e " ${z}│ ${NC}$Blue WS-ePRO$NC : $status_ws_epro" "    $Blue DROPBEAR$NC : $status_dropbear" "     $Blue HAPROXY$NC : $status_haproxy   $NC${z}│$NC" 
+echo -e " ${z}╰════════════════╯╰══════════════════╯╰════════════════════╯${NC}"
+echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
+echo -e " ${z}│$NC [${r}01${NC}]$grenbo SSH MENU$NC     ${z}│$NC [${r}06${NC}]$grenbo BOT NOTIF   $NC ${z}│$NC [${r}11${NC}]$grenbo BCKP/RSTR   $NC${z}│$NC"
+echo -e " ${z}│$NC [${r}02${NC}]$grenbo VMESS MENU$NC   ${z}│$NC [${r}07${NC}]$grenbo AUTOREBOOT$NC  ${z} │$NC [${r}12${NC}]$grenbo REBOOT      $NC${z}│$NC"    
+echo -e " ${z}│$NC [${r}03${NC}]$grenbo VLESS MENU$NC   ${z}│$NC [${r}08${NC}]$grenbo INSTALL UDP$NC ${z} │$NC [${r}13${NC}]$grenbo RESTART     $NC${z}│$NC"   
+echo -e " ${z}│$NC [${r}04${NC}]$grenbo TROJAN MENU$NC  ${z}│$NC [${r}09${NC}]$grenbo SPEEDTEST$NC   ${z} │$NC [${r}14${NC}]$grenbo DOMAIN      $NC${z}│$NC" 
+echo -e " ${z}│$NC [${r}05${NC}]$grenbo BOT AKUN    $NC ${z}│$NC [${r}10${NC}]$grenbo RUNNING$NC     ${z} │$NC [${r}15${NC}]$grenbo CERT SSL    $NC${z}│$NC"
+echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
+echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
+echo -e " ${z}│$NC$Blue Version$NC       ${Blue}=$NC V3.0"
+echo -e " ${z}│$NC$Blue User$NC          ${Blue}=$NC $username"
+echo -e " ${z}│$NC$Blue Script Status$NC ${Blue}=$NC $sts "
+echo -e " ${z}│$NC$Blue Expiry script$NC $Blue=$grenbo $exp$NC ($r $certifacate ${NC}Days )"
+echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
 echo
 read -p " Select menu : " opt
 echo -e ""
@@ -272,29 +224,9 @@ bot
 ;;
 7 | 07)
 clear
-run
+autoreboot
 ;;
 8 | 08)
-clear
-restart
-9 | 09)
-clear
-reboot
-;;
-10)
-clear
-addhost
-;;
-11)
-clear
-fixcert
-;;
-12)
-clear
-menu-backup
-;;
-13)
-clear
 echo -e "${green}ANDA YAKIN UNTUK MEMASANG SCRIPT INI ? $NC"
 echo -e "${green}MINIMAL RAM 2 GB BIAR DISK TIDAK FULL $NC"
 echo -e "${green}OS SUPPORT UBUNTU 20.04 ONLY $NC"
@@ -330,15 +262,39 @@ fi
 clear
 wget --load-cookies /tmp/cookies.txt ${UDPX} -O install-udp && rm -rf /tmp/cookies.txt && chmod +x install-udp && ./install-udp
 ;;
-14)
+9 | 09)
 clear
 speedtest
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"
 menu
 ;;
+10)
+clear
+run
+;;
+11)
+clear
+menu-backup
+;;
+12)
+clear
+reboot
+;;
+13)
+clear
+restart
+;;
+14)
+clear
+addhost
+;;
+15)
+clear
+fixcert
+;;
 0 | 00)
-figlet Rmbl PROJECT
+figlet RMBL PROJECT
 exit
 ;;
 x)
