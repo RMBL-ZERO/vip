@@ -162,50 +162,19 @@ else
    status_dropbear="${RED}🔴${NC} "
 fi
 # usage
-vnstat_profile=$(vnstat | sed -n '3p' | awk '{print $1}' | grep -o '[^:]*')
-vnstat -i ${vnstat_profile} >/etc/t1
-bulan=$(date +%b)
-tahun=$(date +%y)
-ba=$(curl -s https://pastebin.com/raw/0gWiX6hE)
-today=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')
-todayd=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $8}')
-today_v=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $9}')
-today_rx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $2}')
-today_rxv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $3}')
-today_tx=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $5}')
-today_txv=$(vnstat -i ${vnstat_profile} | grep today | awk '{print $6}')
-if [ "$(grep -wc ${bulan} /etc/t1)" != '0' ]; then
-    bulan=$(date +%b)
-    month=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $9}')
-    month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $10}')
-    month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $3}')
-    month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $4}')
-    month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $6}')
-    month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan $ba$tahun" | awk '{print $7}')
-else
-    bulan2=$(date +%Y-%m)
-    month=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $8}')
-    month_v=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $9}')
-    month_rx=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $2}')
-    month_rxv=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $3}')
-    month_tx=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $5}')
-    month_txv=$(vnstat -i ${vnstat_profile} | grep "$bulan2 " | awk '{print $6}')
-fi
-if [ "$(grep -wc yesterday /etc/t1)" != '0' ]; then
-    yesterday=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $8}')
-    yesterday_v=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $9}')
-    yesterday_rx=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $2}')
-    yesterday_rxv=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $3}')
-    yesterday_tx=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $5}')
-    yesterday_txv=$(vnstat -i ${vnstat_profile} | grep yesterday | awk '{print $6}')
-else
-    yesterday=NULL
-    yesterday_v=NULL
-    yesterday_rx=NULL
-    yesterday_rxv=NULL
-    yesterday_tx=NULL
-    yesterday_txv=NULL
-fi
+#Download/Upload today
+dtoday="$(vnstat -i eth0 | grep "today" | awk '{print $2" "substr ($3, 1, 1)}')"
+utoday="$(vnstat -i eth0 | grep "today" | awk '{print $5" "substr ($6, 1, 1)}')"
+ttoday="$(vnstat -i eth0 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}')"
+#Download/Upload yesterday
+dyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $2" "substr ($3, 1, 1)}')"
+uyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $5" "substr ($6, 1, 1)}')"
+tyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}')"
+#Download/Upload current month
+dmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $3" "substr ($4, 1, 1)}')"
+umon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $6" "substr ($7, 1, 1)}')"
+tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}')"
+clear
 #####INFOAKUN
 vlx=$(grep -c -E "^#& " "/etc/xray/config.json")
 let vla=$vlx/2
@@ -264,12 +233,9 @@ echo -e "      ${z}║                                                 ${z}║ $
 echo -e "      ${z}║ $NC ${BICyan}[${BIWhite}07${BICyan}]${RED} •${NC} ${BIGreen}RUNNING  ${GREEN}MENU  $NC  ${BICyan}[${BIWhite}14${BICyan}]${RED} • ${NC}${BIGreen}SPEED TES       ${z}║ $NC"
 echo -e "      ${z}║                                                 ${z}║ $NC"
 echo -e "      ${z}╚═════════════════════════════════════════════════╝${NC}"
-echo -e " ${z}╔═════════════════════════════════════════════════════════╗${NC}"
-echo -e " ${z}║  $BlueTraffic${NC}      ${COLOR1}Today      Yesterday        Month       ${NC}"
-echo -e " ${z}║ $NC Download${NC}   ${WH}$today_tx $today_txv    $yesterday_tx $yesterday_txv     $month_tx $month_txv$Blue  ${NC}"
-echo -e " ${z}║ $NC Upload${NC}     ${WH}$today_rx $today_rxv    $yesterday_rx $yesterday_rxv     $month_rx $month_rxv$Blue   ${NC}"
-echo -e " ${z}║ $BlueTotal${NC}    $Blue  $todayd $today_v    $yesterday $yesterday_v     $month $month_v$Blue  ${NC} "
-echo -e " ${z}╚═════════════════════════════════════════════════════════╝${NC}"
+echo -e "\033[0;32m╔═════════════════════════════════════════════════════════════════╗\033[0m"
+echo -e "\033[0;32m║ $NC ${BICyan}HARI ini${NC}: ${red}$ttoday$NC ${BICyan}KEMARIN${NC}: ${red}$tyest$NC ${BICyan}BULAN${NC}: ${red}$tmon$NC $NC"
+echo -e "\033[0;32m╚═════════════════════════════════════════════════════════════════╝\033[0m"  
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
 echo -e " ${z}│$NC$Blue Version$NC       ${Blue}=$NC V2.0"
 echo -e " ${z}│$NC$Blue User$NC          ${Blue}=$NC $username"
