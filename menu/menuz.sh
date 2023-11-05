@@ -99,6 +99,19 @@ xray_service=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "
 nginx_service=$(systemctl status nginx | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 #Status | Geo Project
 clear
+#Download/Upload today
+dtoday="$(vnstat -i eth0 | grep "today" | awk '{print $2" "substr ($3, 1, 1)}')"
+utoday="$(vnstat -i eth0 | grep "today" | awk '{print $5" "substr ($6, 1, 1)}')"
+ttoday="$(vnstat -i eth0 | grep "today" | awk '{print $8" "substr ($9, 1, 1)}')"
+#Download/Upload yesterday
+dyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $2" "substr ($3, 1, 1)}')"
+uyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $5" "substr ($6, 1, 1)}')"
+tyest="$(vnstat -i eth0 | grep "yesterday" | awk '{print $8" "substr ($9, 1, 1)}')"
+#Download/Upload current month
+dmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $3" "substr ($4, 1, 1)}')"
+umon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $6" "substr ($7, 1, 1)}')"
+tmon="$(vnstat -i eth0 -m | grep "`date +"%b '%y"`" | awk '{print $9" "substr ($10, 1, 1)}')"
+clear
 # STATUS SERVICE  SSH 
 if [[ $ssh_service == "running" ]]; then 
    status_ssh="${grenbo}ON✓${NC}"
@@ -187,6 +200,9 @@ echo -e " ${z}│$NC [${r}02${NC}]$grenbo VMESS MENU$NC   ${z}│$NC [${r}07${NC
 echo -e " ${z}│$NC [${r}03${NC}]$grenbo VLESS MENU$NC   ${z}│$NC [${r}08${NC}]$grenbo INSTALL UDP$NC ${z} │$NC [${r}13${NC}]$grenbo RESTART     $NC${z}│$NC"   
 echo -e " ${z}│$NC [${r}04${NC}]$grenbo TROJAN MENU$NC  ${z}│$NC [${r}09${NC}]$grenbo SPEEDTEST$NC   ${z} │$NC [${r}14${NC}]$grenbo DOMAIN      $NC${z}│$NC" 
 echo -e " ${z}│$NC [${r}05${NC}]$grenbo BOT AKUN    $NC ${z}│$NC [${r}10${NC}]$grenbo RUNNING$NC     ${z} │$NC [${r}15${NC}]$grenbo CERT SSL    $NC${z}│$NC"
+echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
+echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
+echo -e " ${z}│$NC ${Blue}HARI ini${NC}: ${red}$ttoday$NC ${Blue}KEMARIN${NC}: ${red}$tyest$NC ${Blue}BULAN${NC}: ${red}$tmon$NC $NC"
 echo -e " ${z}╰══════════════════════════════════════════════════════════╯${NC}"
 echo -e " ${z}╭══════════════════════════════════════════════════════════╮${NC}"
 echo -e " ${z}│$NC$Blue Version$NC       ${Blue}=$NC V3.0"
