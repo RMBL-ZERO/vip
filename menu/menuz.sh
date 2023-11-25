@@ -383,7 +383,8 @@ echo -e "$COLOR1║ $NC${WH}🔱 System Uptime      ${COLOR1}: ${WH}$uphours $up
 fi
 #echo -e "$COLOR1 $NC ${WH}LOAD CPU           ${COLOR1}: ${WH}$LOADCPU"
 echo -e "$COLOR1║ $NC${WH}🔱 Core & CPU Usage   ${COLOR1}: ${WH}$CORE & $cpu_usage"
-echo -e "$COLOR1║ $NC${WH}🔱 ISP & City         ${COLOR1}: ${WH}$ISP & $CITY"
+echo -e "$COLOR1║ $NC${WH}🔱 ISP                ${COLOR1}: ${WH}$ISP"
+echo -e "$COLOR1║ $NC${WH}🔱 City               ${COLOR1}: $CITY"
 echo -e "$COLOR1║ $NC${WH}🔱 Domain             ${COLOR1}: ${WH}$(cat /etc/xray/domain)"
 echo -e "$COLOR1║ $NC${WH}🔱 IP-VPS             ${COLOR1}: ${WH}$IPVPS${NC}"
 echo -e "$COLOR1║ $NC${WH}🔱 DATE & TIME        ${COLOR1}: ${WH}$DATE2 WIB${NC}"
