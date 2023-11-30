@@ -115,7 +115,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1 ${NC} ${COLBG1}               ${WH}• REGISTER IPVPS •              ${NC} $COLOR1 $NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-rm -rf /root/permission
+rm -rf /root/ip
 read -p "   NEW IPVPS : " daftar
 echo -e "$COLOR1 ${NC}"
 echo -e "$COLOR1 ${NC}  [INFO] Checking the IPVPS!"
@@ -223,7 +223,7 @@ echo -e "$COLOR1 ${NC}  IP VPS        : $daftar"
 echo -e "$COLOR1 ${NC}  Register Date : $hariini"
 echo -e "$COLOR1 ${NC}  Expired Date  : $exp"
 cd
-rm -rf /root/permission
+rm -rf /root/ip
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC}                ${WH}• RMBL VPN •${NC}                 $COLOR1 $NC"
@@ -267,7 +267,7 @@ echo -e "$COLOR1 ${NC}                ${WH}• RMBL VPN •${NC}                
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 
 name1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | sed -n "$nombor"p) #name
@@ -280,7 +280,7 @@ Name     : $name1
 IPVPS    : $ivps1
 Status   : Deleted on  $hariini2
 "
-echo "${TEXTD}" >>/root/permission/delete_log  &> /dev/null
+echo "${TEXTD}" >>/root/ip/delete_log  &> /dev/null
 
 git add . &> /dev/null
 git commit -m remove &> /dev/null
@@ -390,7 +390,7 @@ echo -e "$COLOR1 ${NC}                ${WH}• RMBL VPN •${NC}                
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 name1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p) #name
 exp=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p) #exp
@@ -421,7 +421,7 @@ echo -e "$COLOR1 ${NC}  Days Added    : $masaaktif Days"
 echo -e "$COLOR1 ${NC}  Expired Date  : $exp4"
 echo -e "$COLOR1 ${NC}  Client Name   : $name1"
 cd
-rm -rf /root/permission
+rm -rf /root/ip
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌────────────────────── ${WH}BY${NC} ${COLOR1}───────────────────────┐${NC}"
 echo -e "$COLOR1 ${NC}                ${WH}• RMBL VPN •${NC}                 $COLOR1 $NC"
@@ -543,7 +543,7 @@ echo -e "$COLOR1 ${NC}                ${WH}• RMBL VPN •${NC}                
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
-menu-ip
+m-ip
 fi
 #name1=$(grep -E "^### " "/root/rmbl/ipvps" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p) #name
 #exp=$(grep -E "^### " "/root/rmbl/ipvps" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p) #exp
