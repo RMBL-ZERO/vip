@@ -41,10 +41,128 @@ echo -e "$COLOR1│   ${yl}Your VPS${NC} $ipsaya \033[0;36mHas been Banned ${NC}
 echo -e "$COLOR1│     ${yl}Buy access permissions for scripts${NC}          $COLOR1│"
 echo -e "$COLOR1│             \033[0;32mContact Your Admin ${NC}                 $COLOR1│"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
+key
 fi
 }
+function key(){
+rm -rf /root/casper
+echo -e  "${COLOR1}┌──────────────────────────────────────────┐${NC}"
+echo -e  "${COLOR1}│              MASUKKAN LICENSE KEY        │${NC}"
+echo -e  "${COLOR1}└──────────────────────────────────────────┘${NC}"
+echo " "
+read -rp "Masukan Key Kamu Disini ctrl + c Exit : " -e kode
+cd
+if [ -z $kode ]; then
+echo -e "KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
+key
+fi
+clear
+LIST=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $2}')
+Key=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $3}')
+KEY2=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $4}')
+ADMIN=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $5}')
+TOTALIP=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/license/main/key | grep $kode | awk '{print $6}')
+U2=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $2}')
+U3=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $3}')
+U4=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $4}')
+U5=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $5}')
+U6=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $6}')
+MYIP=$(curl -sS ipv4.icanhazip.com)
+web=$(curl -sS  http://sc.vp.app/ress | grep $kode | awk '{print $3}')
+web2=$(curl -sS http://sc.vp.app/ress | grep $kode | awk '{print $2}')
+web3=$(curl -sS http://sc.vp.app/ress | grep $kode | awk '{print $4}')
+web4=$(curl -sS http://sc.vp.app/ress | grep $kode | awk '{print $5}')
+web5=$(curl -sS http://sc.vp.app/ress | grep $kode | awk '{print $6}')
+userscript=$(curl -sS https://pastebin.com/raw/YZFr8Jjy | awk '{print $1}')
+emailscript=$(curl -sS https://pastebin.com/raw/YZFr8Jjy | awk '{print $2}')
+tokenscript=$(curl -sS https://pastebin.com/raw/YZFr8Jjy | awk '{print $3}')
+userkey=$(curl -sS https://pastebin.com/raw/unGxyHkK | awk '{print $1}')
+emailkey=$(curl -sS https://pastebin.com/raw/unGxyHkK | awk '{print $2}')
+tokenkey=$(curl -sS https://pastebin.com/raw/unGxyHkK | awk '{print $3}')
+if [[ $kode == $web ]]; then
+MYIP=$(curl -sS ipv4.icanhazip.com)
+hhari=$(date -d "$web3 days" +"%Y-%m-%d")
+mkdir /root/root
+cd /root/root
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
+if [ "$U4" = "$MYIP" ]; then
+sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/rmbl/ipmini
+else
+echo "### $author $hhari $MYIP $web2" >> ipmini
+fi
+sleep 0.5
+rm -rf .git
+git config --global user.email "${emailscript}" >/dev/null 2>&1
+git config --global user.name "${userscript}" >/dev/null 2>&1
+git init >/dev/null 2>&1
+git add ipmini
+git commit -m register >/dev/null 2>&1
+git branch -M main >/dev/null 2>&1
+git remote add origin https://github.com/${userscript}/permission >/dev/null 2>&1
+git push -f https://${tokenscript}@github.com/${userscript}/permission >/dev/null 2>&1
+rm -rf /root/root
+rm -rf /etc/github
+clear
+elif [[ $kode == $Key ]]; then
+MYIP=$(curl -sS ipv4.icanhazip.com)
+author4=$(cat /etc/profil)
+hhari=$(date -d "$KEY2 days" +"%Y-%m-%d")
+mkdir /root/rmbl
+cd /root/rmbl
+wget https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini >/dev/null 2>&1
+if [ "$U4" = "$MYIP" ]; then
+sed -i "s/### $U2 $U3 $U4 $U5/### $U2 $hhari $U4 $U5/g" /root/casper/ipmini
+else
+echo "### $author $hhari $MYIP $LIST" >> ipmini
+fi
+sleep 0.5
+rm -rf .git
+git config --global user.email "${emailscript}" >/dev/null 2>&1
+git config --global user.name "${userscript}" >/dev/null 2>&1
+git init >/dev/null 2>&1
+git add ipmini
+git commit -m register >/dev/null 2>&1
+git branch -M main >/dev/null 2>&1
+git remote add origin https://github.com/${userscript}/permission >/dev/null 2>&1
+git push -f https://${tokenscript}@github.com/${userscript}/permission >/dev/null 2>&1
+sleep 0.5
+rm ipmini
+wget https://raw.githubusercontent.com/RMBL-ZERO/license/main/key >/dev/null 2>&1
+if [ "$ADMIN" = "ON" ]; then
+sed -i "/^### $LIST $Key $KEY2 $ADMIN $TOTALIP/d" /root/casper/key
+else
+sed -i "/^### $LIST $Key $KEY2/d" /root/rmbl/key
+fi
+sleep 0.5
+rm -rf .git
+git config --global user.email "${emailkey}" >/dev/null 2>&1
+git config --global user.name "${userkey}" >/dev/null 2>&1
+git init >/dev/null 2>&1
+git add key
+git commit -m register >/dev/null 2>&1
+git branch -M main >/dev/null 2>&1
+git remote add origin https://github.com/${userkey}/license >/dev/null 2>&1
+git push -f https://${tokenkey}@github.com/${userkey}/license >/dev/null 2>&1
+rm -rf /root/rmbl
+rm -rf /etc/github
+else
+echo -e "KODE SALAH SILAHKAN MASUKKAN ULANG KODENYA"
+sleep 1
+key
+fi
+echo -e  "${COLOR1}┌──────────────────────────────────────────┐${NC}"
+echo -e  "${COLOR1}│              INFO LICENSE KEY            │${NC}"
+echo -e  "${COLOR1}└──────────────────────────────────────────┘${NC}"
+echo -e "SUCCES MASUKKAN KEY SILAHKAN DITUNGGU"
+echo -e "2 MENIT AGAR SERVER KEREFRESH"
+read -n 1 -s -r -p "Press any key to Exit"
+systemctl restart xray
+reboot
+exit
 clear
 }
+madmin=$(curl -sS https://raw.githubusercontent.com/RMBL-ZERO/permission/main/ipmini | grep $MYIP | awk '{print $5}')
+checking_sc
 cd
 if [ ! -e /etc/per/id ]; then
 mkdir -p /etc/per
@@ -176,9 +294,9 @@ if [[ -e /etc/github/api ]]; then
 m-ip
 else
 mkdir /etc/github
-echo "ghp_AXwboj64GUfIgc4SDq5NBuSDmluvmC0U" > /etc/github/api
-echo "r@gmail.com" > /etc/github/email
-echo "rmbl" > /etc/github/username
+echo "ghp_AXwboj64GUfIgc4SDq5NBuSDmC0anKHU" > /etc/github/api
+echo "rmbl@gmail.com" > /etc/github/email
+echo "casper9" > /etc/github/username
 m-ip
 fi
 }
@@ -199,7 +317,7 @@ echo -e "$COLOR1║${NC}${COLBG1}              ${WH}• INFO SYSTEM VPS •     
 echo -e "$COLOR1╚═════════════════════════════════════════════════╝${NC}"
 echo -e "$COLOR1╔═════════════════════════════════════════════════╗${NC}"
 echo -e "$COLOR1║ $NC${WH} System OS          ${COLOR1}: ${WH}$MODEL2"
-echo -e "$COLOR1║ $NC${WH} Memory Usage       ${COLOR1}: ${WH}$uram - $tram"
+echo -e "$COLOR1║ $NC${WH}¶ Memory Usage       ${COLOR1}: ${WH}$uram - $tram"
 if [ "$cekup" = "day" ]; then
 echo -e "$COLOR1║ $NC${WH} System Uptime      ${COLOR1}: ${WH}$uphours $upminutes $uptimecek"
 else
@@ -284,18 +402,18 @@ certificate=$(( (d1 - d2) / 86400 ))
 domain=$(cat /etc/xray/domain)
 function bannner(){
 wget -O /etc/issue.net "https://raw.githubusercontent.com/RMBL-ZERO/vip/main/install/issue2.net" &> /dev/null
-echo "5877:AAHc-Qtl8FN5-zihmgl_sU" > /usr/bin/token
-echo "481" > /usr/bin/idchat
-echo "63:AAHdbteum38_25t-NbZul9mvE" > /etc/perlogin/token
-echo "-19592446" > /etc/perlogin/id
-echo "608403:AAHdbteum38_25MavUHrZb_bt-NbZul9mvE" > /etc/per/token
-echo "45" > /etc/per/id
+echo "5870116:AAHc-qeWKKPet9frTSQtl8FN5-zihmgl_sU" > /usr/bin/token
+echo "4615" > /usr/bin/idchat
+echo "60663:AAHdbteum38_25HrZb_bt-NbZul9mvE" > /etc/perlogin/token
+echo "-100136" > /etc/perlogin/id
+echo "60843:AAHdbteum38_25MavUHrZb_bt-NbZul9mvE" > /etc/per/token
+echo "481" > /etc/per/id
 rm -rf /usr/bin/ddsdswl.session
 rm -rf /usr/bin/kyt/var.txt
 rm -rf /usr/bin/kyt/database.db
 cat >/usr/bin/kyt/var.txt <<EOF
-BOT_TOKEN="6084:AAHdbteum38_25Ma-NbZul9mvE"
-ADMIN="123"
+BOT_TOKEN="60840dbteum38_25MavUHrZb_bt-NbZul9mvE"
+ADMIN="48147"
 DOMAIN="$domain"
 EOF
 systemctl restart nginx
@@ -308,7 +426,7 @@ menu
 function m-update(){
 cd
 rm -rf *
-wget https://raw.githubusercontent.com/RMBL-ZERO/menu/main/update &> /dev/null
+wget https://raw.githubusercontent.com/RMBL-ZERO/vip/main/menu/update &> /dev/null
 chmod +x update
 ./update
 }
@@ -339,4 +457,4 @@ case $opt in
 100) clear ; $up2u ;;
 00 | 0) clear ; menu ;;
 *) clear ; menu ;;
-esac 
+esac
